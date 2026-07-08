@@ -1,0 +1,10 @@
+# 不要な自動生成フォルダをすべて除外
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+
+# 起動時のビルドデータなど
+Build/
+.vs/
+*.sln
