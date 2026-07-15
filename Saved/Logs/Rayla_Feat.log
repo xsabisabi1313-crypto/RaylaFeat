@@ -2034,3 +2034,124 @@ LogConfig: CVar [[D3D12.Bindless.ResourceDescriptorHeapSize:32768]] deferred - d
 [2026.07.15-14.44.22:207][ 66]LogAssetRegistry: Display: CleanupOrphanedCacheFiles (PostWrite): 1 .ref files found, 1 referenced binaries
 [2026.07.15-14.44.22:208][ 66]LogAssetRegistry: Display:   CachedAssetRegistry_0_8112728041124CB4338909840C194608.bin: deleted (orphaned, unreferenced by any .ref)
 [2026.07.15-14.44.22:208][ 66]LogAssetRegistry: Display: CleanupOrphanedCacheFiles: 2 total binaries, 1 referenced (kept), 0 old-style pre-migration (kept), 1 orphans deleted, 0 orphans locked (kept)
+[2026.07.15-14.46.09:037][254]LogDerivedDataCache: C:/Users/user/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:04.185 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 2839 files in 3937 folders with total size 25 MiB.
+[2026.07.15-14.48.06:382][773]LogStreaming: Display: FlushAsyncLoading(507): 1 QueuedPackages, 0 AsyncPackages
+[2026.07.15-14.48.06:510][773]LogInterchangeEngine: [保留中] インポートしています
+[2026.07.15-14.48.06:511][773]LogInterchangeEngine: Display: Interchange start importing source [C:/Users/user/Downloads/Gemini_Generated_Image_aqx2leaqx2leaqx2.png]
+[2026.07.15-14.48.06:512][773]LogInterchangeEngine: [保留中] インポートしています - インポート中 (2)
+[2026.07.15-14.48.06:512][773]LogInterchangeEngine: Display: Interchange start importing source [C:/Users/user/Downloads/Gemini_Generated_Image_j9mfij9mfij9mfij.png]
+[2026.07.15-14.48.06:514][773]LogInterchangeEngine: [保留中] インポートしています - インポート中 (3)
+[2026.07.15-14.48.06:514][773]LogInterchangeEngine: Display: Interchange start importing source [C:/Users/user/Downloads/Gemini_Generated_Image_ur6pf5ur6pf5ur6p.png]
+[2026.07.15-14.48.06:515][773]LogInterchangeEngine: [保留中] インポートしています - インポート中 (4)
+[2026.07.15-14.48.06:515][773]LogInterchangeEngine: Display: Interchange start importing source [C:/Users/user/Downloads/Gemini_Generated_Image_cdzcyicdzcyicdzc.png]
+[2026.07.15-14.48.06:517][773]LogInterchangeEngine: [保留中] インポートしています - インポート中 (5)
+[2026.07.15-14.48.06:517][773]LogInterchangeEngine: Display: Interchange start importing source [C:/Users/user/Downloads/Gemini_Generated_Image_t4fma2t4fma2t4fm.png]
+[2026.07.15-14.48.06:519][773]LogInterchangeEngine: [保留中] インポートしています - インポート中 (6)
+[2026.07.15-14.48.06:520][773]LogInterchangeEngine: [保留中] インポートしています - インポート中 (7)
+[2026.07.15-14.48.06:697][775]LogStreaming: Display: FlushAsyncLoading(554): 1 QueuedPackages, 0 AsyncPackages
+[2026.07.15-14.48.06:752][776]LogTexture: Display: テクスチャ TwoD をビルドしています: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_aqx2leaqx2leaqx2.Gemini_Generated_Image_aqx2leaqx2leaqx2 (TFO_AutoDXT, 768x1376 x1x1x1) (推定必須メモリ: 115.921875 MB), EncodeSpeed: Fast
+[2026.07.15-14.48.06:755][776]LogTexture: Display: テクスチャ TwoD をビルドしています: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_j9mfij9mfij9mfij.Gemini_Generated_Image_j9mfij9mfij9mfij (TFO_AutoDXT, 768x1376 x1x1x1) (推定必須メモリ: 115.921875 MB), EncodeSpeed: Fast
+[2026.07.15-14.48.06:758][776]LogTexture: Display: テクスチャ TwoD をビルドしています: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_ur6pf5ur6pf5ur6p.Gemini_Generated_Image_ur6pf5ur6pf5ur6p (TFO_AutoDXT, 768x1376 x1x1x1) (推定必須メモリ: 115.921875 MB), EncodeSpeed: Fast
+[2026.07.15-14.48.06:819][778]LogTexture: Display: テクスチャ TwoD をビルドしています: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_cdzcyicdzcyicdzc.Gemini_Generated_Image_cdzcyicdzcyicdzc (TFO_AutoDXT, 768x1376 x1x1x1) (推定必須メモリ: 115.921875 MB), EncodeSpeed: Fast
+[2026.07.15-14.48.06:820][778]LogTexture: Display: テクスチャ TwoD をビルドしています: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_t4fma2t4fma2t4fm.Gemini_Generated_Image_t4fma2t4fma2t4fm (TFO_AutoDXT, 768x1376 x1x1x1) (推定必須メモリ: 115.921875 MB), EncodeSpeed: Fast
+[2026.07.15-14.48.06:868][778]LogInterchangeEngine: Display: Interchange import completed [C:/Users/user/Downloads/Gemini_Generated_Image_aqx2leaqx2leaqx2.png]
+[2026.07.15-14.48.06:868][778]LogInterchangeEngine: [保留中] インポートしています - インポート中 (6)
+[2026.07.15-14.48.06:868][778]LogInterchangeEngine: [保留中] インポートしています - インポート中 (6)
+[2026.07.15-14.48.06:868][778]LogInterchangeEngine: Display: Interchange start importing source [C:/Users/user/Downloads/Gemini_Generated_Image_t7m6rrt7m6rrt7m6.png]
+[2026.07.15-14.48.06:869][778]LogInterchangeEngine: Display: Interchange import completed [C:/Users/user/Downloads/Gemini_Generated_Image_j9mfij9mfij9mfij.png]
+[2026.07.15-14.48.06:869][778]LogInterchangeEngine: [保留中] インポートしています - インポート中 (5)
+[2026.07.15-14.48.06:869][778]LogInterchangeEngine: [保留中] インポートしています - インポート中 (5)
+[2026.07.15-14.48.06:869][778]LogInterchangeEngine: Display: Interchange start importing source [C:/Users/user/Downloads/Gemini_Generated_Image_ow716uow716uow71.png]
+[2026.07.15-14.48.06:871][778]LogInterchangeEngine: Display: Interchange import completed [C:/Users/user/Downloads/Gemini_Generated_Image_ur6pf5ur6pf5ur6p.png]
+[2026.07.15-14.48.06:871][778]LogInterchangeEngine: [保留中] インポートしています - インポート中 (4)
+[2026.07.15-14.48.06:931][779]LogInterchangeEngine: Display: Interchange import completed [C:/Users/user/Downloads/Gemini_Generated_Image_cdzcyicdzcyicdzc.png]
+[2026.07.15-14.48.06:931][779]LogInterchangeEngine: [保留中] インポートしています - インポート中 (3)
+[2026.07.15-14.48.06:945][780]LogInterchangeEngine: Display: Interchange import completed [C:/Users/user/Downloads/Gemini_Generated_Image_t4fma2t4fma2t4fm.png]
+[2026.07.15-14.48.06:945][780]LogInterchangeEngine: [保留中] インポートしています - インポート中 (2)
+[2026.07.15-14.48.06:973][781]LogStreaming: Display: FlushAsyncLoading(559): 1 QueuedPackages, 0 AsyncPackages
+[2026.07.15-14.48.07:045][784]LogTexture: Display: テクスチャ TwoD をビルドしています: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_t7m6rrt7m6rrt7m6.Gemini_Generated_Image_t7m6rrt7m6rrt7m6 (TFO_AutoDXT, 768x1376 x1x1x1) (推定必須メモリ: 115.921875 MB), EncodeSpeed: Fast
+[2026.07.15-14.48.07:048][784]LogTexture: Display: テクスチャ TwoD をビルドしています: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_ow716uow716uow71.Gemini_Generated_Image_ow716uow716uow71 (TFO_AutoDXT, 768x1376 x1x1x1) (推定必須メモリ: 115.921875 MB), EncodeSpeed: Fast
+[2026.07.15-14.48.07:109][785]LogInterchangeEngine: Display: Interchange import completed [C:/Users/user/Downloads/Gemini_Generated_Image_t7m6rrt7m6rrt7m6.png]
+[2026.07.15-14.48.07:109][785]LogInterchangeEngine: [保留中] インポートしています - インポート中 (1)
+[2026.07.15-14.48.07:143][786]LogInterchangeEngine: Display: Interchange import completed [C:/Users/user/Downloads/Gemini_Generated_Image_ow716uow716uow71.png]
+[2026.07.15-14.48.07:194][786]LogInterchangeEngine: Display: Import Done in 0.674092 seconds.
+[2026.07.15-14.48.07:194][786]LogInterchangeEngine: [保留中] インポートしています - 操作が完了しました。
+[2026.07.15-14.48.07:194][786]LogInterchangeEngine: [成功] インポート終了
+[2026.07.15-14.48.11:308][906]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2026.07.15-14.48.11:376][906]LogFileHelpers: Saving Package: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_aqx2leaqx2leaqx2
+[2026.07.15-14.48.11:378][906]OBJ SavePackage: Generating thumbnails for [1] asset(s) in package [/Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_aqx2leaqx2leaqx2] ([1] browsable assets)...
+[2026.07.15-14.48.11:380][906]OBJ SavePackage:     Rendered thumbnail for [Texture2D /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_aqx2leaqx2leaqx2.Gemini_Generated_Image_aqx2leaqx2leaqx2]
+[2026.07.15-14.48.11:380][906]OBJ SavePackage: Finished generating thumbnails for package [/Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_aqx2leaqx2leaqx2]
+[2026.07.15-14.48.11:423][906]LogSavePackage: Moving output files for package: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_aqx2leaqx2leaqx2
+[2026.07.15-14.48.11:423][906]LogSavePackage: Moving '../../../../../../Users/user/Documents/git_project/RaylaFeat/Saved/Gemini_Generated_Image_aqx2leaqxEAB38E29447E85F48F430EB6FD450DC9.tmp' to '../../../../../../Users/user/Documents/git_project/RaylaFeat/Content/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_aqx2leaqx2leaqx2.uasset'
+[2026.07.15-14.48.11:428][906]LogFileHelpers: Saving Package: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_cdzcyicdzcyicdzc
+[2026.07.15-14.48.11:428][906]OBJ SavePackage: Generating thumbnails for [1] asset(s) in package [/Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_cdzcyicdzcyicdzc] ([1] browsable assets)...
+[2026.07.15-14.48.11:430][906]OBJ SavePackage:     Rendered thumbnail for [Texture2D /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_cdzcyicdzcyicdzc.Gemini_Generated_Image_cdzcyicdzcyicdzc]
+[2026.07.15-14.48.11:430][906]OBJ SavePackage: Finished generating thumbnails for package [/Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_cdzcyicdzcyicdzc]
+[2026.07.15-14.48.11:479][906]LogSavePackage: Moving output files for package: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_cdzcyicdzcyicdzc
+[2026.07.15-14.48.11:479][906]LogSavePackage: Moving '../../../../../../Users/user/Documents/git_project/RaylaFeat/Saved/Gemini_Generated_Image_cdzcyicdzBF6B7D3F44B103E1E53116BF974E0EA6.tmp' to '../../../../../../Users/user/Documents/git_project/RaylaFeat/Content/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_cdzcyicdzcyicdzc.uasset'
+[2026.07.15-14.48.11:482][906]LogFileHelpers: Saving Package: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_j9mfij9mfij9mfij
+[2026.07.15-14.48.11:482][906]OBJ SavePackage: Generating thumbnails for [1] asset(s) in package [/Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_j9mfij9mfij9mfij] ([1] browsable assets)...
+[2026.07.15-14.48.11:485][906]OBJ SavePackage:     Rendered thumbnail for [Texture2D /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_j9mfij9mfij9mfij.Gemini_Generated_Image_j9mfij9mfij9mfij]
+[2026.07.15-14.48.11:485][906]OBJ SavePackage: Finished generating thumbnails for package [/Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_j9mfij9mfij9mfij]
+[2026.07.15-14.48.11:535][906]LogSavePackage: Moving output files for package: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_j9mfij9mfij9mfij
+[2026.07.15-14.48.11:535][906]LogSavePackage: Moving '../../../../../../Users/user/Documents/git_project/RaylaFeat/Saved/Gemini_Generated_Image_j9mfij9mf5943A26A436040D3DBE38DB16CA9090A.tmp' to '../../../../../../Users/user/Documents/git_project/RaylaFeat/Content/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_j9mfij9mfij9mfij.uasset'
+[2026.07.15-14.48.11:539][906]LogFileHelpers: Saving Package: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_ow716uow716uow71
+[2026.07.15-14.48.11:539][906]OBJ SavePackage: Generating thumbnails for [1] asset(s) in package [/Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_ow716uow716uow71] ([1] browsable assets)...
+[2026.07.15-14.48.11:541][906]OBJ SavePackage:     Rendered thumbnail for [Texture2D /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_ow716uow716uow71.Gemini_Generated_Image_ow716uow716uow71]
+[2026.07.15-14.48.11:542][906]OBJ SavePackage: Finished generating thumbnails for package [/Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_ow716uow716uow71]
+[2026.07.15-14.48.11:602][906]LogSavePackage: Moving output files for package: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_ow716uow716uow71
+[2026.07.15-14.48.11:602][906]LogSavePackage: Moving '../../../../../../Users/user/Documents/git_project/RaylaFeat/Saved/Gemini_Generated_Image_ow716uow70F0F7010448160BE4F96DD8AD9A8EC95.tmp' to '../../../../../../Users/user/Documents/git_project/RaylaFeat/Content/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_ow716uow716uow71.uasset'
+[2026.07.15-14.48.11:605][906]LogFileHelpers: Saving Package: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_t4fma2t4fma2t4fm
+[2026.07.15-14.48.11:606][906]OBJ SavePackage: Generating thumbnails for [1] asset(s) in package [/Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_t4fma2t4fma2t4fm] ([1] browsable assets)...
+[2026.07.15-14.48.11:610][906]OBJ SavePackage:     Rendered thumbnail for [Texture2D /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_t4fma2t4fma2t4fm.Gemini_Generated_Image_t4fma2t4fma2t4fm]
+[2026.07.15-14.48.11:610][906]OBJ SavePackage: Finished generating thumbnails for package [/Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_t4fma2t4fma2t4fm]
+[2026.07.15-14.48.11:667][906]LogSavePackage: Moving output files for package: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_t4fma2t4fma2t4fm
+[2026.07.15-14.48.11:668][906]LogSavePackage: Moving '../../../../../../Users/user/Documents/git_project/RaylaFeat/Saved/Gemini_Generated_Image_t4fma2t4f18685E774CA9A7FA5BAA4C8FE342C2DA.tmp' to '../../../../../../Users/user/Documents/git_project/RaylaFeat/Content/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_t4fma2t4fma2t4fm.uasset'
+[2026.07.15-14.48.11:671][906]LogFileHelpers: Saving Package: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_t7m6rrt7m6rrt7m6
+[2026.07.15-14.48.11:671][906]OBJ SavePackage: Generating thumbnails for [1] asset(s) in package [/Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_t7m6rrt7m6rrt7m6] ([1] browsable assets)...
+[2026.07.15-14.48.11:675][906]OBJ SavePackage:     Rendered thumbnail for [Texture2D /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_t7m6rrt7m6rrt7m6.Gemini_Generated_Image_t7m6rrt7m6rrt7m6]
+[2026.07.15-14.48.11:675][906]OBJ SavePackage: Finished generating thumbnails for package [/Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_t7m6rrt7m6rrt7m6]
+[2026.07.15-14.48.11:737][906]LogSavePackage: Moving output files for package: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_t7m6rrt7m6rrt7m6
+[2026.07.15-14.48.11:737][906]LogSavePackage: Moving '../../../../../../Users/user/Documents/git_project/RaylaFeat/Saved/Gemini_Generated_Image_t7m6rrt7m34BDE3EF45E05254B691B8BBFFDC218E.tmp' to '../../../../../../Users/user/Documents/git_project/RaylaFeat/Content/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_t7m6rrt7m6rrt7m6.uasset'
+[2026.07.15-14.48.11:741][906]LogFileHelpers: Saving Package: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_ur6pf5ur6pf5ur6p
+[2026.07.15-14.48.11:741][906]OBJ SavePackage: Generating thumbnails for [1] asset(s) in package [/Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_ur6pf5ur6pf5ur6p] ([1] browsable assets)...
+[2026.07.15-14.48.11:745][906]OBJ SavePackage:     Rendered thumbnail for [Texture2D /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_ur6pf5ur6pf5ur6p.Gemini_Generated_Image_ur6pf5ur6pf5ur6p]
+[2026.07.15-14.48.11:745][906]OBJ SavePackage: Finished generating thumbnails for package [/Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_ur6pf5ur6pf5ur6p]
+[2026.07.15-14.48.11:813][906]LogSavePackage: Moving output files for package: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_ur6pf5ur6pf5ur6p
+[2026.07.15-14.48.11:813][906]LogSavePackage: Moving '../../../../../../Users/user/Documents/git_project/RaylaFeat/Saved/Gemini_Generated_Image_ur6pf5ur62157EC2B4BCEE4364AFD65A4F9B78156.tmp' to '../../../../../../Users/user/Documents/git_project/RaylaFeat/Content/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_ur6pf5ur6pf5ur6p.uasset'
+[2026.07.15-14.48.11:845][906]LogFileHelpers: InternalPromptForCheckoutAndSave took 535.529 ms
+[2026.07.15-14.48.11:918][906]LogContentValidation: Enabled validators:
+[2026.07.15-14.48.11:918][906]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2026.07.15-14.48.11:918][906]LogContentValidation: 	/Script/DataValidation.EditorValidator_ActionUtility
+[2026.07.15-14.48.11:918][906]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2026.07.15-14.48.11:918][906]LogContentValidation: 	/Script/DataValidation.EditorValidator_Material
+[2026.07.15-14.48.11:918][906]LogContentValidation: 	/Script/DataValidation.PackageFileValidator
+[2026.07.15-14.48.11:918][906]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2026.07.15-14.48.11:918][906]LogContentValidation: 	/Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator
+[2026.07.15-14.48.11:918][906]LogContentValidation: 	/Script/MutableValidation.AssetValidator_CustomizableObjects
+[2026.07.15-14.48.11:918][906]LogContentValidation: 	/Script/MutableValidation.AssetValidator_ReferencedCustomizableObjects
+[2026.07.15-14.48.11:918][906]LogContentValidation: Display: Starting to validate 7 assets (0 associated objects such as actors)
+[2026.07.15-14.48.11:918][906]LogContentValidation: バリデーターによって追加された 0 追加アセット
+[2026.07.15-14.48.11:919][906]AssetCheck: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_aqx2leaqx2leaqx2 アセットを検証しています
+[2026.07.15-14.48.11:919][906]AssetCheck: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_cdzcyicdzcyicdzc アセットを検証しています
+[2026.07.15-14.48.11:920][906]AssetCheck: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_j9mfij9mfij9mfij アセットを検証しています
+[2026.07.15-14.48.11:920][906]AssetCheck: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_ow716uow716uow71 アセットを検証しています
+[2026.07.15-14.48.11:920][906]AssetCheck: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_t4fma2t4fma2t4fm アセットを検証しています
+[2026.07.15-14.48.11:921][906]AssetCheck: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_t7m6rrt7m6rrt7m6 アセットを検証しています
+[2026.07.15-14.48.11:921][906]AssetCheck: /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_ur6pf5ur6pf5ur6p アセットを検証しています
+[2026.07.15-14.48.11:921][906]LogContentValidation: バリデーターによって検証された 9 アセット数
+[2026.07.15-14.48.11:922][906]LogContentValidation:   /Script/DataValidation.DirtyFilesChangelistValidator : 0
+[2026.07.15-14.48.11:922][906]LogContentValidation:   /Script/DataValidation.EditorValidator_ActionUtility : 0
+[2026.07.15-14.48.11:922][906]LogContentValidation:   /Script/DataValidation.EditorValidator_Localization : 7
+[2026.07.15-14.48.11:922][906]LogContentValidation:   /Script/DataValidation.EditorValidator_Material : 0
+[2026.07.15-14.48.11:922][906]LogContentValidation:   /Script/DataValidation.PackageFileValidator : 0
+[2026.07.15-14.48.11:922][906]LogContentValidation:   /Script/DataValidation.WorldPartitionChangelistValidator : 0
+[2026.07.15-14.48.11:922][906]LogContentValidation:   /Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator : 0
+[2026.07.15-14.48.11:922][906]LogContentValidation:   /Script/MutableValidation.AssetValidator_CustomizableObjects : 0
+[2026.07.15-14.48.11:922][906]LogContentValidation:   /Script/MutableValidation.AssetValidator_ReferencedCustomizableObjects : 0
+[2026.07.15-14.48.12:032][906]LogSourceControl: Display: Uncontrolled Changelist persistency file saved ../../../../../../Users/user/Documents/git_project/RaylaFeat/Saved/SourceControl/UncontrolledChangelists.json
+[2026.07.15-14.48.15:464][  8]LogAssetEditorSubsystem: Opening Asset editor for Texture2D /Game/UI_prototype_Namiki/Model/Model_Cards/Gemini_Generated_Image_ow716uow716uow71.Gemini_Generated_Image_ow716uow716uow71
+[2026.07.15-14.48.15:465][  8]LogModuleManager: InternalLoadLibrary: 'TextureEditor' ('C:/Program Files/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor-TextureEditor.dll')
+[2026.07.15-14.48.15:535][  8]LogWindowsTextInputMethodSystem: Activated input method: 日本語 (日本) - Microsoft IME (TSF IME).
+[2026.07.15-14.48.18:554][ 80]LogSlate: Window 'Gemini_Generated_Image_ow716uow716uow71' being destroyed
