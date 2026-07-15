@@ -10,14 +10,14 @@
     <Platform Name="Win64-arm64ec" />
   </Configurations>
   <Folder Name="/Engine/">
-    <Project Path="Intermediate/ProjectFiles/UE5.vcxproj" Id="734ec4c1-4176-3905-a18e-b216fbaf026d">
+    <Project Path="Intermediate/ProjectFiles/UE5.vcxproj" Id="e9bbe1f5-3cf9-308f-b425-c6a966ff2247">
       <BuildType Project="BuiltWithUnrealBuildTool" />
       <Platform Project="Win64" />
       <Build Project="false" />
     </Project>
   </Folder>
   <Folder Name="/Games/">
-    <Project Path="Intermediate/ProjectFiles/Rayla_Feat.vcxproj" Id="230609ac-f0de-353a-9ba2-69b3aec2b37d">
+    <Project Path="Intermediate/ProjectFiles/Rayla_Feat.vcxproj" Id="115d4784-7057-3703-8171-da8c2efa3120">
       <BuildType Solution="DebugGame Editor|Win64" Project="DebugGame_Editor" />
       <BuildType Solution="DebugGame Editor|Win64-arm64" Project="Win64_arm64_DebugGame_Editor" />
       <BuildType Solution="DebugGame Editor|Win64-arm64ec" Project="Win64_arm64ec_DebugGame_Editor" />
