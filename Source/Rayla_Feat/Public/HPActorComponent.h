@@ -16,7 +16,7 @@ public:
 	// Sets default values for this component's properties
 	UHPActorComponent();
 	UPROPERTY(BlueprintReadOnly, Category = "Health")
-	float Health = 100.0f;
+	float Health = 20.0f;
 	// à»â∫ÇÃ1çsÇí«â¡ÇµÇƒÇ≠ÇæÇ≥Ç¢
 	DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnHealthChanged, float, NewHealth);
 
