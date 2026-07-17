@@ -2593,6 +2593,7 @@ LogConfig: Set CVar [[r.Nanite.Streaming.ReservedResources:1]]
 [2026.07.16-10.04.14:717][300]LogHttp: Warning: 000001E0D8897700: libcurl info message cache 1 (IPv6: 64:ff9b::3211:b214, 64:ff9b::12ea:f66, 64:ff9b::12eb:412c, 64:ff9b::2cd6:7f47, 64:ff9b::3de:9f18, 64:ff9b::22c3:e602, 64:ff9b::3d9:2508, 64:ff9b::2cdb:5571)
 [2026.07.16-10.04.14:717][300]LogHttp: Warning: 000001E0D8897700: libcurl info message cache 2 (IPv4: 23.23.234.44, 18.235.65.44, 44.198.141.208, 32.195.124.153, 100.30.146.40, 3.219.14.44, 3.211.15.215, 52.0.104.199)
 [2026.07.16-10.04.14:717][300]LogHttp: Warning: 000001E0D8897700: libcurl info message cache 3 (  Trying [64:ff9b::3211:b214]:443...)
+[2026.07.16-10.04.14:717][301]LogHttp: Warning: 000001E0D8897700: libcurl info message cache 4 (SSL reusing session with ALPN 'http/1.1')
 [2026.07.16-10.04.14:717][301]LogHttp: Warning: 000001E0D8897700: libcurl info message cache 5 (ALPN: curl offers http/1.1)
 [2026.07.16-10.04.14:717][301]LogHttp: Warning: 000001E0D8897700: libcurl info message cache 6 (TLSv1.3 (OUT), TLS handshake, Client hello (1):)
 [2026.07.16-10.04.14:717][301]LogHttp: Warning: 000001E0D8897700: libcurl info message cache 7 (Connection timed out after 30002 milliseconds)
@@ -12854,3 +12855,1225 @@ Detoured run took 3.7s
 [2026.07.16-20.23.16:507][756]LogHttp: Warning: 000001E33C23E000: libcurl info message cache 10 (closing connection #143)
 [2026.07.16-20.23.16:507][756]LogHttp: Warning: 000001E33C23E000 POST https://datarouter.ol.epicgames.com/datarouter/api/v1/public/data?SessionID=%7BFBE646D7-41F9-E6C6-5D6D-58B8B7F56BA8%7D&AppID=UEEditor.Rocket.Release&AppVersion=5.8.0-55116800%2B%2B%2BUE5%2BRelease-5.8&UserID=fcf5e9f7993f4539ab0ba973425291c1%7Cb079276f974840f089e6aab76c598ff8%7C04020cf9-02a6-4a64-b409-e14d41171751&AppEnvironment=datacollector-binary&UploadType=eteventstream completed with reason 'ConnectionError' after 30.00s
 [2026.07.16-20.24.02:363][130]LogDerivedDataCache: C:/Users/user/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:05.812 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 2900 files in 4023 folders with total size 28 MiB.
+[2026.07.16-20.24.28:064][900]LogHttp: Warning: 000001E33C239300: request failed, libcurl error: 28 (Timeout was reached)
+[2026.07.16-20.24.28:064][901]LogHttp: Warning: 000001E33C239300: libcurl info message cache 0 (Hostname in DNS cache was stale, zapped)
+[2026.07.16-20.24.28:064][901]LogHttp: Warning: 000001E33C239300: libcurl info message cache 1 (Host datarouter.ol.epicgames.com:443 was resolved.)
+[2026.07.16-20.24.28:064][901]LogHttp: Warning: 000001E33C239300: libcurl info message cache 2 (IPv6: 64:ff9b::3436:c9bf, 64:ff9b::22e2:5530, 64:ff9b::6257:e041, 64:ff9b::3dd:f7, 64:ff9b::3d2:1721, 64:ff9b::643d:c2d, 64:ff9b::22e9:e589, 64:ff9b::36a6:ff33)
+[2026.07.16-20.24.28:065][901]LogHttp: Warning: 000001E33C239300: libcurl info message cache 3 (IPv4: 3.219.14.44, 3.211.207.205, 44.198.141.208, 44.214.186.136, 3.217.37.8, 44.214.127.71, 23.23.234.44, 100.30.146.40)
+[2026.07.16-20.24.28:065][901]LogHttp: Warning: 000001E33C239300: libcurl info message cache 4 (  Trying [64:ff9b::3436:c9bf]:443...)
+[2026.07.16-20.24.28:065][901]LogHttp: Warning: 000001E33C239300: libcurl info message cache 5 (ALPN: curl offers http/1.1)
+[2026.07.16-20.24.28:065][901]LogHttp: Warning: 000001E33C239300: libcurl info message cache 6 (TLSv1.3 (OUT), TLS handshake, Client hello (1):)
+[2026.07.16-20.24.28:065][901]LogHttp: Warning: 000001E33C239300: libcurl info message cache 7 (Connection timed out after 30000 milliseconds)
+[2026.07.16-20.24.28:065][901]LogHttp: Warning: 000001E33C239300: libcurl info message cache 8 (closing connection #144)
+[2026.07.16-20.24.28:065][901]LogHttp: Warning: 000001E33C239300 POST https://datarouter.ol.epicgames.com/datarouter/api/v1/public/data?SessionID=%7BFBE646D7-41F9-E6C6-5D6D-58B8B7F56BA8%7D&AppID=UEEditor.Rocket.Release&AppVersion=5.8.0-55116800%2B%2B%2BUE5%2BRelease-5.8&UserID=fcf5e9f7993f4539ab0ba973425291c1%7Cb079276f974840f089e6aab76c598ff8%7C04020cf9-02a6-4a64-b409-e14d41171751&AppEnvironment=datacollector-binary&UploadType=eteventstream completed with reason 'ConnectionError' after 30.00s
+[2026.07.16-20.32.08:373][667]LogSlate: Window 'メッセージ ログ' being destroyed
+[2026.07.16-20.32.08:474][667]LogSlate: Window 'メッセージ ログ' being destroyed
+[2026.07.16-20.33.13:820][936]LogDebuggerCommands: Repeating last play command: 新規エディタウィンドウ (PIE)
+[2026.07.16-20.33.13:853][936]LogCameraSystemEditor: No camera objects needed building (inspected 0 objects)
+[2026.07.16-20.33.13:853][936]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2026.07.16-20.33.13:861][936]LogPlayLevel: Creating play world package: /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp
+[2026.07.16-20.33.13:868][936]LogPlayLevel: PIE: StaticDuplicateObject took: (0.007334s)
+[2026.07.16-20.33.13:869][936]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/UI_prototype_Namiki/MainGame_Temp.MainGame_Temp to /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp.MainGame_Temp (0.007561s)
+[2026.07.16-20.33.14:628][936]LogUObjectHash: Compacting FUObjectHashTables data took   3.79ms
+[2026.07.16-20.33.14:638][936]LogChaosDD: Creating Chaos Debug Draw Scene for world MainGame_Temp
+[2026.07.16-20.33.14:642][936]LogPlayLevel: PIE: World Init took: (0.004129s)
+[2026.07.16-20.33.14:642][936]LogAudio: Display: Creating Audio Device:                 Id: 39, Scope: Unique, Realtime: True
+[2026.07.16-20.33.14:642][936]LogAudioMixer: Display: bUseRenderScheduler set to true.
+[2026.07.16-20.33.14:642][936]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2026.07.16-20.33.14:642][936]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2026.07.16-20.33.14:642][936]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2026.07.16-20.33.14:642][936]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2026.07.16-20.33.14:642][936]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2026.07.16-20.33.14:642][936]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2026.07.16-20.33.14:642][936]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2026.07.16-20.33.14:642][936]LogAudio: Display: AudioDevice MaxSources: 32
+[2026.07.16-20.33.14:642][936]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2026.07.16-20.33.14:643][936]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2026.07.16-20.33.14:643][936]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2026.07.16-20.33.14:643][936]LogAudioEnumeration: Display: Refreshing FWindowsMMDeviceCache
+[2026.07.16-20.33.14:649][936]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Console', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.33.14:650][936]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Console', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.33.14:651][936]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Multimedia', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.33.14:652][936]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Multimedia', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.33.14:653][936]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Communications', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.33.14:654][936]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Communications', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.33.14:667][936]LogAudioMixerWasapi: Display: FWasapiServiceWatcher started.
+[2026.07.16-20.33.14:667][936]LogAudioMixer: Display: Initializing audio mixer using platform API: 'WASAPIMixer'
+[2026.07.16-20.33.14:667][936]LogAudioMixerWasapi: Display: FWasapiServiceWatcher initial state: Audiosrv=RUNNING, AudioEndpointBuilder=RUNNING
+[2026.07.16-20.33.14:669][936]LogAudioMixerWasapi: FAudioMixerWasapiRenderStream::InitializeHardware DefaultDevicePeriod: 480 requesting buffer size: 1920
+[2026.07.16-20.33.14:696][936]LogAudioMixerWasapi: Display: FAudioMixerWasapiRenderStream::InitializeHardware audio mixer requested num channels: 2, Wasapi render stream hardware supports num channels: 2
+[2026.07.16-20.33.14:696][936]LogAudioMixerWasapi: Display: FAudioMixerWasapiRenderStream::InitializeHardware succeeded with sample rate: 48000, buffer period: 1024
+[2026.07.16-20.33.14:696][936]LogAudioMixer: Display: FAudioMixerWasapi initialized: SampleRate=48000 NumChannels=2 NumDirectOutChannels=0 bIsAggregateDevice=0 StreamParams.Num()=1
+[2026.07.16-20.33.14:696][936]LogAudioMixer: Display: Using Audio Hardware Device スピーカー (2- Realtek(R) Audio)
+[2026.07.16-20.33.14:697][936]LogAudioMixer: Display: Initializing Sound Submixes...
+[2026.07.16-20.33.14:697][936]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2026.07.16-20.33.14:697][936]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2026.07.16-20.33.14:698][936]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=39
+[2026.07.16-20.33.14:705][936]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=39
+[2026.07.16-20.33.14:711][936]LogInit: FAudioDevice initialized with ID 39.
+[2026.07.16-20.33.14:711][936]LogAudio: Display: Audio Device (ID: 39) registered with world 'MainGame_Temp'.
+[2026.07.16-20.33.14:711][936]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 39
+[2026.07.16-20.33.14:753][936]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.33.14:753][936]LogLoad: Game class is 'GameModeBase'
+[2026.07.16-20.33.14:755][936]LogWorld: Bringing World /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp.MainGame_Temp up for play (max tick rate 60) at 2026.07.17-05.33.14
+[2026.07.16-20.33.14:755][936]LogWorld: Bringing up level for play took: 0.001715
+[2026.07.16-20.33.14:761][936]LogOnline: OSS: Created online subsystem instance for: :Context_145
+[2026.07.16-20.33.14:763][936]LogEnhancedInput: Enhanced Input local player subsystem has initialized the user settings!
+[2026.07.16-20.33.14:784][936]PIE: サーバーにログインしました
+[2026.07.16-20.33.14:801][936]PIE: PIE合計開始時間 0.963 秒。
+[2026.07.16-20.33.16:014][952]LogTemp: Warning: ¡HP: 10.000000
+[2026.07.16-20.33.16:520][958]LogTemp: Warning: ¡HP: 0.000000
+[2026.07.16-20.33.16:522][958]LogTemp: Warning: ¡HP: 0.000000
+[2026.07.16-20.33.18:177][977]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.33.18:177][977]LogWorld: BeginTearingDown for /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp
+[2026.07.16-20.33.18:357][977]LogSlate: Window 'Rayla_Feat プレビュー [NetMode: Standalone 0]  (64-ビット/PC D3D SM5)' being destroyed
+[2026.07.16-20.33.18:430][977]LogWorld: UWorld::CleanupWorld for MainGame_Temp, bSessionEnded=true, bCleanupResources=true
+[2026.07.16-20.33.18:431][977]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.33.18:432][977]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2026.07.16-20.33.18:453][977]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.33.18:634][977]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.33.18:634][977]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID 39
+[2026.07.16-20.33.18:636][977]LogAudioMixer: Display: FAudioMixerWasapi::StopAudioStream() InstanceID=39, StreamState=4
+[2026.07.16-20.33.18:652][977]LogAudioMixerWasapi: Display: FWasapiServiceWatcher stopped.
+[2026.07.16-20.33.19:041][977]LogUObjectHash: Compacting FUObjectHashTables data took   5.42ms
+[2026.07.16-20.33.19:261][980]LogPlayLevel: Display: Destroying online subsystem :Context_145
+[2026.07.16-20.33.20:986][ 13]LogDebuggerCommands: Repeating last play command: 新規エディタウィンドウ (PIE)
+[2026.07.16-20.33.21:030][ 13]LogCameraSystemEditor: No camera objects needed building (inspected 0 objects)
+[2026.07.16-20.33.21:030][ 13]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2026.07.16-20.33.21:048][ 13]LogPlayLevel: Creating play world package: /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp
+[2026.07.16-20.33.21:063][ 13]LogPlayLevel: PIE: StaticDuplicateObject took: (0.013421s)
+[2026.07.16-20.33.21:063][ 13]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/UI_prototype_Namiki/MainGame_Temp.MainGame_Temp to /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp.MainGame_Temp (0.013691s)
+[2026.07.16-20.33.21:186][ 13]LogUObjectHash: Compacting FUObjectHashTables data took   4.63ms
+[2026.07.16-20.33.21:209][ 13]LogChaosDD: Creating Chaos Debug Draw Scene for world MainGame_Temp
+[2026.07.16-20.33.21:214][ 13]LogPlayLevel: PIE: World Init took: (0.005518s)
+[2026.07.16-20.33.21:214][ 13]LogAudio: Display: Creating Audio Device:                 Id: 40, Scope: Unique, Realtime: True
+[2026.07.16-20.33.21:214][ 13]LogAudioMixer: Display: bUseRenderScheduler set to true.
+[2026.07.16-20.33.21:214][ 13]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2026.07.16-20.33.21:214][ 13]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2026.07.16-20.33.21:214][ 13]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2026.07.16-20.33.21:215][ 13]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2026.07.16-20.33.21:215][ 13]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2026.07.16-20.33.21:215][ 13]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2026.07.16-20.33.21:215][ 13]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2026.07.16-20.33.21:215][ 13]LogAudio: Display: AudioDevice MaxSources: 32
+[2026.07.16-20.33.21:215][ 13]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2026.07.16-20.33.21:215][ 13]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2026.07.16-20.33.21:215][ 13]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2026.07.16-20.33.21:215][ 13]LogAudioEnumeration: Display: Refreshing FWindowsMMDeviceCache
+[2026.07.16-20.33.21:225][ 13]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Console', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.33.21:226][ 13]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Console', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.33.21:229][ 13]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Multimedia', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.33.21:230][ 13]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Multimedia', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.33.21:232][ 13]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Communications', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.33.21:234][ 13]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Communications', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.33.21:249][ 13]LogAudioMixerWasapi: Display: FWasapiServiceWatcher started.
+[2026.07.16-20.33.21:249][ 13]LogAudioMixer: Display: Initializing audio mixer using platform API: 'WASAPIMixer'
+[2026.07.16-20.33.21:249][ 13]LogAudioMixerWasapi: Display: FWasapiServiceWatcher initial state: Audiosrv=RUNNING, AudioEndpointBuilder=RUNNING
+[2026.07.16-20.33.21:251][ 13]LogAudioMixerWasapi: FAudioMixerWasapiRenderStream::InitializeHardware DefaultDevicePeriod: 480 requesting buffer size: 1920
+[2026.07.16-20.33.21:290][ 13]LogAudioMixerWasapi: Display: FAudioMixerWasapiRenderStream::InitializeHardware audio mixer requested num channels: 2, Wasapi render stream hardware supports num channels: 2
+[2026.07.16-20.33.21:290][ 13]LogAudioMixerWasapi: Display: FAudioMixerWasapiRenderStream::InitializeHardware succeeded with sample rate: 48000, buffer period: 1024
+[2026.07.16-20.33.21:290][ 13]LogAudioMixer: Display: FAudioMixerWasapi initialized: SampleRate=48000 NumChannels=2 NumDirectOutChannels=0 bIsAggregateDevice=0 StreamParams.Num()=1
+[2026.07.16-20.33.21:290][ 13]LogAudioMixer: Display: Using Audio Hardware Device スピーカー (2- Realtek(R) Audio)
+[2026.07.16-20.33.21:290][ 13]LogAudioMixer: Display: Initializing Sound Submixes...
+[2026.07.16-20.33.21:290][ 13]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2026.07.16-20.33.21:290][ 13]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2026.07.16-20.33.21:292][ 13]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=40
+[2026.07.16-20.33.21:299][ 13]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=40
+[2026.07.16-20.33.21:306][ 13]LogInit: FAudioDevice initialized with ID 40.
+[2026.07.16-20.33.21:306][ 13]LogAudio: Display: Audio Device (ID: 40) registered with world 'MainGame_Temp'.
+[2026.07.16-20.33.21:306][ 13]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 40
+[2026.07.16-20.33.21:370][ 13]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.33.21:371][ 13]LogLoad: Game class is 'GameModeBase'
+[2026.07.16-20.33.21:373][ 13]LogWorld: Bringing World /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp.MainGame_Temp up for play (max tick rate 60) at 2026.07.17-05.33.21
+[2026.07.16-20.33.21:373][ 13]LogWorld: Bringing up level for play took: 0.002549
+[2026.07.16-20.33.21:384][ 13]LogOnline: OSS: Created online subsystem instance for: :Context_146
+[2026.07.16-20.33.21:385][ 13]LogEnhancedInput: Enhanced Input local player subsystem has initialized the user settings!
+[2026.07.16-20.33.21:414][ 13]PIE: サーバーにログインしました
+[2026.07.16-20.33.21:436][ 13]PIE: PIE合計開始時間 0.407 秒。
+[2026.07.16-20.33.22:461][ 24]LogTemp: Warning: ¡HP: 10.000000
+[2026.07.16-20.33.23:357][ 33]LogTemp: Warning: ¡HP: 0.000000
+[2026.07.16-20.33.23:358][ 33]LogTemp: Warning: ¡HP: 0.000000
+[2026.07.16-20.33.24:818][ 43]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.33.24:818][ 43]LogWorld: BeginTearingDown for /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp
+[2026.07.16-20.33.25:044][ 43]LogSlate: Window 'Rayla_Feat プレビュー [NetMode: Standalone 0]  (64-ビット/PC D3D SM5)' being destroyed
+[2026.07.16-20.33.25:166][ 43]LogWorld: UWorld::CleanupWorld for MainGame_Temp, bSessionEnded=true, bCleanupResources=true
+[2026.07.16-20.33.25:167][ 43]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.33.25:168][ 43]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2026.07.16-20.33.25:197][ 43]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.33.25:324][ 43]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.33.25:326][ 43]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID 40
+[2026.07.16-20.33.25:328][ 43]LogAudioMixer: Display: FAudioMixerWasapi::StopAudioStream() InstanceID=40, StreamState=4
+[2026.07.16-20.33.25:363][ 43]LogAudioMixerWasapi: Display: FWasapiServiceWatcher stopped.
+[2026.07.16-20.33.25:380][ 43]LogUObjectHash: Compacting FUObjectHashTables data took   4.28ms
+[2026.07.16-20.33.25:664][ 46]LogPlayLevel: Display: Destroying online subsystem :Context_146
+[2026.07.16-20.33.44:842][354]LogHttp: Warning: 000001E3133E8C00: request failed, libcurl error: 28 (Timeout was reached)
+[2026.07.16-20.33.44:842][354]LogHttp: Warning: 000001E3133E8C00: libcurl info message cache 0 (Connection 145 seems to be dead)
+[2026.07.16-20.33.44:842][354]LogHttp: Warning: 000001E3133E8C00: libcurl info message cache 1 (shutting down connection #145)
+[2026.07.16-20.33.44:842][355]LogHttp: Warning: 000001E3133E8C00: libcurl info message cache 2 (Host datarouter.ol.epicgames.com:443 was resolved.)
+[2026.07.16-20.33.44:843][355]LogHttp: Warning: 000001E3133E8C00: libcurl info message cache 3 (IPv6: 64:ff9b::342d:8cbc, 64:ff9b::22c3:45fe, 64:ff9b::20c0:70dd, 64:ff9b::2cd8:ff1f, 64:ff9b::643a:1885, 64:ff9b::6431:5a36, 64:ff9b::22e1:91ae, 64:ff9b::641d:425c)
+[2026.07.16-20.33.44:843][355]LogHttp: Warning: 000001E3133E8C00: libcurl info message cache 4 (IPv4: 32.192.112.221, 44.216.255.31, 100.58.24.133, 100.49.90.54, 34.225.145.174, 100.29.66.92, 52.45.140.188, 34.195.69.254)
+[2026.07.16-20.33.44:843][355]LogHttp: Warning: 000001E3133E8C00: libcurl info message cache 5 (  Trying [64:ff9b::342d:8cbc]:443...)
+[2026.07.16-20.33.44:843][355]LogHttp: Warning: 000001E3133E8C00: libcurl info message cache 6 (SSL reusing session with ALPN 'http/1.1')
+[2026.07.16-20.33.44:843][355]LogHttp: Warning: 000001E3133E8C00: libcurl info message cache 7 (ALPN: curl offers http/1.1)
+[2026.07.16-20.33.44:843][355]LogHttp: Warning: 000001E3133E8C00: libcurl info message cache 8 (TLSv1.3 (OUT), TLS handshake, Client hello (1):)
+[2026.07.16-20.33.44:843][355]LogHttp: Warning: 000001E3133E8C00: libcurl info message cache 9 (Connection timed out after 30000 milliseconds)
+[2026.07.16-20.33.44:843][355]LogHttp: Warning: 000001E3133E8C00: libcurl info message cache 10 (closing connection #146)
+[2026.07.16-20.33.44:843][355]LogHttp: Warning: 000001E3133E8C00 POST https://datarouter.ol.epicgames.com/datarouter/api/v1/public/data?SessionID=%7BFBE646D7-41F9-E6C6-5D6D-58B8B7F56BA8%7D&AppID=UEEditor.Rocket.Release&AppVersion=5.8.0-55116800%2B%2B%2BUE5%2BRelease-5.8&UserID=fcf5e9f7993f4539ab0ba973425291c1%7Cb079276f974840f089e6aab76c598ff8%7C04020cf9-02a6-4a64-b409-e14d41171751&AppEnvironment=datacollector-binary&UploadType=eteventstream completed with reason 'ConnectionError' after 30.00s
+[2026.07.16-20.33.51:494][488]LogHttp: Warning: 000001E2F587D200: request failed, libcurl error: 28 (Timeout was reached)
+[2026.07.16-20.33.51:494][488]LogHttp: Warning: 000001E2F587D200: libcurl info message cache 0 (Hostname datarouter.ol.epicgames.com was found in DNS cache)
+[2026.07.16-20.33.51:494][488]LogHttp: Warning: 000001E2F587D200: libcurl info message cache 1 (  Trying [64:ff9b::342d:8cbc]:443...)
+[2026.07.16-20.33.51:494][489]LogHttp: Warning: 000001E2F587D200: libcurl info message cache 2 (ALPN: curl offers http/1.1)
+[2026.07.16-20.33.51:494][489]LogHttp: Warning: 000001E2F587D200: libcurl info message cache 3 (TLSv1.3 (OUT), TLS handshake, Client hello (1):)
+[2026.07.16-20.33.51:494][489]LogHttp: Warning: 000001E2F587D200: libcurl info message cache 4 (Connection timed out after 30000 milliseconds)
+[2026.07.16-20.33.51:494][489]LogHttp: Warning: 000001E2F587D200: libcurl info message cache 5 (closing connection #147)
+[2026.07.16-20.33.51:494][489]LogHttp: Warning: 000001E2F587D200 POST https://datarouter.ol.epicgames.com/datarouter/api/v1/public/data?SessionID=%7BFBE646D7-41F9-E6C6-5D6D-58B8B7F56BA8%7D&AppID=UEEditor.Rocket.Release&AppVersion=5.8.0-55116800%2B%2B%2BUE5%2BRelease-5.8&UserID=fcf5e9f7993f4539ab0ba973425291c1%7Cb079276f974840f089e6aab76c598ff8%7C04020cf9-02a6-4a64-b409-e14d41171751&AppEnvironment=datacollector-binary&UploadType=eteventstream completed with reason 'ConnectionError' after 30.00s
+[2026.07.16-20.34.57:997][407]LogHttp: Warning: 000001E367C9AF00: request failed, libcurl error: 28 (Timeout was reached)
+[2026.07.16-20.34.57:997][407]LogHttp: Warning: 000001E367C9AF00: libcurl info message cache 0 (Hostname in DNS cache was stale, zapped)
+[2026.07.16-20.34.57:997][407]LogHttp: Warning: 000001E367C9AF00: libcurl info message cache 1 (Host datarouter.ol.epicgames.com:443 was resolved.)
+[2026.07.16-20.34.57:997][407]LogHttp: Warning: 000001E367C9AF00: libcurl info message cache 2 (IPv6: 64:ff9b::12cc:3a05, 64:ff9b::641d:425c, 64:ff9b::2cd8:ff1f, 64:ff9b::6431:e2f9, 64:ff9b::6431:5a36, 64:ff9b::643a:1885, 64:ff9b::3e5:ecb4, 64:ff9b::12d5:41eb)
+[2026.07.16-20.34.57:997][407]LogHttp: Warning: 000001E367C9AF00: libcurl info message cache 3 (IPv4: 34.195.69.254, 100.55.104.45, 52.45.140.188, 18.204.58.5, 100.49.226.249, 44.216.255.31, 18.213.103.222, 100.51.188.118)
+[2026.07.16-20.34.57:997][407]LogHttp: Warning: 000001E367C9AF00: libcurl info message cache 4 (  Trying [64:ff9b::12cc:3a05]:443...)
+[2026.07.16-20.34.57:997][407]LogHttp: Warning: 000001E367C9AF00: libcurl info message cache 5 (ALPN: curl offers http/1.1)
+[2026.07.16-20.34.57:997][407]LogHttp: Warning: 000001E367C9AF00: libcurl info message cache 6 (TLSv1.3 (OUT), TLS handshake, Client hello (1):)
+[2026.07.16-20.34.57:997][407]LogHttp: Warning: 000001E367C9AF00: libcurl info message cache 7 (Connection timed out after 30001 milliseconds)
+[2026.07.16-20.34.57:997][407]LogHttp: Warning: 000001E367C9AF00: libcurl info message cache 8 (closing connection #148)
+[2026.07.16-20.34.57:997][408]LogHttp: Warning: 000001E367C9AF00 POST https://datarouter.ol.epicgames.com/datarouter/api/v1/public/data?SessionID=%7BFBE646D7-41F9-E6C6-5D6D-58B8B7F56BA8%7D&AppID=UEEditor.Rocket.Release&AppVersion=5.8.0-55116800%2B%2B%2BUE5%2BRelease-5.8&UserID=fcf5e9f7993f4539ab0ba973425291c1%7Cb079276f974840f089e6aab76c598ff8%7C04020cf9-02a6-4a64-b409-e14d41171751&AppEnvironment=datacollector-binary&UploadType=eteventstream completed with reason 'ConnectionError' after 30.00s
+[2026.07.16-20.35.06:977][569]LogAssetEditorSubsystem: Opening Asset editor for WidgetBlueprint /Game/UI_prototype_Namiki/WBP/WBP_4_MainGame.WBP_4_MainGame
+[2026.07.16-20.35.47:226][148]LogSlate: Display: Font face '../../Content/Slate/Fonts/Roboto-Light.ttf' subface index 0 successfully added to font face map in Game thread.
+[2026.07.16-20.36.21:327][571]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2026.07.16-20.36.21:501][571]LogFileHelpers: Saving Package: /Game/UI_prototype_Namiki/WBP/WBP_4_MainGame
+[2026.07.16-20.36.21:501][571]OBJ SavePackage: Generating thumbnails for [2] asset(s) in package [/Game/UI_prototype_Namiki/WBP/WBP_4_MainGame] ([2] browsable assets)...
+[2026.07.16-20.36.21:507][571]OBJ SavePackage:     Rendered thumbnail for [WidgetBlueprint /Game/UI_prototype_Namiki/WBP/WBP_4_MainGame.WBP_4_MainGame]
+[2026.07.16-20.36.21:507][571]OBJ SavePackage: Finished generating thumbnails for package [/Game/UI_prototype_Namiki/WBP/WBP_4_MainGame]
+[2026.07.16-20.36.21:553][571]LogSavePackage: Moving output files for package: /Game/UI_prototype_Namiki/WBP/WBP_4_MainGame
+[2026.07.16-20.36.21:555][571]LogSavePackage: Moving '../../../../../../Users/user/Documents/git_project/RaylaFeat/Saved/WBP_4_MainGameCDACFFE745989B4BF783ECAB38703FAA.tmp' to '../../../../../../Users/user/Documents/git_project/RaylaFeat/Content/UI_prototype_Namiki/WBP/WBP_4_MainGame.uasset'
+[2026.07.16-20.36.21:590][571]LogFileHelpers: InternalPromptForCheckoutAndSave took 263.059 ms (total: 45.4 sec)
+[2026.07.16-20.36.21:678][571]LogContentValidation: Enabled validators:
+[2026.07.16-20.36.21:679][571]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2026.07.16-20.36.21:679][571]LogContentValidation: 	/Script/DataValidation.EditorValidator_ActionUtility
+[2026.07.16-20.36.21:679][571]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2026.07.16-20.36.21:679][571]LogContentValidation: 	/Script/DataValidation.EditorValidator_Material
+[2026.07.16-20.36.21:679][571]LogContentValidation: 	/Script/DataValidation.PackageFileValidator
+[2026.07.16-20.36.21:679][571]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2026.07.16-20.36.21:679][571]LogContentValidation: 	/Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator
+[2026.07.16-20.36.21:679][571]LogContentValidation: 	/Script/MutableValidation.AssetValidator_CustomizableObjects
+[2026.07.16-20.36.21:680][571]LogContentValidation: 	/Script/MutableValidation.AssetValidator_ReferencedCustomizableObjects
+[2026.07.16-20.36.21:680][571]LogContentValidation: Display: Starting to validate 1 assets (0 associated objects such as actors)
+[2026.07.16-20.36.21:680][571]LogContentValidation: バリデーターによって追加された 0 追加アセット
+[2026.07.16-20.36.21:681][571]AssetCheck: /Game/UI_prototype_Namiki/WBP/WBP_4_MainGame アセットを検証しています
+[2026.07.16-20.36.21:682][571]LogContentValidation: バリデーターによって検証された 9 アセット数
+[2026.07.16-20.36.21:682][571]LogContentValidation:   /Script/DataValidation.DirtyFilesChangelistValidator : 0
+[2026.07.16-20.36.21:682][571]LogContentValidation:   /Script/DataValidation.EditorValidator_ActionUtility : 0
+[2026.07.16-20.36.21:682][571]LogContentValidation:   /Script/DataValidation.EditorValidator_Localization : 1
+[2026.07.16-20.36.21:682][571]LogContentValidation:   /Script/DataValidation.EditorValidator_Material : 0
+[2026.07.16-20.36.21:682][571]LogContentValidation:   /Script/DataValidation.PackageFileValidator : 0
+[2026.07.16-20.36.21:682][571]LogContentValidation:   /Script/DataValidation.WorldPartitionChangelistValidator : 0
+[2026.07.16-20.36.21:682][571]LogContentValidation:   /Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator : 1
+[2026.07.16-20.36.21:682][571]LogContentValidation:   /Script/MutableValidation.AssetValidator_CustomizableObjects : 0
+[2026.07.16-20.36.21:682][571]LogContentValidation:   /Script/MutableValidation.AssetValidator_ReferencedCustomizableObjects : 0
+[2026.07.16-20.36.24:308][613]LogBlueprint: Compiling Blueprint '/Game/UI_prototype_Namiki/WBP/WBP_4_MainGame.WBP_4_MainGame'
+[2026.07.16-20.36.25:823][613]LogUObjectHash: Compacting FUObjectHashTables data took   2.38ms
+[2026.07.16-20.36.36:642][763]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2026.07.16-20.36.36:805][763]LogFileHelpers: Saving Package: /Game/UI_prototype_Namiki/WBP/WBP_4_MainGame
+[2026.07.16-20.36.36:806][763]OBJ SavePackage: Generating thumbnails for [2] asset(s) in package [/Game/UI_prototype_Namiki/WBP/WBP_4_MainGame] ([2] browsable assets)...
+[2026.07.16-20.36.36:813][763]OBJ SavePackage:     Rendered thumbnail for [WidgetBlueprint /Game/UI_prototype_Namiki/WBP/WBP_4_MainGame.WBP_4_MainGame]
+[2026.07.16-20.36.36:813][763]OBJ SavePackage: Finished generating thumbnails for package [/Game/UI_prototype_Namiki/WBP/WBP_4_MainGame]
+[2026.07.16-20.36.36:860][763]LogSavePackage: Moving output files for package: /Game/UI_prototype_Namiki/WBP/WBP_4_MainGame
+[2026.07.16-20.36.36:863][763]LogSavePackage: Moving '../../../../../../Users/user/Documents/git_project/RaylaFeat/Saved/WBP_4_MainGameE78B1D3C465C1FDDA084588C9DA0DCFF.tmp' to '../../../../../../Users/user/Documents/git_project/RaylaFeat/Content/UI_prototype_Namiki/WBP/WBP_4_MainGame.uasset'
+[2026.07.16-20.36.36:897][763]LogFileHelpers: InternalPromptForCheckoutAndSave took 255.814 ms (total: 45.6 sec)
+[2026.07.16-20.36.36:981][763]LogContentValidation: Enabled validators:
+[2026.07.16-20.36.36:981][763]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2026.07.16-20.36.36:981][763]LogContentValidation: 	/Script/DataValidation.EditorValidator_ActionUtility
+[2026.07.16-20.36.36:981][763]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2026.07.16-20.36.36:981][763]LogContentValidation: 	/Script/DataValidation.EditorValidator_Material
+[2026.07.16-20.36.36:981][763]LogContentValidation: 	/Script/DataValidation.PackageFileValidator
+[2026.07.16-20.36.36:981][763]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2026.07.16-20.36.36:982][763]LogContentValidation: 	/Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator
+[2026.07.16-20.36.36:982][763]LogContentValidation: 	/Script/MutableValidation.AssetValidator_CustomizableObjects
+[2026.07.16-20.36.36:982][763]LogContentValidation: 	/Script/MutableValidation.AssetValidator_ReferencedCustomizableObjects
+[2026.07.16-20.36.36:982][763]LogContentValidation: Display: Starting to validate 1 assets (0 associated objects such as actors)
+[2026.07.16-20.36.36:982][763]LogContentValidation: バリデーターによって追加された 0 追加アセット
+[2026.07.16-20.36.36:983][763]AssetCheck: /Game/UI_prototype_Namiki/WBP/WBP_4_MainGame アセットを検証しています
+[2026.07.16-20.36.36:984][763]LogContentValidation: バリデーターによって検証された 9 アセット数
+[2026.07.16-20.36.36:984][763]LogContentValidation:   /Script/DataValidation.DirtyFilesChangelistValidator : 0
+[2026.07.16-20.36.36:984][763]LogContentValidation:   /Script/DataValidation.EditorValidator_ActionUtility : 0
+[2026.07.16-20.36.36:984][763]LogContentValidation:   /Script/DataValidation.EditorValidator_Localization : 1
+[2026.07.16-20.36.36:984][763]LogContentValidation:   /Script/DataValidation.EditorValidator_Material : 0
+[2026.07.16-20.36.36:984][763]LogContentValidation:   /Script/DataValidation.PackageFileValidator : 0
+[2026.07.16-20.36.36:984][763]LogContentValidation:   /Script/DataValidation.WorldPartitionChangelistValidator : 0
+[2026.07.16-20.36.36:984][763]LogContentValidation:   /Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator : 1
+[2026.07.16-20.36.36:984][763]LogContentValidation:   /Script/MutableValidation.AssetValidator_CustomizableObjects : 0
+[2026.07.16-20.36.36:984][763]LogContentValidation:   /Script/MutableValidation.AssetValidator_ReferencedCustomizableObjects : 0
+[2026.07.16-20.36.37:681][777]LogBlueprint: Compiling Blueprint '/Game/UI_prototype_Namiki/WBP/WBP_4_MainGame.WBP_4_MainGame'
+[2026.07.16-20.36.37:991][777]LogUObjectHash: Compacting FUObjectHashTables data took   3.72ms
+[2026.07.16-20.36.39:238][795]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2026.07.16-20.36.39:466][795]LogFileHelpers: Saving Package: /Game/UI_prototype_Namiki/WBP/WBP_4_MainGame
+[2026.07.16-20.36.39:466][795]OBJ SavePackage: Generating thumbnails for [2] asset(s) in package [/Game/UI_prototype_Namiki/WBP/WBP_4_MainGame] ([2] browsable assets)...
+[2026.07.16-20.36.39:477][795]OBJ SavePackage:     Rendered thumbnail for [WidgetBlueprint /Game/UI_prototype_Namiki/WBP/WBP_4_MainGame.WBP_4_MainGame]
+[2026.07.16-20.36.39:478][795]OBJ SavePackage: Finished generating thumbnails for package [/Game/UI_prototype_Namiki/WBP/WBP_4_MainGame]
+[2026.07.16-20.36.39:535][795]LogSavePackage: Moving output files for package: /Game/UI_prototype_Namiki/WBP/WBP_4_MainGame
+[2026.07.16-20.36.39:536][795]LogSavePackage: Moving '../../../../../../Users/user/Documents/git_project/RaylaFeat/Saved/WBP_4_MainGame712AA8204470E291F9BE5CB59B65F86F.tmp' to '../../../../../../Users/user/Documents/git_project/RaylaFeat/Content/UI_prototype_Namiki/WBP/WBP_4_MainGame.uasset'
+[2026.07.16-20.36.39:573][795]LogFileHelpers: InternalPromptForCheckoutAndSave took 335.102 ms (total: 46.0 sec)
+[2026.07.16-20.36.39:671][795]LogContentValidation: Enabled validators:
+[2026.07.16-20.36.39:671][795]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2026.07.16-20.36.39:672][795]LogContentValidation: 	/Script/DataValidation.EditorValidator_ActionUtility
+[2026.07.16-20.36.39:672][795]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2026.07.16-20.36.39:672][795]LogContentValidation: 	/Script/DataValidation.EditorValidator_Material
+[2026.07.16-20.36.39:672][795]LogContentValidation: 	/Script/DataValidation.PackageFileValidator
+[2026.07.16-20.36.39:672][795]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2026.07.16-20.36.39:672][795]LogContentValidation: 	/Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator
+[2026.07.16-20.36.39:672][795]LogContentValidation: 	/Script/MutableValidation.AssetValidator_CustomizableObjects
+[2026.07.16-20.36.39:672][795]LogContentValidation: 	/Script/MutableValidation.AssetValidator_ReferencedCustomizableObjects
+[2026.07.16-20.36.39:672][795]LogContentValidation: Display: Starting to validate 1 assets (0 associated objects such as actors)
+[2026.07.16-20.36.39:672][795]LogContentValidation: バリデーターによって追加された 0 追加アセット
+[2026.07.16-20.36.39:673][795]AssetCheck: /Game/UI_prototype_Namiki/WBP/WBP_4_MainGame アセットを検証しています
+[2026.07.16-20.36.39:673][795]LogContentValidation: バリデーターによって検証された 9 アセット数
+[2026.07.16-20.36.39:673][795]LogContentValidation:   /Script/DataValidation.DirtyFilesChangelistValidator : 0
+[2026.07.16-20.36.39:673][795]LogContentValidation:   /Script/DataValidation.EditorValidator_ActionUtility : 0
+[2026.07.16-20.36.39:673][795]LogContentValidation:   /Script/DataValidation.EditorValidator_Localization : 1
+[2026.07.16-20.36.39:673][795]LogContentValidation:   /Script/DataValidation.EditorValidator_Material : 0
+[2026.07.16-20.36.39:675][795]LogContentValidation:   /Script/DataValidation.PackageFileValidator : 0
+[2026.07.16-20.36.39:675][795]LogContentValidation:   /Script/DataValidation.WorldPartitionChangelistValidator : 0
+[2026.07.16-20.36.39:675][795]LogContentValidation:   /Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator : 1
+[2026.07.16-20.36.39:675][795]LogContentValidation:   /Script/MutableValidation.AssetValidator_CustomizableObjects : 0
+[2026.07.16-20.36.39:675][795]LogContentValidation:   /Script/MutableValidation.AssetValidator_ReferencedCustomizableObjects : 0
+[2026.07.16-20.36.40:533][810]LogSlate: Window 'WBP_4_MainGame' being destroyed
+[2026.07.16-20.36.40:640][810]LogWorld: UWorld::CleanupWorld for World_219, bSessionEnded=true, bCleanupResources=true
+[2026.07.16-20.36.40:640][810]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.36.40:680][810]LogWorld: UWorld::CleanupWorld for World_218, bSessionEnded=true, bCleanupResources=true
+[2026.07.16-20.36.40:680][810]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.36.41:389][810]LogUObjectHash: Compacting FUObjectHashTables data took   2.40ms
+[2026.07.16-20.36.55:244][202]LogDebuggerCommands: Repeating last play command: 新規エディタウィンドウ (PIE)
+[2026.07.16-20.36.55:253][202]LogCameraSystemEditor: No camera objects needed building (inspected 0 objects)
+[2026.07.16-20.36.55:253][202]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2026.07.16-20.36.55:253][202]LogPlayLevel: Creating play world package: /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp
+[2026.07.16-20.36.55:256][202]LogPlayLevel: PIE: StaticDuplicateObject took: (0.002442s)
+[2026.07.16-20.36.55:256][202]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/UI_prototype_Namiki/MainGame_Temp.MainGame_Temp to /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp.MainGame_Temp (0.002492s)
+[2026.07.16-20.36.55:298][202]LogUObjectHash: Compacting FUObjectHashTables data took   1.54ms
+[2026.07.16-20.36.55:305][202]LogChaosDD: Creating Chaos Debug Draw Scene for world MainGame_Temp
+[2026.07.16-20.36.55:308][202]LogPlayLevel: PIE: World Init took: (0.002621s)
+[2026.07.16-20.36.55:308][202]LogAudio: Display: Creating Audio Device:                 Id: 41, Scope: Unique, Realtime: True
+[2026.07.16-20.36.55:308][202]LogAudioMixer: Display: bUseRenderScheduler set to true.
+[2026.07.16-20.36.55:308][202]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2026.07.16-20.36.55:308][202]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2026.07.16-20.36.55:308][202]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2026.07.16-20.36.55:308][202]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2026.07.16-20.36.55:308][202]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2026.07.16-20.36.55:308][202]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2026.07.16-20.36.55:308][202]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2026.07.16-20.36.55:308][202]LogAudio: Display: AudioDevice MaxSources: 32
+[2026.07.16-20.36.55:308][202]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2026.07.16-20.36.55:308][202]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2026.07.16-20.36.55:308][202]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2026.07.16-20.36.55:308][202]LogAudioEnumeration: Display: Refreshing FWindowsMMDeviceCache
+[2026.07.16-20.36.55:312][202]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Console', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.36.55:313][202]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Console', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.36.55:313][202]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Multimedia', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.36.55:313][202]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Multimedia', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.36.55:314][202]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Communications', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.36.55:316][202]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Communications', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.36.55:322][202]LogAudioMixerWasapi: Display: FWasapiServiceWatcher initial state: Audiosrv=RUNNING, AudioEndpointBuilder=RUNNING
+[2026.07.16-20.36.55:322][202]LogAudioMixerWasapi: Display: FWasapiServiceWatcher started.
+[2026.07.16-20.36.55:322][202]LogAudioMixer: Display: Initializing audio mixer using platform API: 'WASAPIMixer'
+[2026.07.16-20.36.55:323][202]LogAudioMixerWasapi: FAudioMixerWasapiRenderStream::InitializeHardware DefaultDevicePeriod: 480 requesting buffer size: 1920
+[2026.07.16-20.36.55:339][202]LogAudioMixerWasapi: Display: FAudioMixerWasapiRenderStream::InitializeHardware audio mixer requested num channels: 2, Wasapi render stream hardware supports num channels: 2
+[2026.07.16-20.36.55:340][202]LogAudioMixerWasapi: Display: FAudioMixerWasapiRenderStream::InitializeHardware succeeded with sample rate: 48000, buffer period: 1024
+[2026.07.16-20.36.55:340][202]LogAudioMixer: Display: FAudioMixerWasapi initialized: SampleRate=48000 NumChannels=2 NumDirectOutChannels=0 bIsAggregateDevice=0 StreamParams.Num()=1
+[2026.07.16-20.36.55:340][202]LogAudioMixer: Display: Using Audio Hardware Device スピーカー (2- Realtek(R) Audio)
+[2026.07.16-20.36.55:340][202]LogAudioMixer: Display: Initializing Sound Submixes...
+[2026.07.16-20.36.55:340][202]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2026.07.16-20.36.55:340][202]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2026.07.16-20.36.55:346][202]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=41
+[2026.07.16-20.36.55:349][202]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=41
+[2026.07.16-20.36.55:353][202]LogInit: FAudioDevice initialized with ID 41.
+[2026.07.16-20.36.55:353][202]LogAudio: Display: Audio Device (ID: 41) registered with world 'MainGame_Temp'.
+[2026.07.16-20.36.55:353][202]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 41
+[2026.07.16-20.36.55:397][202]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.36.55:397][202]LogLoad: Game class is 'GameModeBase'
+[2026.07.16-20.36.55:399][202]LogWorld: Bringing World /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp.MainGame_Temp up for play (max tick rate 60) at 2026.07.17-05.36.55
+[2026.07.16-20.36.55:400][202]LogWorld: Bringing up level for play took: 0.002462
+[2026.07.16-20.36.55:405][202]LogOnline: OSS: Created online subsystem instance for: :Context_149
+[2026.07.16-20.36.55:405][202]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2026.07.16-20.36.55:405][202]LogEnhancedInput: Enhanced Input local player subsystem has initialized the user settings!
+[2026.07.16-20.36.55:411][202]PIE: サーバーにログインしました
+[2026.07.16-20.36.55:414][202]PIE: PIE合計開始時間 0.16 秒。
+[2026.07.16-20.37.09:956][376]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.37.09:957][376]LogWorld: BeginTearingDown for /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp
+[2026.07.16-20.37.09:998][376]LogSlate: Window 'Rayla_Feat プレビュー [NetMode: Standalone 0]  (64-ビット/PC D3D SM5)' being destroyed
+[2026.07.16-20.37.10:068][376]LogWorld: UWorld::CleanupWorld for MainGame_Temp, bSessionEnded=true, bCleanupResources=true
+[2026.07.16-20.37.10:068][376]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.37.10:070][376]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2026.07.16-20.37.10:089][376]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.37.10:173][376]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.37.10:173][376]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID 41
+[2026.07.16-20.37.10:175][376]LogAudioMixer: Display: FAudioMixerWasapi::StopAudioStream() InstanceID=41, StreamState=4
+[2026.07.16-20.37.10:195][376]LogAudioMixerWasapi: Display: FWasapiServiceWatcher stopped.
+[2026.07.16-20.37.10:210][376]LogUObjectHash: Compacting FUObjectHashTables data took   3.52ms
+[2026.07.16-20.37.10:332][379]LogPlayLevel: Display: Destroying online subsystem :Context_149
+[2026.07.16-20.40.15:806][258]LogStreaming: Display: FlushAsyncLoading(918): 1 QueuedPackages, 0 AsyncPackages
+[2026.07.16-20.40.15:873][258]LogInterchangeEngine: Display: Interchange start importing source [C:/Users/user/Downloads/board_small.fbx]
+[2026.07.16-20.40.15:966][258]LogInterchangeImport: Translation (FBXSDK) of board_small.fbx in [0 min 0.083 s]
+[2026.07.16-20.40.19:524][258]LogSlate: Window 'ImportContent' being destroyed
+[2026.07.16-20.40.19:561][258]LogInterchangeEngine: [保留中] インポートしています
+[2026.07.16-20.40.19:679][259]LogInterchangeImport: Imported (FBXSDK) of board_small.fbx in [0 min 3.797 s]
+[2026.07.16-20.40.19:679][259]LogInterchangeImport: MeshPayload (FBXSDK) of board_small.fbx, [0 0 0], in [0 min 0.000 s]
+[2026.07.16-20.40.19:689][259]LogInterchangeEngine: [保留中] インポートしています - 操作はユーザーによりキャンセルされました。
+[2026.07.16-20.40.19:689][259]LogInterchangeEngine: [成功] インポートがキャンセルされました
+[2026.07.16-20.40.35:023][715]LogStreaming: Display: FlushAsyncLoading(919): 1 QueuedPackages, 0 AsyncPackages
+[2026.07.16-20.40.35:092][715]LogInterchangeEngine: Display: Interchange start importing source [C:/Users/user/Downloads/board_small.fbx]
+[2026.07.16-20.40.35:116][715]LogInterchangeImport: Translation (FBXSDK) of board_small.fbx in [0 min 0.023 s]
+[2026.07.16-20.40.36:761][715]LogSlate: Window 'ImportContent' being destroyed
+[2026.07.16-20.40.36:794][715]LogInterchangeEngine: [保留中] インポートしています
+[2026.07.16-20.40.37:113][718]LogStreaming: Display: FlushAsyncLoading(920): 1 QueuedPackages, 0 AsyncPackages
+[2026.07.16-20.40.37:376][722]LogStaticMesh: Display: スタティックメッシュをビルド中 board_small (推定必須メモリ：0.628392 MB)...
+[2026.07.16-20.40.37:404][723]LogStaticMesh: Built static mesh [0.04s] /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small.board_small
+[2026.07.16-20.40.38:792][723]LogMeshUtilities: Finished distance field build in 1.4s - 126x126x14 sparse distance field, 0.4Mb total, 0.0Mb always loaded, 100% occupied, 0 triangles, board_small
+[2026.07.16-20.40.38:870][724]LogInterchangeImport: Imported (FBXSDK) of board_small.fbx in [0 min 3.777 s]
+[2026.07.16-20.40.38:870][724]LogInterchangeImport: MeshPayload (FBXSDK) of board_small.fbx, [1 400 180], in [0 min 0.043 s]
+[2026.07.16-20.40.38:882][724]LogInterchangeEngine: Display: Interchange import completed [C:/Users/user/Downloads/board_small.fbx]
+[2026.07.16-20.40.38:946][724]LogInterchangeEngine: Warning: [C:/Users/user/Downloads/board_small.fbx : 'board_small', StaticMesh] FBX ファイルのメッシュ「立方体_007」にスムージンググループ情報が見つかりません。FBX エクスポータの [Export Smoothing Groups] オプションを必ず有効にしてから、ファイルをエクスポートします
+[2026.07.16-20.40.38:946][724]LogInterchangeEngine: Display: Import Done in 2.158386 seconds.
+[2026.07.16-20.40.38:946][724]LogInterchangeEngine: [保留中] インポートしています - 操作が完了しました。
+[2026.07.16-20.40.38:946][724]LogInterchangeEngine: [成功] インポート終了
+[2026.07.16-20.40.40:914][784]LogMeshUtilities: Finished distance field build in 2.0s - 126x126x14 sparse distance field, 0.4Mb total, 0.0Mb always loaded, 100% occupied, 0 triangles, board_small
+[2026.07.16-20.40.46:553][951]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2026.07.16-20.40.46:603][951]LogFileHelpers: Saving Package: /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small
+[2026.07.16-20.40.46:603][951]OBJ SavePackage: Generating thumbnails for [1] asset(s) in package [/Game/UI_prototype_Namiki/Model/Model_Banmen/board_small] ([1] browsable assets)...
+[2026.07.16-20.40.46:633][951]OBJ SavePackage:     Rendered thumbnail for [StaticMesh /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small.board_small]
+[2026.07.16-20.40.46:633][951]OBJ SavePackage: Finished generating thumbnails for package [/Game/UI_prototype_Namiki/Model/Model_Banmen/board_small]
+[2026.07.16-20.40.46:664][951]LogSavePackage: Moving output files for package: /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small
+[2026.07.16-20.40.46:664][951]LogSavePackage: Moving '../../../../../../Users/user/Documents/git_project/RaylaFeat/Saved/board_small46ED43184454A1F3EBAEBBAD6404A2A3.tmp' to '../../../../../../Users/user/Documents/git_project/RaylaFeat/Content/UI_prototype_Namiki/Model/Model_Banmen/board_small.uasset'
+[2026.07.16-20.40.46:700][951]LogFileHelpers: InternalPromptForCheckoutAndSave took 147.675 ms (total: 46.1 sec)
+[2026.07.16-20.40.46:754][951]LogContentValidation: Enabled validators:
+[2026.07.16-20.40.46:755][951]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2026.07.16-20.40.46:755][951]LogContentValidation: 	/Script/DataValidation.EditorValidator_ActionUtility
+[2026.07.16-20.40.46:755][951]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2026.07.16-20.40.46:755][951]LogContentValidation: 	/Script/DataValidation.EditorValidator_Material
+[2026.07.16-20.40.46:755][951]LogContentValidation: 	/Script/DataValidation.PackageFileValidator
+[2026.07.16-20.40.46:755][951]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2026.07.16-20.40.46:755][951]LogContentValidation: 	/Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator
+[2026.07.16-20.40.46:755][951]LogContentValidation: 	/Script/MutableValidation.AssetValidator_CustomizableObjects
+[2026.07.16-20.40.46:755][951]LogContentValidation: 	/Script/MutableValidation.AssetValidator_ReferencedCustomizableObjects
+[2026.07.16-20.40.46:755][951]LogContentValidation: Display: Starting to validate 1 assets (0 associated objects such as actors)
+[2026.07.16-20.40.46:755][951]LogContentValidation: バリデーターによって追加された 0 追加アセット
+[2026.07.16-20.40.46:756][951]AssetCheck: /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small アセットを検証しています
+[2026.07.16-20.40.46:756][951]LogContentValidation: バリデーターによって検証された 9 アセット数
+[2026.07.16-20.40.46:756][951]LogContentValidation:   /Script/DataValidation.DirtyFilesChangelistValidator : 0
+[2026.07.16-20.40.46:756][951]LogContentValidation:   /Script/DataValidation.EditorValidator_ActionUtility : 0
+[2026.07.16-20.40.46:756][951]LogContentValidation:   /Script/DataValidation.EditorValidator_Localization : 1
+[2026.07.16-20.40.46:756][951]LogContentValidation:   /Script/DataValidation.EditorValidator_Material : 0
+[2026.07.16-20.40.46:756][951]LogContentValidation:   /Script/DataValidation.PackageFileValidator : 0
+[2026.07.16-20.40.46:756][951]LogContentValidation:   /Script/DataValidation.WorldPartitionChangelistValidator : 0
+[2026.07.16-20.40.46:756][951]LogContentValidation:   /Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator : 0
+[2026.07.16-20.40.46:756][951]LogContentValidation:   /Script/MutableValidation.AssetValidator_CustomizableObjects : 0
+[2026.07.16-20.40.46:756][951]LogContentValidation:   /Script/MutableValidation.AssetValidator_ReferencedCustomizableObjects : 0
+[2026.07.16-20.40.46:812][951]LogSourceControl: Display: Uncontrolled Changelist persistency file saved ../../../../../../Users/user/Documents/git_project/RaylaFeat/Saved/SourceControl/UncontrolledChangelists.json
+[2026.07.16-20.40.48:582][  4]LogAssetEditorSubsystem: Opening Asset editor for StaticMesh /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small.board_small
+[2026.07.16-20.40.54:089][ 44]LogSlate: Window 'board_small' being destroyed
+[2026.07.16-20.40.54:378][ 44]LogWorld: UWorld::CleanupWorld for World_225, bSessionEnded=true, bCleanupResources=true
+[2026.07.16-20.40.54:378][ 44]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.40.54:548][ 44]LogUObjectHash: Compacting FUObjectHashTables data took   3.75ms
+[2026.07.16-20.41.02:099][267]LogUObjectHash: Compacting FUObjectHashTables data took   1.83ms
+[2026.07.16-20.41.02:105][267]LogAssetEditorSubsystem: Opening Asset editor for World /Game/UI_prototype_Namiki/MainGame_Temp.MainGame_Temp
+[2026.07.16-20.41.02:113][267]Cmd: MAP LOAD FILE="../../../../../../Users/user/Documents/git_project/RaylaFeat/Content/UI_prototype_Namiki/MainGame_Temp.umap" TEMPLATE=0 SHOWPROGRESS=1 FEATURELEVEL=3
+[2026.07.16-20.41.02:327][267]LogWorld: UWorld::CleanupWorld for MainGame_Temp, bSessionEnded=true, bCleanupResources=true
+[2026.07.16-20.41.02:328][267]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.41.02:376][267]LogAudio: Display: Audio Device unregistered from world 'MainGame_Temp'.
+[2026.07.16-20.41.02:388][267]LogUObjectHash: Compacting FUObjectHashTables data took   1.81ms
+[2026.07.16-20.41.02:454][267]LogStreaming: Display: FlushAsyncLoading(921): 1 QueuedPackages, 0 AsyncPackages
+[2026.07.16-20.41.02:529][267]LogAudio: Display: Audio Device (ID: 1) registered with world 'MainGame_Temp'.
+[2026.07.16-20.41.02:530][267]LogChaosDD: Creating Chaos Debug Draw Scene for world MainGame_Temp
+[2026.07.16-20.41.02:621][267]LogEditorServer: Finished looking for orphan Actors (0.000 secs)
+[2026.07.16-20.41.02:683][267]LogUObjectHash: Compacting FUObjectHashTables data took   1.99ms
+[2026.07.16-20.41.02:708][267]Cmd: MAP CHECKDEP NOCLEARLOG
+[2026.07.16-20.41.02:711][267]MapCheck: マップチェックが完了: 0 エラー、 0 警告、完了に 0.917ミリ秒かかりました。
+[2026.07.16-20.41.11:208][473]Cmd: DELETE
+[2026.07.16-20.41.11:209][473]Cmd: ACTOR DELETE
+[2026.07.16-20.41.11:352][473]LogEditorActor: Deleted Actor: StaticMeshActor
+[2026.07.16-20.41.11:356][473]LogEditorActor: Deleted Actor: StaticMeshActor
+[2026.07.16-20.41.11:441][473]LogUObjectHash: Compacting FUObjectHashTables data took   3.66ms
+[2026.07.16-20.41.11:454][473]LogEditorActor: Deleted 2 Actors (0.121 secs)
+[2026.07.16-20.41.12:041][485]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2026.07.16-20.41.12:202][485]LogFileHelpers: Saving Map: /Game/UI_prototype_Namiki/MainGame_Temp
+[2026.07.16-20.41.12:203][485]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/UI_prototype_Namiki/MainGame_Temp] ([2] browsable assets)...
+[2026.07.16-20.41.12:203][485]OBJ SavePackage: Finished generating thumbnails for package [/Game/UI_prototype_Namiki/MainGame_Temp]
+[2026.07.16-20.41.12:356][485]LogUObjectHash: Compacting FUObjectHashTables data took   1.54ms
+[2026.07.16-20.41.12:409][485]LogSavePackage: Moving output files for package: /Game/UI_prototype_Namiki/MainGame_Temp
+[2026.07.16-20.41.12:412][485]LogSavePackage: Moving '../../../../../../Users/user/Documents/git_project/RaylaFeat/Saved/MainGame_TempBFBD441046DCBFD3A429E89A78AE3FEE.tmp' to '../../../../../../Users/user/Documents/git_project/RaylaFeat/Content/UI_prototype_Namiki/MainGame_Temp.umap'
+[2026.07.16-20.41.12:472][485]LogFileHelpers: InternalPromptForCheckoutAndSave took 430.552 ms (total: 46.5 sec)
+[2026.07.16-20.41.12:550][485]LogContentValidation: Enabled validators:
+[2026.07.16-20.41.12:550][485]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2026.07.16-20.41.12:550][485]LogContentValidation: 	/Script/DataValidation.EditorValidator_ActionUtility
+[2026.07.16-20.41.12:550][485]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2026.07.16-20.41.12:550][485]LogContentValidation: 	/Script/DataValidation.EditorValidator_Material
+[2026.07.16-20.41.12:551][485]LogContentValidation: 	/Script/DataValidation.PackageFileValidator
+[2026.07.16-20.41.12:551][485]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2026.07.16-20.41.12:551][485]LogContentValidation: 	/Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator
+[2026.07.16-20.41.12:551][485]LogContentValidation: 	/Script/MutableValidation.AssetValidator_CustomizableObjects
+[2026.07.16-20.41.12:551][485]LogContentValidation: 	/Script/MutableValidation.AssetValidator_ReferencedCustomizableObjects
+[2026.07.16-20.41.12:551][485]LogContentValidation: Display: Starting to validate 1 assets (0 associated objects such as actors)
+[2026.07.16-20.41.12:551][485]LogContentValidation: バリデーターによって追加された 0 追加アセット
+[2026.07.16-20.41.12:551][485]AssetCheck: /Game/UI_prototype_Namiki/MainGame_Temp アセットを検証しています
+[2026.07.16-20.41.12:552][485]LogContentValidation: バリデーターによって検証された 9 アセット数
+[2026.07.16-20.41.12:552][485]LogContentValidation:   /Script/DataValidation.DirtyFilesChangelistValidator : 0
+[2026.07.16-20.41.12:552][485]LogContentValidation:   /Script/DataValidation.EditorValidator_ActionUtility : 0
+[2026.07.16-20.41.12:552][485]LogContentValidation:   /Script/DataValidation.EditorValidator_Localization : 1
+[2026.07.16-20.41.12:552][485]LogContentValidation:   /Script/DataValidation.EditorValidator_Material : 0
+[2026.07.16-20.41.12:552][485]LogContentValidation:   /Script/DataValidation.PackageFileValidator : 0
+[2026.07.16-20.41.12:552][485]LogContentValidation:   /Script/DataValidation.WorldPartitionChangelistValidator : 0
+[2026.07.16-20.41.12:552][485]LogContentValidation:   /Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator : 0
+[2026.07.16-20.41.12:552][485]LogContentValidation:   /Script/MutableValidation.AssetValidator_CustomizableObjects : 0
+[2026.07.16-20.41.12:552][485]LogContentValidation:   /Script/MutableValidation.AssetValidator_ReferencedCustomizableObjects : 0
+[2026.07.16-20.41.33:845][817]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small.board_small
+[2026.07.16-20.41.33:846][817]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small.board_small
+[2026.07.16-20.41.33:848][817]LogActorFactory: Actor Factory spawned StaticMesh /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small.board_small as actor: StaticMeshActor /Game/UI_prototype_Namiki/MainGame_Temp.MainGame_Temp:PersistentLevel.StaticMeshActor_0
+[2026.07.16-20.41.35:449][862]LogUObjectHash: Compacting FUObjectHashTables data took   1.39ms
+[2026.07.16-20.41.35:460][862]LogEditorActor: Deleted 0 Actors (0.074 secs)
+[2026.07.16-20.41.35:471][862]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small.board_small
+[2026.07.16-20.41.35:471][862]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small.board_small
+[2026.07.16-20.41.35:474][862]LogActorFactory: Actor Factory spawned StaticMesh /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small.board_small as actor: StaticMeshActor /Game/UI_prototype_Namiki/MainGame_Temp.MainGame_Temp:PersistentLevel.StaticMeshActor_3
+[2026.07.16-20.41.39:344][929]Cmd: TRANSACTION UNDO
+[2026.07.16-20.41.39:353][929]LogEditorTransaction: Undo 背景をクリック
+[2026.07.16-20.41.41:066][968]Cmd: TRANSACTION UNDO
+[2026.07.16-20.41.41:066][968]LogEditorTransaction: Undo トランスフォーム
+[2026.07.16-20.41.42:603][990]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small.board_small
+[2026.07.16-20.41.42:603][990]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small.board_small
+[2026.07.16-20.41.42:603][990]LogActorFactory: Actor Factory spawned StaticMesh /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small.board_small as actor: StaticMeshActor /Game/UI_prototype_Namiki/MainGame_Temp.MainGame_Temp:PersistentLevel.StaticMeshActor_4
+[2026.07.16-20.41.43:812][ 23]LogUObjectHash: Compacting FUObjectHashTables data took   1.35ms
+[2026.07.16-20.41.43:821][ 23]LogEditorActor: Deleted 0 Actors (0.082 secs)
+[2026.07.16-20.41.44:267][ 36]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small.board_small
+[2026.07.16-20.41.44:267][ 36]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small.board_small
+[2026.07.16-20.41.44:267][ 36]LogActorFactory: Actor Factory spawned StaticMesh /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small.board_small as actor: StaticMeshActor /Game/UI_prototype_Namiki/MainGame_Temp.MainGame_Temp:PersistentLevel.StaticMeshActor_5
+[2026.07.16-20.41.46:218][ 92]LogUObjectHash: Compacting FUObjectHashTables data took   1.52ms
+[2026.07.16-20.41.46:229][ 92]LogEditorActor: Deleted 0 Actors (0.106 secs)
+[2026.07.16-20.41.46:540][101]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small.board_small
+[2026.07.16-20.41.46:540][101]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small.board_small
+[2026.07.16-20.41.46:540][101]LogActorFactory: Actor Factory spawned StaticMesh /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small.board_small as actor: StaticMeshActor /Game/UI_prototype_Namiki/MainGame_Temp.MainGame_Temp:PersistentLevel.StaticMeshActor_7
+[2026.07.16-20.41.47:870][139]LogUObjectHash: Compacting FUObjectHashTables data took   5.80ms
+[2026.07.16-20.41.47:884][139]LogEditorActor: Deleted 0 Actors (0.093 secs)
+[2026.07.16-20.41.47:985][142]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small.board_small
+[2026.07.16-20.41.47:985][142]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small.board_small
+[2026.07.16-20.41.47:985][142]LogActorFactory: Actor Factory spawned StaticMesh /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small.board_small as actor: StaticMeshActor /Game/UI_prototype_Namiki/MainGame_Temp.MainGame_Temp:PersistentLevel.StaticMeshActor_8
+[2026.07.16-20.41.50:541][216]LogUObjectHash: Compacting FUObjectHashTables data took   1.45ms
+[2026.07.16-20.41.50:549][216]LogEditorActor: Deleted 0 Actors (0.077 secs)
+[2026.07.16-20.41.50:559][216]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small.board_small
+[2026.07.16-20.41.50:560][216]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small.board_small
+[2026.07.16-20.41.50:562][216]LogActorFactory: Actor Factory spawned StaticMesh /Game/UI_prototype_Namiki/Model/Model_Banmen/board_small.board_small as actor: StaticMeshActor /Game/UI_prototype_Namiki/MainGame_Temp.MainGame_Temp:PersistentLevel.StaticMeshActor_9
+[2026.07.16-20.41.59:677][357]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2026.07.16-20.41.59:757][357]LogFileHelpers: Saving Map: /Game/UI_prototype_Namiki/MainGame_Temp
+[2026.07.16-20.41.59:757][357]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/UI_prototype_Namiki/MainGame_Temp] ([2] browsable assets)...
+[2026.07.16-20.41.59:758][357]OBJ SavePackage: Finished generating thumbnails for package [/Game/UI_prototype_Namiki/MainGame_Temp]
+[2026.07.16-20.41.59:912][357]LogUObjectHash: Compacting FUObjectHashTables data took   1.67ms
+[2026.07.16-20.41.59:956][357]LogSavePackage: Moving output files for package: /Game/UI_prototype_Namiki/MainGame_Temp
+[2026.07.16-20.41.59:958][357]LogSavePackage: Moving '../../../../../../Users/user/Documents/git_project/RaylaFeat/Saved/MainGame_Temp08036365479D755D8C5038A07A8BB4FC.tmp' to '../../../../../../Users/user/Documents/git_project/RaylaFeat/Content/UI_prototype_Namiki/MainGame_Temp.umap'
+[2026.07.16-20.42.00:020][357]LogFileHelpers: InternalPromptForCheckoutAndSave took 343.071 ms (total: 46.9 sec)
+[2026.07.16-20.42.00:101][357]LogContentValidation: Enabled validators:
+[2026.07.16-20.42.00:101][357]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2026.07.16-20.42.00:101][357]LogContentValidation: 	/Script/DataValidation.EditorValidator_ActionUtility
+[2026.07.16-20.42.00:101][357]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2026.07.16-20.42.00:101][357]LogContentValidation: 	/Script/DataValidation.EditorValidator_Material
+[2026.07.16-20.42.00:101][357]LogContentValidation: 	/Script/DataValidation.PackageFileValidator
+[2026.07.16-20.42.00:101][357]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2026.07.16-20.42.00:101][357]LogContentValidation: 	/Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator
+[2026.07.16-20.42.00:101][357]LogContentValidation: 	/Script/MutableValidation.AssetValidator_CustomizableObjects
+[2026.07.16-20.42.00:101][357]LogContentValidation: 	/Script/MutableValidation.AssetValidator_ReferencedCustomizableObjects
+[2026.07.16-20.42.00:101][357]LogContentValidation: Display: Starting to validate 1 assets (0 associated objects such as actors)
+[2026.07.16-20.42.00:101][357]LogContentValidation: バリデーターによって追加された 0 追加アセット
+[2026.07.16-20.42.00:102][357]AssetCheck: /Game/UI_prototype_Namiki/MainGame_Temp アセットを検証しています
+[2026.07.16-20.42.00:102][357]LogContentValidation: バリデーターによって検証された 9 アセット数
+[2026.07.16-20.42.00:102][357]LogContentValidation:   /Script/DataValidation.DirtyFilesChangelistValidator : 0
+[2026.07.16-20.42.00:102][357]LogContentValidation:   /Script/DataValidation.EditorValidator_ActionUtility : 0
+[2026.07.16-20.42.00:102][357]LogContentValidation:   /Script/DataValidation.EditorValidator_Localization : 1
+[2026.07.16-20.42.00:102][357]LogContentValidation:   /Script/DataValidation.EditorValidator_Material : 0
+[2026.07.16-20.42.00:102][357]LogContentValidation:   /Script/DataValidation.PackageFileValidator : 0
+[2026.07.16-20.42.00:102][357]LogContentValidation:   /Script/DataValidation.WorldPartitionChangelistValidator : 0
+[2026.07.16-20.42.00:103][357]LogContentValidation:   /Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator : 0
+[2026.07.16-20.42.00:103][357]LogContentValidation:   /Script/MutableValidation.AssetValidator_CustomizableObjects : 0
+[2026.07.16-20.42.00:103][357]LogContentValidation:   /Script/MutableValidation.AssetValidator_ReferencedCustomizableObjects : 0
+[2026.07.16-20.42.14:168][576]LogDebuggerCommands: Repeating last play command: 新規エディタウィンドウ (PIE)
+[2026.07.16-20.42.14:198][576]LogCameraSystemEditor: No camera objects needed building (inspected 0 objects)
+[2026.07.16-20.42.14:198][576]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2026.07.16-20.42.14:199][576]LogPlayLevel: Creating play world package: /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp
+[2026.07.16-20.42.14:212][576]LogPlayLevel: PIE: StaticDuplicateObject took: (0.012426s)
+[2026.07.16-20.42.14:212][576]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/UI_prototype_Namiki/MainGame_Temp.MainGame_Temp to /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp.MainGame_Temp (0.012630s)
+[2026.07.16-20.42.14:342][576]LogUObjectHash: Compacting FUObjectHashTables data took   4.58ms
+[2026.07.16-20.42.14:355][576]LogChaosDD: Creating Chaos Debug Draw Scene for world MainGame_Temp
+[2026.07.16-20.42.14:361][576]LogPlayLevel: PIE: World Init took: (0.005690s)
+[2026.07.16-20.42.14:362][576]LogAudio: Display: Creating Audio Device:                 Id: 42, Scope: Unique, Realtime: True
+[2026.07.16-20.42.14:362][576]LogAudioMixer: Display: bUseRenderScheduler set to true.
+[2026.07.16-20.42.14:362][576]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2026.07.16-20.42.14:362][576]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2026.07.16-20.42.14:362][576]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2026.07.16-20.42.14:362][576]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2026.07.16-20.42.14:362][576]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2026.07.16-20.42.14:362][576]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2026.07.16-20.42.14:362][576]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2026.07.16-20.42.14:362][576]LogAudio: Display: AudioDevice MaxSources: 32
+[2026.07.16-20.42.14:362][576]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2026.07.16-20.42.14:363][576]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2026.07.16-20.42.14:363][576]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2026.07.16-20.42.14:363][576]LogAudioEnumeration: Display: Refreshing FWindowsMMDeviceCache
+[2026.07.16-20.42.14:373][576]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Console', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.42.14:375][576]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Console', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.42.14:376][576]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Multimedia', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.42.14:379][576]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Multimedia', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.42.14:381][576]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Communications', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.42.14:382][576]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Communications', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.42.14:403][576]LogAudioMixerWasapi: Display: FWasapiServiceWatcher started.
+[2026.07.16-20.42.14:403][576]LogAudioMixer: Display: Initializing audio mixer using platform API: 'WASAPIMixer'
+[2026.07.16-20.42.14:404][576]LogAudioMixerWasapi: Display: FWasapiServiceWatcher initial state: Audiosrv=RUNNING, AudioEndpointBuilder=RUNNING
+[2026.07.16-20.42.14:405][576]LogAudioMixerWasapi: FAudioMixerWasapiRenderStream::InitializeHardware DefaultDevicePeriod: 480 requesting buffer size: 1920
+[2026.07.16-20.42.14:453][576]LogAudioMixerWasapi: Display: FAudioMixerWasapiRenderStream::InitializeHardware audio mixer requested num channels: 2, Wasapi render stream hardware supports num channels: 2
+[2026.07.16-20.42.14:453][576]LogAudioMixerWasapi: Display: FAudioMixerWasapiRenderStream::InitializeHardware succeeded with sample rate: 48000, buffer period: 1024
+[2026.07.16-20.42.14:454][576]LogAudioMixer: Display: FAudioMixerWasapi initialized: SampleRate=48000 NumChannels=2 NumDirectOutChannels=0 bIsAggregateDevice=0 StreamParams.Num()=1
+[2026.07.16-20.42.14:454][576]LogAudioMixer: Display: Using Audio Hardware Device スピーカー (2- Realtek(R) Audio)
+[2026.07.16-20.42.14:454][576]LogAudioMixer: Display: Initializing Sound Submixes...
+[2026.07.16-20.42.14:454][576]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2026.07.16-20.42.14:454][576]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2026.07.16-20.42.14:457][576]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=42
+[2026.07.16-20.42.14:464][576]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=42
+[2026.07.16-20.42.14:472][576]LogInit: FAudioDevice initialized with ID 42.
+[2026.07.16-20.42.14:472][576]LogAudio: Display: Audio Device (ID: 42) registered with world 'MainGame_Temp'.
+[2026.07.16-20.42.14:472][576]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 42
+[2026.07.16-20.42.14:542][576]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.42.14:543][576]LogLoad: Game class is 'GameModeBase'
+[2026.07.16-20.42.14:545][576]LogWorld: Bringing World /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp.MainGame_Temp up for play (max tick rate 60) at 2026.07.17-05.42.14
+[2026.07.16-20.42.14:546][576]LogWorld: Bringing up level for play took: 0.002846
+[2026.07.16-20.42.14:556][576]LogOnline: OSS: Created online subsystem instance for: :Context_151
+[2026.07.16-20.42.14:558][576]LogEnhancedInput: Enhanced Input local player subsystem has initialized the user settings!
+[2026.07.16-20.42.14:579][576]PIE: サーバーにログインしました
+[2026.07.16-20.42.14:590][576]PIE: PIE合計開始時間 0.392 秒。
+[2026.07.16-20.42.17:067][599]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.42.17:068][599]LogWorld: BeginTearingDown for /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp
+[2026.07.16-20.42.17:430][599]LogSlate: Window 'Rayla_Feat プレビュー [NetMode: Standalone 0]  (64-ビット/PC D3D SM5)' being destroyed
+[2026.07.16-20.42.17:528][599]LogWorld: UWorld::CleanupWorld for MainGame_Temp, bSessionEnded=true, bCleanupResources=true
+[2026.07.16-20.42.17:529][599]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.42.17:530][599]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2026.07.16-20.42.17:559][599]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.42.17:677][599]LogAudio: Display: Audio Device unregistered from world 'MainGame_Temp'.
+[2026.07.16-20.42.17:679][599]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID 42
+[2026.07.16-20.42.17:680][599]LogAudioMixer: Display: FAudioMixerWasapi::StopAudioStream() InstanceID=42, StreamState=4
+[2026.07.16-20.42.17:706][599]LogAudioMixerWasapi: Display: FWasapiServiceWatcher stopped.
+[2026.07.16-20.42.17:717][599]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.42.17:724][599]LogUObjectHash: Compacting FUObjectHashTables data took   4.27ms
+[2026.07.16-20.42.18:182][602]LogPlayLevel: Display: Destroying online subsystem :Context_151
+[2026.07.16-20.42.31:721][783]LogDebuggerCommands: Repeating last play command: 新規エディタウィンドウ (PIE)
+[2026.07.16-20.42.31:744][783]LogCameraSystemEditor: No camera objects needed building (inspected 0 objects)
+[2026.07.16-20.42.31:744][783]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2026.07.16-20.42.31:745][783]LogPlayLevel: Creating play world package: /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp
+[2026.07.16-20.42.31:755][783]LogPlayLevel: PIE: StaticDuplicateObject took: (0.009039s)
+[2026.07.16-20.42.31:755][783]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/UI_prototype_Namiki/MainGame_Temp.MainGame_Temp to /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp.MainGame_Temp (0.009233s)
+[2026.07.16-20.42.31:859][783]LogUObjectHash: Compacting FUObjectHashTables data took   3.54ms
+[2026.07.16-20.42.31:869][783]LogChaosDD: Creating Chaos Debug Draw Scene for world MainGame_Temp
+[2026.07.16-20.42.31:875][783]LogPlayLevel: PIE: World Init took: (0.005317s)
+[2026.07.16-20.42.31:875][783]LogAudio: Display: Creating Audio Device:                 Id: 43, Scope: Unique, Realtime: True
+[2026.07.16-20.42.31:875][783]LogAudioMixer: Display: bUseRenderScheduler set to true.
+[2026.07.16-20.42.31:875][783]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2026.07.16-20.42.31:875][783]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2026.07.16-20.42.31:875][783]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2026.07.16-20.42.31:875][783]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2026.07.16-20.42.31:875][783]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2026.07.16-20.42.31:875][783]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2026.07.16-20.42.31:875][783]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2026.07.16-20.42.31:875][783]LogAudio: Display: AudioDevice MaxSources: 32
+[2026.07.16-20.42.31:875][783]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2026.07.16-20.42.31:875][783]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2026.07.16-20.42.31:875][783]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2026.07.16-20.42.31:875][783]LogAudioEnumeration: Display: Refreshing FWindowsMMDeviceCache
+[2026.07.16-20.42.31:883][783]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Console', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.42.31:885][783]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Console', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.42.31:886][783]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Multimedia', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.42.31:888][783]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Multimedia', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.42.31:889][783]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Communications', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.42.31:891][783]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Communications', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.42.31:905][783]LogAudioMixerWasapi: Display: FWasapiServiceWatcher started.
+[2026.07.16-20.42.31:905][783]LogAudioMixer: Display: Initializing audio mixer using platform API: 'WASAPIMixer'
+[2026.07.16-20.42.31:905][783]LogAudioMixerWasapi: Display: FWasapiServiceWatcher initial state: Audiosrv=RUNNING, AudioEndpointBuilder=RUNNING
+[2026.07.16-20.42.31:907][783]LogAudioMixerWasapi: FAudioMixerWasapiRenderStream::InitializeHardware DefaultDevicePeriod: 480 requesting buffer size: 1920
+[2026.07.16-20.42.31:938][783]LogAudioMixerWasapi: Display: FAudioMixerWasapiRenderStream::InitializeHardware audio mixer requested num channels: 2, Wasapi render stream hardware supports num channels: 2
+[2026.07.16-20.42.31:938][783]LogAudioMixerWasapi: Display: FAudioMixerWasapiRenderStream::InitializeHardware succeeded with sample rate: 48000, buffer period: 1024
+[2026.07.16-20.42.31:939][783]LogAudioMixer: Display: FAudioMixerWasapi initialized: SampleRate=48000 NumChannels=2 NumDirectOutChannels=0 bIsAggregateDevice=0 StreamParams.Num()=1
+[2026.07.16-20.42.31:939][783]LogAudioMixer: Display: Using Audio Hardware Device スピーカー (2- Realtek(R) Audio)
+[2026.07.16-20.42.31:939][783]LogAudioMixer: Display: Initializing Sound Submixes...
+[2026.07.16-20.42.31:939][783]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2026.07.16-20.42.31:939][783]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2026.07.16-20.42.31:941][783]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=43
+[2026.07.16-20.42.31:947][783]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=43
+[2026.07.16-20.42.31:953][783]LogInit: FAudioDevice initialized with ID 43.
+[2026.07.16-20.42.31:953][783]LogAudio: Display: Audio Device (ID: 43) registered with world 'MainGame_Temp'.
+[2026.07.16-20.42.31:953][783]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 43
+[2026.07.16-20.42.31:988][783]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.42.31:989][783]LogLoad: Game class is 'GameModeBase'
+[2026.07.16-20.42.31:989][783]LogWorld: Bringing World /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp.MainGame_Temp up for play (max tick rate 60) at 2026.07.17-05.42.31
+[2026.07.16-20.42.31:990][783]LogWorld: Bringing up level for play took: 0.001930
+[2026.07.16-20.42.31:999][783]LogOnline: OSS: Created online subsystem instance for: :Context_152
+[2026.07.16-20.42.32:001][783]LogEnhancedInput: Enhanced Input local player subsystem has initialized the user settings!
+[2026.07.16-20.42.32:017][783]PIE: サーバーにログインしました
+[2026.07.16-20.42.32:027][783]PIE: PIE合計開始時間 0.282 秒。
+[2026.07.16-20.42.37:544][842]LogTemp: Warning: ¡HP: 17.000000
+[2026.07.16-20.42.39:219][856]LogTemp: Warning: ¡HP: 18.000000
+[2026.07.16-20.42.40:706][868]LogTemp: Warning: ¡HP: 16.000000
+[2026.07.16-20.42.42:102][879]LogTemp: Warning: ¡HP: 14.000000
+[2026.07.16-20.42.42:910][886]LogTemp: Warning: ¡HP: 11.000000
+[2026.07.16-20.42.43:915][894]LogTemp: Warning: ¡HP: 14.000000
+[2026.07.16-20.42.44:555][899]LogTemp: Warning: ¡HP: 12.000000
+[2026.07.16-20.42.45:062][903]LogTemp: Warning: ¡HP: 10.000000
+[2026.07.16-20.42.45:453][906]LogTemp: Warning: ¡HP: 8.000000
+[2026.07.16-20.42.45:872][909]LogTemp: Warning: ¡HP: 6.000000
+[2026.07.16-20.42.46:436][913]LogTemp: Warning: ¡HP: 4.000000
+[2026.07.16-20.42.47:499][922]LogTemp: Warning: ¡HP: 8.000000
+[2026.07.16-20.42.47:939][926]LogTemp: Warning: ¡HP: 5.000000
+[2026.07.16-20.42.48:348][930]LogTemp: Warning: ¡HP: 2.000000
+[2026.07.16-20.42.49:115][938]LogTemp: Warning: ¡HP: -1.000000
+[2026.07.16-20.42.49:117][938]LogTemp: Warning: ¡HP: 0.000000
+[2026.07.16-20.42.49:149][938]LogSlate: FontCache flush requested. Reason: Large atlases out of space; 2/1 Textures; frames since last flush: 16900739110244482471
+[2026.07.16-20.42.49:151][938]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.42.49:155][938]LogSlate: Display: Flushing composite font cache on Game thread. Clearing 4 entries in composite font map and 20 entries in font face map.
+[2026.07.16-20.42.49:503][939]LogSlate: Display: Synchronously lazy loading font file '../../../Engine/Content/Slate/Fonts/Roboto-Regular.ttf' with subface index 0 in Game thread.
+[2026.07.16-20.42.49:503][939]LogSlate: Display: Took 0.002321 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Regular.ttf' (155K) on Game thread.
+[2026.07.16-20.42.49:503][939]LogSlate: Display: Freetype font face in memory successfully created with synchronously loaded raw font file '../../../Engine/Content/Slate/Fonts/Roboto-Regular.ttf' subface 0 in Game thread.
+[2026.07.16-20.42.49:503][939]LogSlate: Display: Font face '../../../Engine/Content/Slate/Fonts/Roboto-Regular.ttf' subface index 0 successfully added to font face map in Game thread.
+[2026.07.16-20.42.49:546][939]LogSlate: Display: Synchronously lazy loading font file '../../../Engine/Content/Editor/Slate/Fonts/GenEiGothicPro-Regular.otf' with subface index 0 in Game thread.
+[2026.07.16-20.42.49:546][939]LogSlate: Display: Took 0.040160 seconds to synchronously load lazily loaded font '../../../Engine/Content/Editor/Slate/Fonts/GenEiGothicPro-Regular.otf' (707K) on Game thread.
+[2026.07.16-20.42.49:546][939]LogSlate: Display: Freetype font face in memory successfully created with synchronously loaded raw font file '../../../Engine/Content/Editor/Slate/Fonts/GenEiGothicPro-Regular.otf' subface 0 in Game thread.
+[2026.07.16-20.42.49:546][939]LogSlate: Display: Font face '../../../Engine/Content/Editor/Slate/Fonts/GenEiGothicPro-Regular.otf' subface index 0 successfully added to font face map in Game thread.
+[2026.07.16-20.42.49:559][939]LogSlate: Display: Synchronously lazy loading font file '../../../Engine/Content/Slate/Fonts/Roboto-Bold.ttf' with subface index 0 in Game thread.
+[2026.07.16-20.42.49:560][939]LogSlate: Display: Took 0.004808 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Bold.ttf' (160K) on Game thread.
+[2026.07.16-20.42.49:560][939]LogSlate: Display: Freetype font face in memory successfully created with synchronously loaded raw font file '../../../Engine/Content/Slate/Fonts/Roboto-Bold.ttf' subface 0 in Game thread.
+[2026.07.16-20.42.49:560][939]LogSlate: Display: Font face '../../../Engine/Content/Slate/Fonts/Roboto-Bold.ttf' subface index 0 successfully added to font face map in Game thread.
+[2026.07.16-20.42.49:565][939]LogSlate: Display: Synchronously lazy loading font file '../../../Engine/Content/Slate/Fonts/DroidSansMono.ttf' with subface index 0 in Game thread.
+[2026.07.16-20.42.49:565][939]LogSlate: Display: Took 0.003181 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/DroidSansMono.ttf' (77K) on Game thread.
+[2026.07.16-20.42.49:565][939]LogSlate: Display: Freetype font face in memory successfully created with synchronously loaded raw font file '../../../Engine/Content/Slate/Fonts/DroidSansMono.ttf' subface 0 in Game thread.
+[2026.07.16-20.42.49:565][939]LogSlate: Display: Font face '../../../Engine/Content/Slate/Fonts/DroidSansMono.ttf' subface index 0 successfully added to font face map in Game thread.
+[2026.07.16-20.42.49:596][939]LogSlate: Display: Synchronously lazy loading font file '../../../Engine/Content/Editor/Slate/Fonts/GenEiGothicPro-Bold.otf' with subface index 0 in Game thread.
+[2026.07.16-20.42.49:596][939]LogSlate: Display: Took 0.030336 seconds to synchronously load lazily loaded font '../../../Engine/Content/Editor/Slate/Fonts/GenEiGothicPro-Bold.otf' (698K) on Game thread.
+[2026.07.16-20.42.49:596][939]LogSlate: Display: Freetype font face in memory successfully created with synchronously loaded raw font file '../../../Engine/Content/Editor/Slate/Fonts/GenEiGothicPro-Bold.otf' subface 0 in Game thread.
+[2026.07.16-20.42.49:596][939]LogSlate: Display: Font face '../../../Engine/Content/Editor/Slate/Fonts/GenEiGothicPro-Bold.otf' subface index 0 successfully added to font face map in Game thread.
+[2026.07.16-20.42.49:618][939]LogSlate: Display: Synchronously lazy loading font file '../../../Engine/Content/Editor/Slate/Fonts/GenEiGothicPro-SemiBold.otf' with subface index 0 in Game thread.
+[2026.07.16-20.42.49:618][939]LogSlate: Display: Took 0.022459 seconds to synchronously load lazily loaded font '../../../Engine/Content/Editor/Slate/Fonts/GenEiGothicPro-SemiBold.otf' (703K) on Game thread.
+[2026.07.16-20.42.49:618][939]LogSlate: Display: Freetype font face in memory successfully created with synchronously loaded raw font file '../../../Engine/Content/Editor/Slate/Fonts/GenEiGothicPro-SemiBold.otf' subface 0 in Game thread.
+[2026.07.16-20.42.49:618][939]LogSlate: Display: Font face '../../../Engine/Content/Editor/Slate/Fonts/GenEiGothicPro-SemiBold.otf' subface index 0 successfully added to font face map in Game thread.
+[2026.07.16-20.42.49:640][939]LogSlate: Display: Synchronously lazy loading font file '../../../Engine/Content/Editor/Slate/Fonts/GenEiGothicPro-Heavy.otf' with subface index 0 in Game thread.
+[2026.07.16-20.42.49:640][939]LogSlate: Display: Took 0.020714 seconds to synchronously load lazily loaded font '../../../Engine/Content/Editor/Slate/Fonts/GenEiGothicPro-Heavy.otf' (704K) on Game thread.
+[2026.07.16-20.42.49:640][939]LogSlate: Display: Freetype font face in memory successfully created with synchronously loaded raw font file '../../../Engine/Content/Editor/Slate/Fonts/GenEiGothicPro-Heavy.otf' subface 0 in Game thread.
+[2026.07.16-20.42.49:640][939]LogSlate: Display: Font face '../../../Engine/Content/Editor/Slate/Fonts/GenEiGothicPro-Heavy.otf' subface index 0 successfully added to font face map in Game thread.
+[2026.07.16-20.42.49:658][939]LogSlate: Display: Synchronously lazy loading font file '../../../Engine/Content/Editor/Slate/Fonts/GenEiGothicPro-Light.otf' with subface index 0 in Game thread.
+[2026.07.16-20.42.49:658][939]LogSlate: Display: Took 0.018126 seconds to synchronously load lazily loaded font '../../../Engine/Content/Editor/Slate/Fonts/GenEiGothicPro-Light.otf' (713K) on Game thread.
+[2026.07.16-20.42.49:658][939]LogSlate: Display: Freetype font face in memory successfully created with synchronously loaded raw font file '../../../Engine/Content/Editor/Slate/Fonts/GenEiGothicPro-Light.otf' subface 0 in Game thread.
+[2026.07.16-20.42.49:658][939]LogSlate: Display: Font face '../../../Engine/Content/Editor/Slate/Fonts/GenEiGothicPro-Light.otf' subface index 0 successfully added to font face map in Game thread.
+[2026.07.16-20.42.49:661][939]LogSlate: Display: Font face '../../Content/Slate/Fonts/Roboto-Bold.ttf' subface index 0 successfully added to font face map in Game thread.
+[2026.07.16-20.42.49:661][939]LogSlate: Display: Font face '../../Content/Slate/Fonts/Roboto-Regular.ttf' subface index 0 successfully added to font face map in Game thread.
+[2026.07.16-20.42.49:661][939]LogSlate: Display: Font face 'F:\Perforce\Releases\4.24\Engine\Content\Slate\Fonts\DroidSansFallback.ttf' subface index 0 successfully added to font face map in Game thread.
+[2026.07.16-20.42.49:663][939]LogSlate: Display: Font face '../../Content/Slate/Testing/Fonts/Roboto-Italic.ttf' subface index 0 successfully added to font face map in Game thread.
+[2026.07.16-20.43.02:614][ 39]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.43.02:614][ 39]LogWorld: BeginTearingDown for /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp
+[2026.07.16-20.43.02:775][ 39]LogSlate: Window 'Rayla_Feat プレビュー [NetMode: Standalone 0]  (64-ビット/PC D3D SM5)' being destroyed
+[2026.07.16-20.43.02:891][ 39]LogWorld: UWorld::CleanupWorld for MainGame_Temp, bSessionEnded=true, bCleanupResources=true
+[2026.07.16-20.43.02:892][ 39]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.43.02:893][ 39]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2026.07.16-20.43.02:912][ 39]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.43.03:002][ 39]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.43.03:002][ 39]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID 43
+[2026.07.16-20.43.03:004][ 39]LogAudioMixer: Display: FAudioMixerWasapi::StopAudioStream() InstanceID=43, StreamState=4
+[2026.07.16-20.43.03:028][ 39]LogAudioMixerWasapi: Display: FWasapiServiceWatcher stopped.
+[2026.07.16-20.43.03:042][ 39]LogUObjectHash: Compacting FUObjectHashTables data took   4.06ms
+[2026.07.16-20.43.03:249][ 42]LogPlayLevel: Display: Destroying online subsystem :Context_152
+[2026.07.16-20.43.22:976][418]LogDebuggerCommands: Repeating last play command: 新規エディタウィンドウ (PIE)
+[2026.07.16-20.43.23:013][418]LogCameraSystemEditor: No camera objects needed building (inspected 0 objects)
+[2026.07.16-20.43.23:013][418]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2026.07.16-20.43.23:015][418]LogPlayLevel: Creating play world package: /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp
+[2026.07.16-20.43.23:028][418]LogPlayLevel: PIE: StaticDuplicateObject took: (0.014009s)
+[2026.07.16-20.43.23:028][418]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/UI_prototype_Namiki/MainGame_Temp.MainGame_Temp to /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp.MainGame_Temp (0.014257s)
+[2026.07.16-20.43.23:152][418]LogUObjectHash: Compacting FUObjectHashTables data took   5.80ms
+[2026.07.16-20.43.23:168][418]LogChaosDD: Creating Chaos Debug Draw Scene for world MainGame_Temp
+[2026.07.16-20.43.23:177][418]LogPlayLevel: PIE: World Init took: (0.009098s)
+[2026.07.16-20.43.23:177][418]LogAudio: Display: Creating Audio Device:                 Id: 44, Scope: Unique, Realtime: True
+[2026.07.16-20.43.23:177][418]LogAudioMixer: Display: bUseRenderScheduler set to true.
+[2026.07.16-20.43.23:177][418]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2026.07.16-20.43.23:177][418]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2026.07.16-20.43.23:178][418]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2026.07.16-20.43.23:178][418]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2026.07.16-20.43.23:178][418]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2026.07.16-20.43.23:178][418]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2026.07.16-20.43.23:178][418]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2026.07.16-20.43.23:178][418]LogAudio: Display: AudioDevice MaxSources: 32
+[2026.07.16-20.43.23:178][418]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2026.07.16-20.43.23:178][418]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2026.07.16-20.43.23:178][418]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2026.07.16-20.43.23:178][418]LogAudioEnumeration: Display: Refreshing FWindowsMMDeviceCache
+[2026.07.16-20.43.23:188][418]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Console', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.43.23:189][418]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Console', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.43.23:191][418]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Multimedia', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.43.23:193][418]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Multimedia', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.43.23:195][418]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Communications', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.43.23:196][418]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Communications', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.43.23:211][418]LogAudioMixerWasapi: Display: FWasapiServiceWatcher started.
+[2026.07.16-20.43.23:211][418]LogAudioMixer: Display: Initializing audio mixer using platform API: 'WASAPIMixer'
+[2026.07.16-20.43.23:211][418]LogAudioMixerWasapi: Display: FWasapiServiceWatcher initial state: Audiosrv=RUNNING, AudioEndpointBuilder=RUNNING
+[2026.07.16-20.43.23:214][418]LogAudioMixerWasapi: FAudioMixerWasapiRenderStream::InitializeHardware DefaultDevicePeriod: 480 requesting buffer size: 1920
+[2026.07.16-20.43.23:254][418]LogAudioMixerWasapi: Display: FAudioMixerWasapiRenderStream::InitializeHardware audio mixer requested num channels: 2, Wasapi render stream hardware supports num channels: 2
+[2026.07.16-20.43.23:254][418]LogAudioMixerWasapi: Display: FAudioMixerWasapiRenderStream::InitializeHardware succeeded with sample rate: 48000, buffer period: 1024
+[2026.07.16-20.43.23:254][418]LogAudioMixer: Display: FAudioMixerWasapi initialized: SampleRate=48000 NumChannels=2 NumDirectOutChannels=0 bIsAggregateDevice=0 StreamParams.Num()=1
+[2026.07.16-20.43.23:254][418]LogAudioMixer: Display: Using Audio Hardware Device スピーカー (2- Realtek(R) Audio)
+[2026.07.16-20.43.23:255][418]LogAudioMixer: Display: Initializing Sound Submixes...
+[2026.07.16-20.43.23:255][418]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2026.07.16-20.43.23:255][418]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2026.07.16-20.43.23:256][418]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=44
+[2026.07.16-20.43.23:263][418]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=44
+[2026.07.16-20.43.23:271][418]LogInit: FAudioDevice initialized with ID 44.
+[2026.07.16-20.43.23:272][418]LogAudio: Display: Audio Device (ID: 44) registered with world 'MainGame_Temp'.
+[2026.07.16-20.43.23:272][418]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 44
+[2026.07.16-20.43.23:325][418]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.43.23:325][418]LogLoad: Game class is 'GameModeBase'
+[2026.07.16-20.43.23:329][418]LogWorld: Bringing World /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp.MainGame_Temp up for play (max tick rate 60) at 2026.07.17-05.43.23
+[2026.07.16-20.43.23:330][418]LogWorld: Bringing up level for play took: 0.005215
+[2026.07.16-20.43.23:340][418]LogOnline: OSS: Created online subsystem instance for: :Context_153
+[2026.07.16-20.43.23:342][418]LogEnhancedInput: Enhanced Input local player subsystem has initialized the user settings!
+[2026.07.16-20.43.23:364][418]PIE: サーバーにログインしました
+[2026.07.16-20.43.23:376][418]PIE: PIE合計開始時間 0.363 秒。
+[2026.07.16-20.43.23:422][419]LogCsvProfiler: Display: Metadata set : systemresolution.resx="1920"
+[2026.07.16-20.43.23:423][419]LogCsvProfiler: Display: Metadata set : systemresolution.resy="957"
+[2026.07.16-20.43.27:336][446]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.43.27:336][446]LogWorld: BeginTearingDown for /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp
+[2026.07.16-20.43.27:754][446]LogSlate: Window 'Rayla_Feat プレビュー [NetMode: Standalone 0]  (64-ビット/PC D3D SM5)' being destroyed
+[2026.07.16-20.43.27:956][446]LogWorld: UWorld::CleanupWorld for MainGame_Temp, bSessionEnded=true, bCleanupResources=true
+[2026.07.16-20.43.27:958][446]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.43.27:959][446]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2026.07.16-20.43.27:988][446]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.43.28:118][446]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.43.28:119][446]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID 44
+[2026.07.16-20.43.28:120][446]LogAudioMixer: Display: FAudioMixerWasapi::StopAudioStream() InstanceID=44, StreamState=4
+[2026.07.16-20.43.28:151][446]LogAudioMixerWasapi: Display: FWasapiServiceWatcher stopped.
+[2026.07.16-20.43.28:170][446]LogUObjectHash: Compacting FUObjectHashTables data took   4.03ms
+[2026.07.16-20.43.28:436][449]LogPlayLevel: Display: Destroying online subsystem :Context_153
+[2026.07.16-20.43.41:158][687]LogDebuggerCommands: Repeating last play command: 新規エディタウィンドウ (PIE)
+[2026.07.16-20.43.41:175][687]LogCameraSystemEditor: No camera objects needed building (inspected 0 objects)
+[2026.07.16-20.43.41:175][687]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2026.07.16-20.43.41:176][687]LogPlayLevel: Creating play world package: /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp
+[2026.07.16-20.43.41:186][687]LogPlayLevel: PIE: StaticDuplicateObject took: (0.010060s)
+[2026.07.16-20.43.41:187][687]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/UI_prototype_Namiki/MainGame_Temp.MainGame_Temp to /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp.MainGame_Temp (0.010287s)
+[2026.07.16-20.43.41:321][687]LogUObjectHash: Compacting FUObjectHashTables data took   6.58ms
+[2026.07.16-20.43.41:336][687]LogChaosDD: Creating Chaos Debug Draw Scene for world MainGame_Temp
+[2026.07.16-20.43.41:346][687]LogPlayLevel: PIE: World Init took: (0.009510s)
+[2026.07.16-20.43.41:346][687]LogAudio: Display: Creating Audio Device:                 Id: 45, Scope: Unique, Realtime: True
+[2026.07.16-20.43.41:346][687]LogAudioMixer: Display: bUseRenderScheduler set to true.
+[2026.07.16-20.43.41:346][687]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2026.07.16-20.43.41:346][687]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2026.07.16-20.43.41:346][687]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2026.07.16-20.43.41:346][687]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2026.07.16-20.43.41:346][687]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2026.07.16-20.43.41:346][687]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2026.07.16-20.43.41:346][687]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2026.07.16-20.43.41:346][687]LogAudio: Display: AudioDevice MaxSources: 32
+[2026.07.16-20.43.41:346][687]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2026.07.16-20.43.41:346][687]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2026.07.16-20.43.41:346][687]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2026.07.16-20.43.41:348][687]LogAudioEnumeration: Display: Refreshing FWindowsMMDeviceCache
+[2026.07.16-20.43.41:370][687]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Console', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.43.41:372][687]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Console', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.43.41:373][687]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Multimedia', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.43.41:376][687]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Multimedia', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.43.41:377][687]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Communications', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.43.41:379][687]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Communications', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.43.41:395][687]LogAudioMixerWasapi: Display: FWasapiServiceWatcher started.
+[2026.07.16-20.43.41:395][687]LogAudioMixer: Display: Initializing audio mixer using platform API: 'WASAPIMixer'
+[2026.07.16-20.43.41:395][687]LogAudioMixerWasapi: Display: FWasapiServiceWatcher initial state: Audiosrv=RUNNING, AudioEndpointBuilder=RUNNING
+[2026.07.16-20.43.41:397][687]LogAudioMixerWasapi: FAudioMixerWasapiRenderStream::InitializeHardware DefaultDevicePeriod: 480 requesting buffer size: 1920
+[2026.07.16-20.43.41:435][687]LogAudioMixerWasapi: Display: FAudioMixerWasapiRenderStream::InitializeHardware audio mixer requested num channels: 2, Wasapi render stream hardware supports num channels: 2
+[2026.07.16-20.43.41:435][687]LogAudioMixerWasapi: Display: FAudioMixerWasapiRenderStream::InitializeHardware succeeded with sample rate: 48000, buffer period: 1024
+[2026.07.16-20.43.41:435][687]LogAudioMixer: Display: FAudioMixerWasapi initialized: SampleRate=48000 NumChannels=2 NumDirectOutChannels=0 bIsAggregateDevice=0 StreamParams.Num()=1
+[2026.07.16-20.43.41:435][687]LogAudioMixer: Display: Using Audio Hardware Device スピーカー (2- Realtek(R) Audio)
+[2026.07.16-20.43.41:436][687]LogAudioMixer: Display: Initializing Sound Submixes...
+[2026.07.16-20.43.41:436][687]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2026.07.16-20.43.41:436][687]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2026.07.16-20.43.41:437][687]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=45
+[2026.07.16-20.43.41:445][687]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=45
+[2026.07.16-20.43.41:452][687]LogInit: FAudioDevice initialized with ID 45.
+[2026.07.16-20.43.41:452][687]LogAudio: Display: Audio Device (ID: 45) registered with world 'MainGame_Temp'.
+[2026.07.16-20.43.41:452][687]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 45
+[2026.07.16-20.43.41:512][687]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.43.41:513][687]LogLoad: Game class is 'GameModeBase'
+[2026.07.16-20.43.41:514][687]LogWorld: Bringing World /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp.MainGame_Temp up for play (max tick rate 60) at 2026.07.17-05.43.41
+[2026.07.16-20.43.41:515][687]LogWorld: Bringing up level for play took: 0.002432
+[2026.07.16-20.43.41:523][687]LogOnline: OSS: Created online subsystem instance for: :Context_154
+[2026.07.16-20.43.41:525][687]LogEnhancedInput: Enhanced Input local player subsystem has initialized the user settings!
+[2026.07.16-20.43.41:542][687]PIE: サーバーにログインしました
+[2026.07.16-20.43.41:554][687]PIE: PIE合計開始時間 0.379 秒。
+[2026.07.16-20.43.46:184][727]LogTemp: Warning: ¡HP: 17.000000
+[2026.07.16-20.43.46:904][733]LogTemp: Warning: ¡HP: 14.000000
+[2026.07.16-20.43.47:391][737]LogTemp: Warning: ¡HP: 11.000000
+[2026.07.16-20.43.48:412][745]LogTemp: Warning: ¡HP: 18.000000
+[2026.07.16-20.43.49:295][751]LogTemp: Warning: ¡HP: 16.000000
+[2026.07.16-20.43.49:819][755]LogTemp: Warning: ¡HP: 14.000000
+[2026.07.16-20.43.50:327][759]LogTemp: Warning: ¡HP: 12.000000
+[2026.07.16-20.43.50:713][762]LogTemp: Warning: ¡HP: 10.000000
+[2026.07.16-20.43.51:249][766]LogTemp: Warning: ¡HP: 8.000000
+[2026.07.16-20.43.51:655][769]LogTemp: Warning: ¡HP: 6.000000
+[2026.07.16-20.43.52:778][777]LogTemp: Warning: ¡HP: 8.000000
+[2026.07.16-20.43.53:055][779]LogTemp: Warning: ¡HP: 5.000000
+[2026.07.16-20.43.53:351][781]LogTemp: Warning: ¡HP: 2.000000
+[2026.07.16-20.43.53:355][781]LogTemp: Warning: ¡HP: -1.000000
+[2026.07.16-20.43.53:357][781]LogTemp: Warning: ¡HP: 0.000000
+[2026.07.16-20.43.59:617][825]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.43.59:618][825]LogWorld: BeginTearingDown for /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp
+[2026.07.16-20.43.59:842][825]LogSlate: Window 'Rayla_Feat プレビュー [NetMode: Standalone 0]  (64-ビット/PC D3D SM5)' being destroyed
+[2026.07.16-20.44.00:139][825]LogWorld: UWorld::CleanupWorld for MainGame_Temp, bSessionEnded=true, bCleanupResources=true
+[2026.07.16-20.44.00:139][825]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.44.00:141][825]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2026.07.16-20.44.00:172][825]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.44.00:299][825]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.44.00:301][825]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID 45
+[2026.07.16-20.44.00:302][825]LogAudioMixer: Display: FAudioMixerWasapi::StopAudioStream() InstanceID=45, StreamState=4
+[2026.07.16-20.44.00:333][825]LogAudioMixerWasapi: Display: FWasapiServiceWatcher stopped.
+[2026.07.16-20.44.00:354][825]LogUObjectHash: Compacting FUObjectHashTables data took   7.13ms
+[2026.07.16-20.44.00:744][828]LogPlayLevel: Display: Destroying online subsystem :Context_154
+[2026.07.16-20.44.01:708][837]LogDebuggerCommands: Repeating last play command: 新規エディタウィンドウ (PIE)
+[2026.07.16-20.44.01:749][837]LogCameraSystemEditor: No camera objects needed building (inspected 0 objects)
+[2026.07.16-20.44.01:749][837]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2026.07.16-20.44.01:750][837]LogPlayLevel: Creating play world package: /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp
+[2026.07.16-20.44.01:763][837]LogPlayLevel: PIE: StaticDuplicateObject took: (0.013580s)
+[2026.07.16-20.44.01:763][837]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/UI_prototype_Namiki/MainGame_Temp.MainGame_Temp to /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp.MainGame_Temp (0.013861s)
+[2026.07.16-20.44.01:903][837]LogUObjectHash: Compacting FUObjectHashTables data took   7.28ms
+[2026.07.16-20.44.01:921][837]LogChaosDD: Creating Chaos Debug Draw Scene for world MainGame_Temp
+[2026.07.16-20.44.01:931][837]LogPlayLevel: PIE: World Init took: (0.010174s)
+[2026.07.16-20.44.01:931][837]LogAudio: Display: Creating Audio Device:                 Id: 46, Scope: Unique, Realtime: True
+[2026.07.16-20.44.01:931][837]LogAudioMixer: Display: bUseRenderScheduler set to true.
+[2026.07.16-20.44.01:931][837]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2026.07.16-20.44.01:931][837]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2026.07.16-20.44.01:932][837]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2026.07.16-20.44.01:932][837]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2026.07.16-20.44.01:932][837]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2026.07.16-20.44.01:932][837]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2026.07.16-20.44.01:932][837]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2026.07.16-20.44.01:932][837]LogAudio: Display: AudioDevice MaxSources: 32
+[2026.07.16-20.44.01:932][837]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2026.07.16-20.44.01:932][837]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2026.07.16-20.44.01:932][837]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2026.07.16-20.44.01:934][837]LogAudioEnumeration: Display: Refreshing FWindowsMMDeviceCache
+[2026.07.16-20.44.01:959][837]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Console', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.44.01:962][837]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Console', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.44.01:965][837]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Multimedia', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.44.01:970][837]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Multimedia', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.44.01:975][837]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Communications', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.44.01:980][837]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Communications', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.44.02:006][837]LogAudioMixerWasapi: Display: FWasapiServiceWatcher started.
+[2026.07.16-20.44.02:006][837]LogAudioMixer: Display: Initializing audio mixer using platform API: 'WASAPIMixer'
+[2026.07.16-20.44.02:006][837]LogAudioMixerWasapi: Display: FWasapiServiceWatcher initial state: Audiosrv=RUNNING, AudioEndpointBuilder=RUNNING
+[2026.07.16-20.44.02:010][837]LogAudioMixerWasapi: FAudioMixerWasapiRenderStream::InitializeHardware DefaultDevicePeriod: 480 requesting buffer size: 1920
+[2026.07.16-20.44.02:074][837]LogAudioMixerWasapi: Display: FAudioMixerWasapiRenderStream::InitializeHardware audio mixer requested num channels: 2, Wasapi render stream hardware supports num channels: 2
+[2026.07.16-20.44.02:074][837]LogAudioMixerWasapi: Display: FAudioMixerWasapiRenderStream::InitializeHardware succeeded with sample rate: 48000, buffer period: 1024
+[2026.07.16-20.44.02:074][837]LogAudioMixer: Display: FAudioMixerWasapi initialized: SampleRate=48000 NumChannels=2 NumDirectOutChannels=0 bIsAggregateDevice=0 StreamParams.Num()=1
+[2026.07.16-20.44.02:074][837]LogAudioMixer: Display: Using Audio Hardware Device スピーカー (2- Realtek(R) Audio)
+[2026.07.16-20.44.02:075][837]LogAudioMixer: Display: Initializing Sound Submixes...
+[2026.07.16-20.44.02:075][837]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2026.07.16-20.44.02:075][837]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2026.07.16-20.44.02:078][837]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=46
+[2026.07.16-20.44.02:086][837]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=46
+[2026.07.16-20.44.02:096][837]LogInit: FAudioDevice initialized with ID 46.
+[2026.07.16-20.44.02:096][837]LogAudio: Display: Audio Device (ID: 46) registered with world 'MainGame_Temp'.
+[2026.07.16-20.44.02:096][837]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 46
+[2026.07.16-20.44.02:160][837]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.44.02:161][837]LogLoad: Game class is 'GameModeBase'
+[2026.07.16-20.44.02:164][837]LogWorld: Bringing World /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp.MainGame_Temp up for play (max tick rate 60) at 2026.07.17-05.44.02
+[2026.07.16-20.44.02:165][837]LogWorld: Bringing up level for play took: 0.004898
+[2026.07.16-20.44.02:179][837]LogOnline: OSS: Created online subsystem instance for: :Context_155
+[2026.07.16-20.44.02:183][837]LogEnhancedInput: Enhanced Input local player subsystem has initialized the user settings!
+[2026.07.16-20.44.02:203][837]PIE: サーバーにログインしました
+[2026.07.16-20.44.02:219][837]PIE: PIE合計開始時間 0.472 秒。
+[2026.07.16-20.44.02:274][838]LogCsvProfiler: Display: Metadata set : systemresolution.resx="1911"
+[2026.07.16-20.44.02:274][838]LogCsvProfiler: Display: Metadata set : systemresolution.resy="948"
+[2026.07.16-20.44.03:781][848]LogTemp: Warning: ¡HP: 18.000000
+[2026.07.16-20.44.04:133][851]LogTemp: Warning: ¡HP: 16.000000
+[2026.07.16-20.44.04:415][853]LogTemp: Warning: ¡HP: 14.000000
+[2026.07.16-20.44.04:553][854]LogTemp: Warning: ¡HP: 12.000000
+[2026.07.16-20.44.04:883][856]LogTemp: Warning: ¡HP: 10.000000
+[2026.07.16-20.44.04:886][856]LogTemp: Warning: ¡HP: 8.000000
+[2026.07.16-20.44.05:298][858]LogTemp: Warning: ¡HP: 6.000000
+[2026.07.16-20.44.05:520][859]LogTemp: Warning: ¡HP: 4.000000
+[2026.07.16-20.44.05:940][862]LogTemp: Warning: ¡HP: 2.000000
+[2026.07.16-20.44.05:943][862]LogTemp: Warning: ¡HP: 0.000000
+[2026.07.16-20.44.05:944][862]LogTemp: Warning: ¡HP: 0.000000
+[2026.07.16-20.45.05:867][340]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.45.05:868][340]LogWorld: BeginTearingDown for /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp
+[2026.07.16-20.45.06:065][340]LogSlate: Window 'Rayla_Feat プレビュー [NetMode: Standalone 0]  (64-ビット/PC D3D SM5)' being destroyed
+[2026.07.16-20.45.06:167][340]LogWorld: UWorld::CleanupWorld for MainGame_Temp, bSessionEnded=true, bCleanupResources=true
+[2026.07.16-20.45.06:169][340]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.45.06:170][340]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2026.07.16-20.45.06:192][340]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.45.06:300][340]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.45.06:300][340]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID 46
+[2026.07.16-20.45.06:301][340]LogAudioMixer: Display: FAudioMixerWasapi::StopAudioStream() InstanceID=46, StreamState=4
+[2026.07.16-20.45.06:326][340]LogAudioMixerWasapi: Display: FWasapiServiceWatcher stopped.
+[2026.07.16-20.45.06:343][340]LogUObjectHash: Compacting FUObjectHashTables data took   3.74ms
+[2026.07.16-20.45.06:657][343]LogPlayLevel: Display: Destroying online subsystem :Context_155
+[2026.07.16-20.46.39:233][988]LogCameraSystemEditor: No camera objects needed building (inspected 0 objects)
+[2026.07.16-20.46.39:233][988]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2026.07.16-20.46.39:234][988]LogPlayLevel: Creating play world package: /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp
+[2026.07.16-20.46.39:246][988]LogPlayLevel: PIE: StaticDuplicateObject took: (0.012274s)
+[2026.07.16-20.46.39:246][988]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/UI_prototype_Namiki/MainGame_Temp.MainGame_Temp to /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp.MainGame_Temp (0.012488s)
+[2026.07.16-20.46.39:370][988]LogUObjectHash: Compacting FUObjectHashTables data took   5.72ms
+[2026.07.16-20.46.39:386][988]LogChaosDD: Creating Chaos Debug Draw Scene for world MainGame_Temp
+[2026.07.16-20.46.39:394][988]LogPlayLevel: PIE: World Init took: (0.008817s)
+[2026.07.16-20.46.39:394][988]LogAudio: Display: Creating Audio Device:                 Id: 47, Scope: Unique, Realtime: True
+[2026.07.16-20.46.39:394][988]LogAudioMixer: Display: bUseRenderScheduler set to true.
+[2026.07.16-20.46.39:394][988]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2026.07.16-20.46.39:394][988]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2026.07.16-20.46.39:394][988]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2026.07.16-20.46.39:394][988]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2026.07.16-20.46.39:394][988]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2026.07.16-20.46.39:394][988]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2026.07.16-20.46.39:394][988]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2026.07.16-20.46.39:394][988]LogAudio: Display: AudioDevice MaxSources: 32
+[2026.07.16-20.46.39:395][988]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2026.07.16-20.46.39:395][988]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2026.07.16-20.46.39:395][988]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2026.07.16-20.46.39:397][988]LogAudioEnumeration: Display: Refreshing FWindowsMMDeviceCache
+[2026.07.16-20.46.39:418][988]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Console', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.46.39:421][988]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Console', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.46.39:422][988]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Multimedia', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.46.39:425][988]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Multimedia', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.46.39:427][988]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Communications', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.46.39:428][988]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Communications', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.46.39:447][988]LogAudioMixerWasapi: Display: FWasapiServiceWatcher started.
+[2026.07.16-20.46.39:447][988]LogAudioMixer: Display: Initializing audio mixer using platform API: 'WASAPIMixer'
+[2026.07.16-20.46.39:447][988]LogAudioMixerWasapi: Display: FWasapiServiceWatcher initial state: Audiosrv=RUNNING, AudioEndpointBuilder=RUNNING
+[2026.07.16-20.46.39:449][988]LogAudioMixerWasapi: FAudioMixerWasapiRenderStream::InitializeHardware DefaultDevicePeriod: 480 requesting buffer size: 1920
+[2026.07.16-20.46.39:487][988]LogAudioMixerWasapi: Display: FAudioMixerWasapiRenderStream::InitializeHardware audio mixer requested num channels: 2, Wasapi render stream hardware supports num channels: 2
+[2026.07.16-20.46.39:488][988]LogAudioMixerWasapi: Display: FAudioMixerWasapiRenderStream::InitializeHardware succeeded with sample rate: 48000, buffer period: 1024
+[2026.07.16-20.46.39:488][988]LogAudioMixer: Display: FAudioMixerWasapi initialized: SampleRate=48000 NumChannels=2 NumDirectOutChannels=0 bIsAggregateDevice=0 StreamParams.Num()=1
+[2026.07.16-20.46.39:488][988]LogAudioMixer: Display: Using Audio Hardware Device スピーカー (2- Realtek(R) Audio)
+[2026.07.16-20.46.39:489][988]LogAudioMixer: Display: Initializing Sound Submixes...
+[2026.07.16-20.46.39:489][988]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2026.07.16-20.46.39:489][988]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2026.07.16-20.46.39:495][988]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=47
+[2026.07.16-20.46.39:502][988]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=47
+[2026.07.16-20.46.39:508][988]LogInit: FAudioDevice initialized with ID 47.
+[2026.07.16-20.46.39:508][988]LogAudio: Display: Audio Device (ID: 47) registered with world 'MainGame_Temp'.
+[2026.07.16-20.46.39:508][988]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 47
+[2026.07.16-20.46.39:510][988]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.46.39:530][988]LogLoad: Game class is 'GameModeBase'
+[2026.07.16-20.46.39:533][988]LogWorld: Bringing World /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp.MainGame_Temp up for play (max tick rate 60) at 2026.07.17-05.46.39
+[2026.07.16-20.46.39:534][988]LogWorld: Bringing up level for play took: 0.002919
+[2026.07.16-20.46.39:541][988]LogOnline: OSS: Created online subsystem instance for: :Context_156
+[2026.07.16-20.46.39:542][988]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2026.07.16-20.46.39:542][988]LogEnhancedInput: Enhanced Input local player subsystem has initialized the user settings!
+[2026.07.16-20.46.39:554][988]PIE: サーバーにログインしました
+[2026.07.16-20.46.39:564][988]PIE: PIE合計開始時間 0.331 秒。
+[2026.07.16-20.46.42:489][ 34]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.46.42:489][ 34]LogWorld: BeginTearingDown for /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp
+[2026.07.16-20.46.42:491][ 34]LogWorld: UWorld::CleanupWorld for MainGame_Temp, bSessionEnded=true, bCleanupResources=true
+[2026.07.16-20.46.42:491][ 34]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.46.42:497][ 34]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2026.07.16-20.46.42:510][ 34]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.46.42:592][ 34]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.46.42:592][ 34]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID 47
+[2026.07.16-20.46.42:594][ 34]LogAudioMixer: Display: FAudioMixerWasapi::StopAudioStream() InstanceID=47, StreamState=4
+[2026.07.16-20.46.42:637][ 34]LogAudioMixerWasapi: Display: FWasapiServiceWatcher stopped.
+[2026.07.16-20.46.42:650][ 34]LogUObjectHash: Compacting FUObjectHashTables data took   3.35ms
+[2026.07.16-20.46.42:879][ 37]LogPlayLevel: Display: Destroying online subsystem :Context_156
+[2026.07.16-20.47.09:212][509]LogCameraSystemEditor: No camera objects needed building (inspected 0 objects)
+[2026.07.16-20.47.09:212][509]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2026.07.16-20.47.09:213][509]LogPlayLevel: Creating play world package: /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp
+[2026.07.16-20.47.09:224][509]LogPlayLevel: PIE: StaticDuplicateObject took: (0.010628s)
+[2026.07.16-20.47.09:224][509]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/UI_prototype_Namiki/MainGame_Temp.MainGame_Temp to /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp.MainGame_Temp (0.010840s)
+[2026.07.16-20.47.09:356][509]LogUObjectHash: Compacting FUObjectHashTables data took   6.37ms
+[2026.07.16-20.47.09:374][509]LogChaosDD: Creating Chaos Debug Draw Scene for world MainGame_Temp
+[2026.07.16-20.47.09:387][509]LogPlayLevel: PIE: World Init took: (0.011496s)
+[2026.07.16-20.47.09:387][509]LogAudio: Display: Creating Audio Device:                 Id: 48, Scope: Unique, Realtime: True
+[2026.07.16-20.47.09:387][509]LogAudioMixer: Display: bUseRenderScheduler set to true.
+[2026.07.16-20.47.09:387][509]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2026.07.16-20.47.09:387][509]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2026.07.16-20.47.09:387][509]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2026.07.16-20.47.09:387][509]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2026.07.16-20.47.09:387][509]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2026.07.16-20.47.09:387][509]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2026.07.16-20.47.09:387][509]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2026.07.16-20.47.09:388][509]LogAudio: Display: AudioDevice MaxSources: 32
+[2026.07.16-20.47.09:388][509]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2026.07.16-20.47.09:388][509]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2026.07.16-20.47.09:388][509]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2026.07.16-20.47.09:389][509]LogAudioEnumeration: Display: Refreshing FWindowsMMDeviceCache
+[2026.07.16-20.47.09:418][509]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Console', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.47.09:423][509]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Console', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.47.09:429][509]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Multimedia', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.47.09:435][509]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Multimedia', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.47.09:440][509]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Communications', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.47.09:443][509]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Communications', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.47.09:466][509]LogAudioMixerWasapi: Display: FWasapiServiceWatcher started.
+[2026.07.16-20.47.09:466][509]LogAudioMixer: Display: Initializing audio mixer using platform API: 'WASAPIMixer'
+[2026.07.16-20.47.09:468][509]LogAudioMixerWasapi: Display: FWasapiServiceWatcher initial state: Audiosrv=RUNNING, AudioEndpointBuilder=RUNNING
+[2026.07.16-20.47.09:470][509]LogAudioMixerWasapi: FAudioMixerWasapiRenderStream::InitializeHardware DefaultDevicePeriod: 480 requesting buffer size: 1920
+[2026.07.16-20.47.09:511][509]LogAudioMixerWasapi: Display: FAudioMixerWasapiRenderStream::InitializeHardware audio mixer requested num channels: 2, Wasapi render stream hardware supports num channels: 2
+[2026.07.16-20.47.09:511][509]LogAudioMixerWasapi: Display: FAudioMixerWasapiRenderStream::InitializeHardware succeeded with sample rate: 48000, buffer period: 1024
+[2026.07.16-20.47.09:511][509]LogAudioMixer: Display: FAudioMixerWasapi initialized: SampleRate=48000 NumChannels=2 NumDirectOutChannels=0 bIsAggregateDevice=0 StreamParams.Num()=1
+[2026.07.16-20.47.09:511][509]LogAudioMixer: Display: Using Audio Hardware Device スピーカー (2- Realtek(R) Audio)
+[2026.07.16-20.47.09:512][509]LogAudioMixer: Display: Initializing Sound Submixes...
+[2026.07.16-20.47.09:512][509]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2026.07.16-20.47.09:512][509]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2026.07.16-20.47.09:514][509]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=48
+[2026.07.16-20.47.09:522][509]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=48
+[2026.07.16-20.47.09:530][509]LogInit: FAudioDevice initialized with ID 48.
+[2026.07.16-20.47.09:530][509]LogAudio: Display: Audio Device (ID: 48) registered with world 'MainGame_Temp'.
+[2026.07.16-20.47.09:530][509]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 48
+[2026.07.16-20.47.09:532][509]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.47.09:552][509]LogLoad: Game class is 'GameModeBase'
+[2026.07.16-20.47.09:556][509]LogWorld: Bringing World /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp.MainGame_Temp up for play (max tick rate 60) at 2026.07.17-05.47.09
+[2026.07.16-20.47.09:557][509]LogWorld: Bringing up level for play took: 0.003308
+[2026.07.16-20.47.09:566][509]LogOnline: OSS: Created online subsystem instance for: :Context_157
+[2026.07.16-20.47.09:566][509]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2026.07.16-20.47.09:567][509]LogEnhancedInput: Enhanced Input local player subsystem has initialized the user settings!
+[2026.07.16-20.47.09:570][509]PIE: サーバーにログインしました
+[2026.07.16-20.47.09:581][509]PIE: PIE合計開始時間 0.37 秒。
+[2026.07.16-20.47.10:899][525]LogTemp: Warning: ¡HP: 17.000000
+[2026.07.16-20.47.11:311][530]LogTemp: Warning: ¡HP: 14.000000
+[2026.07.16-20.47.11:740][535]LogTemp: Warning: ¡HP: 11.000000
+[2026.07.16-20.47.11:996][537]LogTemp: Warning: ¡HP: 8.000000
+[2026.07.16-20.47.12:561][544]LogTemp: Warning: ¡HP: 5.000000
+[2026.07.16-20.47.13:071][550]LogTemp: Warning: ¡HP: 2.000000
+[2026.07.16-20.47.14:103][561]LogTemp: Warning: ¡HP: 18.000000
+[2026.07.16-20.47.14:455][565]LogTemp: Warning: ¡HP: 16.000000
+[2026.07.16-20.47.14:900][571]LogTemp: Warning: ¡HP: 14.000000
+[2026.07.16-20.47.15:332][576]LogTemp: Warning: ¡HP: 12.000000
+[2026.07.16-20.47.15:558][579]LogTemp: Warning: ¡HP: 10.000000
+[2026.07.16-20.47.17:410][600]LogTemp: Warning: ¡HP: -1.000000
+[2026.07.16-20.47.17:410][600]LogTemp: Warning: ¡HP: 0.000000
+[2026.07.16-20.47.22:256][643]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.47.22:256][643]LogWorld: BeginTearingDown for /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp
+[2026.07.16-20.47.22:258][643]LogWorld: UWorld::CleanupWorld for MainGame_Temp, bSessionEnded=true, bCleanupResources=true
+[2026.07.16-20.47.22:259][643]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.47.22:454][643]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2026.07.16-20.47.22:483][643]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.47.22:628][643]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.47.22:630][643]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID 48
+[2026.07.16-20.47.22:631][643]LogAudioMixer: Display: FAudioMixerWasapi::StopAudioStream() InstanceID=48, StreamState=4
+[2026.07.16-20.47.22:675][643]LogAudioMixerWasapi: Display: FWasapiServiceWatcher stopped.
+[2026.07.16-20.47.22:707][643]LogUObjectHash: Compacting FUObjectHashTables data took   9.15ms
+[2026.07.16-20.47.23:203][646]LogPlayLevel: Display: Destroying online subsystem :Context_157
+[2026.07.16-20.47.25:110][655]LogCameraSystemEditor: No camera objects needed building (inspected 0 objects)
+[2026.07.16-20.47.25:110][655]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2026.07.16-20.47.25:111][655]LogPlayLevel: Creating play world package: /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp
+[2026.07.16-20.47.25:126][655]LogPlayLevel: PIE: StaticDuplicateObject took: (0.015841s)
+[2026.07.16-20.47.25:126][655]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/UI_prototype_Namiki/MainGame_Temp.MainGame_Temp to /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp.MainGame_Temp (0.016168s)
+[2026.07.16-20.47.25:260][655]LogUObjectHash: Compacting FUObjectHashTables data took   5.59ms
+[2026.07.16-20.47.25:275][655]LogChaosDD: Creating Chaos Debug Draw Scene for world MainGame_Temp
+[2026.07.16-20.47.25:285][655]LogPlayLevel: PIE: World Init took: (0.008252s)
+[2026.07.16-20.47.25:285][655]LogAudio: Display: Creating Audio Device:                 Id: 49, Scope: Unique, Realtime: True
+[2026.07.16-20.47.25:285][655]LogAudioMixer: Display: bUseRenderScheduler set to true.
+[2026.07.16-20.47.25:285][655]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2026.07.16-20.47.25:286][655]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2026.07.16-20.47.25:286][655]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2026.07.16-20.47.25:286][655]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2026.07.16-20.47.25:286][655]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2026.07.16-20.47.25:286][655]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2026.07.16-20.47.25:286][655]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2026.07.16-20.47.25:286][655]LogAudio: Display: AudioDevice MaxSources: 32
+[2026.07.16-20.47.25:286][655]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2026.07.16-20.47.25:286][655]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2026.07.16-20.47.25:286][655]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2026.07.16-20.47.25:286][655]LogAudioEnumeration: Display: Refreshing FWindowsMMDeviceCache
+[2026.07.16-20.47.25:297][655]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Console', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.47.25:300][655]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Console', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.47.25:303][655]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Multimedia', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.47.25:309][655]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Multimedia', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.47.25:315][655]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Render Role='Communications', Device='スピーカー (2- Realtek(R) Audio)'
+[2026.07.16-20.47.25:321][655]LogAudioEnumeration: Display: FWindowsMMDeviceCache: Default Capture Role='Communications', Device='マイク配列 (2- Realtek(R) Audio)'
+[2026.07.16-20.47.25:347][655]LogAudioMixerWasapi: Display: FWasapiServiceWatcher started.
+[2026.07.16-20.47.25:348][655]LogAudioMixer: Display: Initializing audio mixer using platform API: 'WASAPIMixer'
+[2026.07.16-20.47.25:348][655]LogAudioMixerWasapi: Display: FWasapiServiceWatcher initial state: Audiosrv=RUNNING, AudioEndpointBuilder=RUNNING
+[2026.07.16-20.47.25:353][655]LogAudioMixerWasapi: FAudioMixerWasapiRenderStream::InitializeHardware DefaultDevicePeriod: 480 requesting buffer size: 1920
+[2026.07.16-20.47.25:443][655]LogAudioMixerWasapi: Display: FAudioMixerWasapiRenderStream::InitializeHardware audio mixer requested num channels: 2, Wasapi render stream hardware supports num channels: 2
+[2026.07.16-20.47.25:443][655]LogAudioMixerWasapi: Display: FAudioMixerWasapiRenderStream::InitializeHardware succeeded with sample rate: 48000, buffer period: 1024
+[2026.07.16-20.47.25:443][655]LogAudioMixer: Display: FAudioMixerWasapi initialized: SampleRate=48000 NumChannels=2 NumDirectOutChannels=0 bIsAggregateDevice=0 StreamParams.Num()=1
+[2026.07.16-20.47.25:443][655]LogAudioMixer: Display: Using Audio Hardware Device スピーカー (2- Realtek(R) Audio)
+[2026.07.16-20.47.25:446][655]LogAudioMixer: Display: Initializing Sound Submixes...
+[2026.07.16-20.47.25:446][655]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2026.07.16-20.47.25:446][655]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2026.07.16-20.47.25:450][655]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=49
+[2026.07.16-20.47.25:462][655]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=49
+[2026.07.16-20.47.25:476][655]LogInit: FAudioDevice initialized with ID 49.
+[2026.07.16-20.47.25:476][655]LogAudio: Display: Audio Device (ID: 49) registered with world 'MainGame_Temp'.
+[2026.07.16-20.47.25:476][655]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 49
+[2026.07.16-20.47.25:478][655]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.47.25:515][655]LogLoad: Game class is 'GameModeBase'
+[2026.07.16-20.47.25:521][655]LogWorld: Bringing World /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp.MainGame_Temp up for play (max tick rate 60) at 2026.07.17-05.47.25
+[2026.07.16-20.47.25:522][655]LogWorld: Bringing up level for play took: 0.006290
+[2026.07.16-20.47.25:537][655]LogOnline: OSS: Created online subsystem instance for: :Context_158
+[2026.07.16-20.47.25:539][655]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2026.07.16-20.47.25:542][655]LogEnhancedInput: Enhanced Input local player subsystem has initialized the user settings!
+[2026.07.16-20.47.25:549][655]PIE: サーバーにログインしました
+[2026.07.16-20.47.25:569][655]PIE: PIE合計開始時間 0.46 秒。
+[2026.07.16-20.47.27:324][665]LogTemp: Warning: ¡HP: 18.000000
+[2026.07.16-20.47.27:428][666]LogTemp: Warning: ¡HP: 16.000000
+[2026.07.16-20.47.27:552][667]LogTemp: Warning: ¡HP: 14.000000
+[2026.07.16-20.47.28:205][674]LogTemp: Warning: ¡HP: 12.000000
+[2026.07.16-20.47.28:474][677]LogTemp: Warning: ¡HP: 10.000000
+[2026.07.16-20.47.28:642][679]LogTemp: Warning: ¡HP: 8.000000
+[2026.07.16-20.47.28:846][681]LogTemp: Warning: ¡HP: 6.000000
+[2026.07.16-20.47.29:064][683]LogTemp: Warning: ¡HP: 4.000000
+[2026.07.16-20.47.29:974][693]LogTemp: Warning: ¡HP: 2.000000
+[2026.07.16-20.47.31:306][705]LogTemp: Warning: ¡HP: 0.000000
+[2026.07.16-20.47.31:308][705]LogTemp: Warning: ¡HP: 0.000000
+[2026.07.16-20.49.53:851][871]LogUObjectHash: Compacting FUObjectHashTables data took   4.04ms
+[2026.07.16-20.49.54:024][871]LogStall: Shutdown...
+[2026.07.16-20.49.54:051][871]LogStall: Shutdown complete.
+[2026.07.16-20.49.54:097][871]LogSlate: Window 'Rayla_Feat - Unreal Editor' being destroyed
+[2026.07.16-20.49.57:472][871]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.49.57:472][871]LogWorld: BeginTearingDown for /Game/UI_prototype_Namiki/UEDPIE_0_MainGame_Temp
+[2026.07.16-20.49.57:473][871]LogWorld: UWorld::CleanupWorld for MainGame_Temp, bSessionEnded=true, bCleanupResources=true
+[2026.07.16-20.49.57:474][871]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.49.57:476][871]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2026.07.16-20.49.57:497][871]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.49.57:618][871]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.07.16-20.49.57:618][871]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID 49
+[2026.07.16-20.49.57:618][871]LogAudioMixer: Display: FAudioMixerWasapi::StopAudioStream() InstanceID=49, StreamState=4
+[2026.07.16-20.49.57:635][871]LogAudioMixerWasapi: Display: FWasapiServiceWatcher stopped.
+[2026.07.16-20.49.57:653][871]LogUObjectHash: Compacting FUObjectHashTables data took   3.21ms
+[2026.07.16-20.50.03:164][871]Cmd: QUIT_EDITOR
+[2026.07.16-20.50.03:166][871]LogCore: Engine exit requested (reason: UUnrealEdEngine::CloseEditor())
+[2026.07.16-20.50.03:196][872]LogCore: Engine exit requested (reason: EngineExit() was called; note: exit was already requested)
+[2026.07.16-20.50.03:206][872]LogStaticMesh: Abandoning remaining async distance field tasks for shutdown
+[2026.07.16-20.50.03:206][872]LogStaticMesh: Abandoning remaining async card representation tasks for shutdown
+[2026.07.16-20.50.03:269][872]LogWorld: UWorld::CleanupWorld for MainGame_Temp, bSessionEnded=true, bCleanupResources=true
+[2026.07.16-20.50.03:269][872]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.50.03:270][872]LogMovieScene: USequencerBakeSubsystem subsystem deinitialized.
+[2026.07.16-20.50.03:349][872]LogToolsetRegistry: Display: Unregistering Toolset ToolsetRegistry.AgentSkillToolset
+[2026.07.16-20.50.03:357][872]LogTedsSettings: UTedsSettingsEditorSubsystem::Deinitialize
+[2026.07.16-20.50.03:511][872]LogLevelSequenceEditor: LevelSequenceEditor subsystem deinitialized.
+[2026.07.16-20.50.04:102][872]LogWorld: UWorld::CleanupWorld for World_9, bSessionEnded=true, bCleanupResources=true
+[2026.07.16-20.50.04:105][872]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.50.04:118][872]LogWorld: UWorld::CleanupWorld for World_8, bSessionEnded=true, bCleanupResources=true
+[2026.07.16-20.50.04:118][872]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.50.04:131][872]LogWorld: UWorld::CleanupWorld for World_7, bSessionEnded=true, bCleanupResources=true
+[2026.07.16-20.50.04:131][872]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.50.04:146][872]LogWorld: UWorld::CleanupWorld for World_1, bSessionEnded=true, bCleanupResources=true
+[2026.07.16-20.50.04:146][872]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.50.04:159][872]LogWorld: UWorld::CleanupWorld for World_0, bSessionEnded=true, bCleanupResources=true
+[2026.07.16-20.50.04:159][872]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.50.04:192][872]LogWorld: UWorld::CleanupWorld for World_10, bSessionEnded=true, bCleanupResources=true
+[2026.07.16-20.50.04:192][872]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.50.04:202][872]LogWorld: UWorld::CleanupWorld for World_11, bSessionEnded=true, bCleanupResources=true
+[2026.07.16-20.50.04:202][872]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.07.16-20.50.04:239][872]LogRuntimeTelemetry: Recording EnginePreExit events
+[2026.07.16-20.50.04:259][872]LogAnalytics: Display: [UEEditor.Rocket.Release] AnalyticsET::EndSession
+[2026.07.16-20.50.05:069][872]LogAudio: Display: Beginning Audio Device Manager Shutdown (Module: AudioMixerWasapi)...
+[2026.07.16-20.50.05:069][872]LogAudio: Display: Destroying 1 Remaining Audio Device(s)...
+[2026.07.16-20.50.05:070][872]LogAudio: Display: Audio Device unregistered from world 'MainGame_Temp'.
+[2026.07.16-20.50.05:070][872]LogAudio: Display: Shutting down audio device while 1 references to it are still alive. For more information, compile with INSTRUMENT_AUDIODEVICE_HANDLES.
+[2026.07.16-20.50.05:071][872]LogAudioMixer: Display: FAudioMixerWasapi::StopAudioStream() InstanceID=1, StreamState=4
+[2026.07.16-20.50.05:119][872]LogAudioMixerWasapi: Display: FWasapiServiceWatcher stopped.
+[2026.07.16-20.50.05:282][872]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID -1
+[2026.07.16-20.50.05:282][872]LogAudio: Display: Audio Device Manager Shutdown
+[2026.07.16-20.50.05:403][872]LogWindowsTextInputMethodSystem: Activated input method: 日本語 (日本) - Microsoft IME (TSF IME).
+[2026.07.16-20.50.05:451][872]LogSlate: Slate User Destroyed.  User Index 0, Is Virtual User: 0
+[2026.07.16-20.50.05:453][872]LogExit: Preparing to exit.
+[2026.07.16-20.50.07:826][872]LogUObjectHash: Compacting FUObjectHashTables data took  19.62ms
+[2026.07.16-20.50.08:043][872]LogPython: Display: Object '/ControlRig/Python/RigHierarchy/add_controls_for_selected_PY.ControlOutputFormat' was externally referenced when shutting down Python. Forcibly releasing its Python resources!
+[2026.07.16-20.50.08:525][872]LogAssetRegistry: Display: CleanupOrphanedCacheFiles (PostWrite): 1 .ref files found, 1 referenced binaries
+[2026.07.16-20.50.08:526][872]LogAssetRegistry: Display: CleanupOrphanedCacheFiles: 1 total binaries, 1 referenced (kept), 0 old-style pre-migration (kept), 0 orphans deleted, 0 orphans locked (kept)
+[2026.07.16-20.50.08:549][872]LogEditorDataStorage: Deinitializing
+[2026.07.16-20.50.08:562][872]LogEditorDataStorage: De-initializing TEDS Compatibility.
+[2026.07.16-20.50.08:564][872]LogEditorDataStorage: De-initialized TEDS Compatibility.
+[2026.07.16-20.50.08:564][872]LogEditorDataStorage: De-initializing TEDS Core.
+[2026.07.16-20.50.08:564][872]LogEditorDataStorage: Resetting TEDS Core.
+[2026.07.16-20.50.08:598][872]LogEditorDataStorage: Reset TEDS Core.
+[2026.07.16-20.50.08:598][872]LogEditorDataStorage: De-initialized TEDS Core.
