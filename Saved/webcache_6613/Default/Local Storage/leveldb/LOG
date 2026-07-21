@@ -1,8 +1,8 @@
-2026/07/07-11:21:15.336 a10 Reusing MANIFEST C:\Users\onigi\OneDrive\ドキュメント\GitHub\RaylaFeat\Saved\webcache_6613\Default\Local Storage\leveldb/MANIFEST-000001
-2026/07/07-11:21:15.344 a10 Recovering log #3
-2026/07/07-11:21:15.344 a10 Level-0 table #3: started
-2026/07/07-11:21:15.353 a10 Level-0 table #3: 46100 bytes OK
-2026/07/07-11:21:15.353 a10 Recovering log #9
-2026/07/07-11:21:15.357 a10 Reusing old log C:\Users\onigi\OneDrive\ドキュメント\GitHub\RaylaFeat\Saved\webcache_6613\Default\Local Storage\leveldb/000009.log 
-2026/07/07-11:21:15.360 a10 Delete type=0 #3
-2026/07/07-11:21:15.360 a10 Delete type=2 #10
+2026/07/21-13:22:31.261 3990 Reusing MANIFEST C:\Users\onigi\OneDrive\ドキュメント\GitHub\RaylaFeat\Saved\webcache_6613\Default\Local Storage\leveldb/MANIFEST-000001
+2026/07/21-13:22:31.287 3990 Recovering log #24
+2026/07/21-13:22:31.288 3990 Level-0 table #26: started
+2026/07/21-13:22:31.305 3990 Level-0 table #26: 67652 bytes OK
+2026/07/21-13:22:31.320 3990 Recovering log #26
+2026/07/21-13:22:31.327 3990 Reusing old log C:\Users\onigi\OneDrive\ドキュメント\GitHub\RaylaFeat\Saved\webcache_6613\Default\Local Storage\leveldb/000026.log 
+2026/07/21-13:22:31.336 3990 Delete type=0 #24
+2026/07/21-13:22:31.336 3990 Delete type=2 #27

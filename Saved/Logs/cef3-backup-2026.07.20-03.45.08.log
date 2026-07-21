@@ -1,0 +1,18 @@
+[19608:26180:0720/111615.643:WARNING:chrome_main_delegate.cc(745)] This is Chrome version 128.0.6613.138 (not a warning)
+[19608:948:0720/111615.804:ERROR:google_update_settings.cc(265)] Failed opening key Software\Chromium to set usagestats; result: 5
+[19608:26180:0720/111615.889:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+[19608:948:0720/111623.091:WARNING:leveldb_database.cc(141)] Unable to open C:\Users\onigi\OneDrive\ドキュメント\GitHub\RaylaFeat\Saved\webcache_6613\Default\shared_proto_db\metadata: IO error: C:\Users\onigi\OneDrive\ドキュメント\GitHub\RaylaFeat\Saved\webcache_6613\Default\shared_proto_db\metadata/MANIFEST-000001: Unable to create sequential file (ChromeMethodBFE: 7::NewSequentialFile::1)
+[19608:948:0720/111623.095:WARNING:leveldb_database.cc(141)] Unable to open C:\Users\onigi\OneDrive\ドキュメント\GitHub\RaylaFeat\Saved\webcache_6613\Default\shared_proto_db\metadata: IO error: C:\Users\onigi\OneDrive\ドキュメント\GitHub\RaylaFeat\Saved\webcache_6613\Default\shared_proto_db\metadata/MANIFEST-000001: Unable to create sequential file (ChromeMethodBFE: 7::NewSequentialFile::1)
+[19608:948:0720/111623.101:WARNING:leveldb_database.cc(141)] Unable to open C:\Users\onigi\OneDrive\ドキュメント\GitHub\RaylaFeat\Saved\webcache_6613\Default\shared_proto_db\metadata: IO error: C:\Users\onigi\OneDrive\ドキュメント\GitHub\RaylaFeat\Saved\webcache_6613\Default\shared_proto_db\metadata/MANIFEST-000001: Unable to create sequential file (ChromeMethodBFE: 7::NewSequentialFile::1)
+[19608:948:0720/111623.103:WARNING:leveldb_database.cc(141)] Unable to open C:\Users\onigi\OneDrive\ドキュメント\GitHub\RaylaFeat\Saved\webcache_6613\Default\shared_proto_db\metadata: IO error: C:\Users\onigi\OneDrive\ドキュメント\GitHub\RaylaFeat\Saved\webcache_6613\Default\shared_proto_db\metadata/MANIFEST-000001: Unable to create sequential file (ChromeMethodBFE: 7::NewSequentialFile::1)
+[19608:24768:0720/111624.599:WARNING:value_store_frontend.cc(47)] Reading ahfgeienlihckogmohjhadlkjgocpleb.alarms from  failed: IO error: .../MANIFEST-000001: Unable to create sequential file (ChromeMethodBFE: 7::NewSequentialFile::1)
+[19608:24768:0720/111624.602:WARNING:value_store_frontend.cc(47)] Reading mhjfbmdgcfjbbpaeojofohoefgiehjai.alarms from  failed: IO error: .../MANIFEST-000001: Unable to create sequential file (ChromeMethodBFE: 7::NewSequentialFile::1)
+[14232:25108:0720/111626.838:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 5-C0A5F837D8999D58CBAE048BC929335A will be ignored
+[20528:18972:0720/111655.980:WARNING:chrome_main_delegate.cc(745)] This is Chrome version 128.0.6613.138 (not a warning)
+[20528:11460:0720/111656.111:ERROR:google_update_settings.cc(265)] Failed opening key Software\Chromium to set usagestats; result: 5
+[20528:18972:0720/111656.162:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+[19608:26180:0720/111659.840:WARNING:page_discarding_helper.cc(138)] Discarding multiple pages with target (kb): 0
+[20528:18972:0720/111704.232:WARNING:page_discarding_helper.cc(138)] Discarding multiple pages with target (kb): 0
+[30980:31488:0720/111709.259:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 5-760BBD3A541660FCAD8E383F761D91DE will be ignored
+[20528:18972:0720/111805.737:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
+[19608:26180:0720/124508.497:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.

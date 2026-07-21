@@ -1,24 +1,0 @@
-[32092:30072:0702/111350.336:WARNING:chrome_main_delegate.cc(745)] This is Chrome version 128.0.6613.138 (not a warning)
-[32092:30756:0702/111350.474:ERROR:google_update_settings.cc(265)] Failed opening key Software\Chromium to set usagestats; result: 5
-[32092:30072:0702/111350.549:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
-[32092:17840:0702/111356.334:WARNING:leveldb_database.cc(141)] Unable to open C:\Users\onigi\OneDrive\ドキュメント\GitHub\RaylaFeat\Saved\webcache_6613\Default\shared_proto_db\metadata: IO error: C:\Users\onigi\OneDrive\ドキュメント\GitHub\RaylaFeat\Saved\webcache_6613\Default\shared_proto_db\metadata/MANIFEST-000001: Unable to create sequential file (ChromeMethodBFE: 7::NewSequentialFile::1)
-[32092:17840:0702/111356.339:WARNING:leveldb_database.cc(141)] Unable to open C:\Users\onigi\OneDrive\ドキュメント\GitHub\RaylaFeat\Saved\webcache_6613\Default\shared_proto_db\metadata: IO error: C:\Users\onigi\OneDrive\ドキュメント\GitHub\RaylaFeat\Saved\webcache_6613\Default\shared_proto_db\metadata/MANIFEST-000001: Unable to create sequential file (ChromeMethodBFE: 7::NewSequentialFile::1)
-[32092:17840:0702/111356.342:WARNING:leveldb_database.cc(141)] Unable to open C:\Users\onigi\OneDrive\ドキュメント\GitHub\RaylaFeat\Saved\webcache_6613\Default\shared_proto_db\metadata: IO error: C:\Users\onigi\OneDrive\ドキュメント\GitHub\RaylaFeat\Saved\webcache_6613\Default\shared_proto_db\metadata/MANIFEST-000001: Unable to create sequential file (ChromeMethodBFE: 7::NewSequentialFile::1)
-[32092:17840:0702/111356.346:WARNING:leveldb_database.cc(141)] Unable to open C:\Users\onigi\OneDrive\ドキュメント\GitHub\RaylaFeat\Saved\webcache_6613\Default\shared_proto_db\metadata: IO error: C:\Users\onigi\OneDrive\ドキュメント\GitHub\RaylaFeat\Saved\webcache_6613\Default\shared_proto_db\metadata/MANIFEST-000001: Unable to create sequential file (ChromeMethodBFE: 7::NewSequentialFile::1)
-[32092:34608:0702/111356.808:WARNING:value_store_frontend.cc(47)] Reading ahfgeienlihckogmohjhadlkjgocpleb.alarms from  failed: IO error: .../MANIFEST-000001: Unable to create sequential file (ChromeMethodBFE: 7::NewSequentialFile::1)
-[32092:34608:0702/111356.812:WARNING:value_store_frontend.cc(47)] Reading mhjfbmdgcfjbbpaeojofohoefgiehjai.alarms from  failed: IO error: .../MANIFEST-000001: Unable to create sequential file (ChromeMethodBFE: 7::NewSequentialFile::1)
-[24536:29432:0702/111359.412:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 5-DA8FE25605D89E300F9F5A22514386BB will be ignored
-[32092:34608:0702/114255.815:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
-[24236:35064:0702/114255.829:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
-[32092:34608:0702/114300.820:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
-[24236:8376:0702/114300.845:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
-[32092:34608:0702/114310.825:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
-[24236:35064:0702/114310.860:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
-[32092:34608:0702/114330.828:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
-[24236:35064:0702/114330.883:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
-[24236:35064:0702/114925.546:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
-[32092:34608:0702/114925.565:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
-[32092:34608:0702/114925.593:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
-[32092:34608:0702/114925.603:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
-[24236:35064:0702/114925.614:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
-[32092:30072:0702/124223.133:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
