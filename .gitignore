@@ -1,0 +1,8 @@
+# Unreal Engine 自動生成フォルダ
+Binaries/
+Intermediate/
+Saved/
+DerivedDataCache/
+.vs/
+*.sln
+*.vcxproj*
