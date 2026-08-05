@@ -31,6 +31,19 @@ public:
 		int32 InAtackRange
 	);
 
+	// í«â¡Ç∑ÇÈïœêî
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Unit")
+	int32 GridX = 0;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Unit")
+	int32 GridY = 0;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Unit")
+	int32 PlayerSide = 0;
+
+	UPROPERTY(BlueprintReadWrite, Category = "Unit")
+	TArray<FIntPoint> AttackRangePriority;
+
 protected:
 	virtual void BeginPlay() override;
 
