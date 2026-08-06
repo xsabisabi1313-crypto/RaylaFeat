@@ -11,5 +11,7 @@ public class Rayla_FeatTarget : TargetRules
 		DefaultBuildSettings = BuildSettingsVersion.V6;
 
 		ExtraModuleNames.AddRange( new string[] { "Rayla_Feat" } );
-	}
+        //BuildEnvironment = TargetBuildEnvironment.Unique;
+        bOverrideBuildEnvironment = true;
+    }
 }
