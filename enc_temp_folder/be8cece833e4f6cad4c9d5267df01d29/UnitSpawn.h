@@ -15,7 +15,10 @@ public:
 	// コンストラクタ
 	AUnitSpawn();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawn")
+	FVector SpawnLocation;
+
 	// Blueprintから呼び出せるスポーン関数
 	UFUNCTION(BlueprintCallable, Category = "Spawn")
-	void SpawnMyUnit(TSubclassOf<AActor> UnitClassToSpawn, FVector SpawnLocation);
+	AActor* SpawnMyUnit(TSubclassOf<AActor> UnitClassToSpawn, FVector SpawnLocation);
 };
