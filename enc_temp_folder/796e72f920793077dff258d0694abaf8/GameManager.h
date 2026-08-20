@@ -42,19 +42,5 @@ public:
 
 	// 現在選択されている味方ユニット
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")
-	TSubclassOf<AActor>* SelectedUnit = nullptr;
-
-	// 現在選択されている味方ユニットの設計書
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")
-	TSubclassOf<AActor> UnitClassToSpawn = nullptr;
-
-	//
-	UFUNCTION(BlueprintCallable, Category = "GameManager")
-	void ShowMoveRange(AActor* TargetUnit);
-
-	// 1. 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameManager")
-	TSubclassOf<class AActor> CrossMoveTile;
-
-	//
+	TSubclassOf<AActor> SelectedUnit = nullptr;
 };

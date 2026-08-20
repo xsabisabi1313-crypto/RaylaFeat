@@ -27,14 +27,4 @@ void AGameManager::Tick(float DeltaTime)
 
 }
 
-void AGameManager::ShowMoveRange(AActor* TargetUnit)
-{
-	// 1. 出したい場所の中心を決める
-	FVector SpawnLocation(0.0f, 0.0f, 0.0f);
-	FRotator SpawnRotation(0.0f, 0.0f, 0.0f);
-
-	// 2. スポーンを実行する
-	AActor* SpawnedActor = GetWorld()->SpawnActor<AActor>(CrossMoveTile, SpawnLocation, SpawnRotation);
-}
-
 

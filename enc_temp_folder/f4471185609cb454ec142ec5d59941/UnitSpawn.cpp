@@ -16,7 +16,7 @@ AActor* AUnitSpawn::SpawnMyUnit(FVector SpawnLocation)
 		UGameplayStatics::GetActorOfClass(GetWorld(), AGameManager::StaticClass())
 	);
 	//GameManagerの、現在選択されている味方ユニットを選択
-	TSubclassOf<AActor> UnitToSpawn = MyGameManager->UnitClassToSpawn;
+	TSubclassOf<AActor> UnitToSpawn = MyGameManager->SelectedUnit;
     
 
 	//GetWorld....でスポーンさせて、スポーンさせたユニットをreturnで返す

@@ -15,12 +15,6 @@ enum class EAtackPatterns : uint8
 	Diagonal UMETA(DisplayName = "Diagonal")
 };
 
-UENUM(BlueprintType)
-enum class EMovePatterns : uint8
-{
-	Cross    UMETA(DisplayName = "Cross"),
-};
-
 //ëÆê´
 UENUM(BlueprintType)
 enum class EElementtype : uint8
@@ -39,7 +33,7 @@ class RAYLA_FEAT_API AUnit : public AActor
 public:	
 	AUnit();
 
-	UFUNCTION(BlueprintCallable, Category = "Unit")
+	UFUNCTION()
 	void OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonPressed);
 		
 
@@ -61,15 +55,8 @@ public:
 		int32 InAtackRange
 	);
 
-	//åªç›ÇÃÇ¢ÇÈà íu
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid")
-	FIntPoint GridPos;
-
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
 	EElementtype Element = EElementtype::None;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
-	EMovePatterns MovePattern = EMovePatterns::Cross;
 
 protected:
 	// Called when the game starts or when spawned
