@@ -40,17 +40,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Game")
 	CurrentPhase currentPhase;
 
-	// 現在選択されている味方ユニット
+	// 現在選択されている味方ユニット（実体）
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")
-	TSubclassOf<AActor>* SelectedUnit = nullptr;
+	AUnit* SelectedUnit = nullptr;
 
 	// 現在選択されている味方ユニットの設計書
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")
 	TSubclassOf<AActor> UnitClassToSpawn = nullptr;
 
-	//
-	UFUNCTION(BlueprintCallable, Category = "GameManager")
-	void ShowMoveRange(AActor* TargetUnit);
 
 	// 1. 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameManager")

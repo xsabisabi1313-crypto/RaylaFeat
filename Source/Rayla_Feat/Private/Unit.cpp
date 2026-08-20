@@ -32,7 +32,7 @@ void AUnit::BeginPlay()
 	}
 }
 
-// 実際にクリックされたときの処理
+// ユニットがクリックされたときの処理
 void AUnit::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonPressed)
 {
 	UE_LOG(LogTemp, Warning, TEXT("クリックしました: %s"), *GetName());
@@ -42,11 +42,13 @@ void AUnit::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonP
 		UGameplayStatics::GetActorOfClass(GetWorld(), AGameManager::StaticClass())
 	);
 
-	if (MyGameManager)
-	{
-		//MyGameManager->SelectedUnit = this;
-		UE_LOG(LogTemp, Warning, TEXT("ユニットを選択しました: %s"), *GetName());
+
+	//MyGameManager->SelectedUnit = this;
+	UE_LOG(LogTemp, Warning, TEXT("ユニットを選択しました: %s"), *GetName());
+	if (MyGameManager->currentPhase == CurrentPhase::EGS_MoveReserve) {
+		SpawnMovePatternObject();
 	}
+	
 }
 
 
@@ -102,4 +104,25 @@ TArray<FIntPoint> AUnit::CalculateAttackRange(
 		}
 	}
 	return Result;
+}
+
+//現在の位置を更新する
+void AUnit::MoveToGrid(FIntPoint NewGridPos)
+{
+	GridPos = NewGridPos;
+}
+
+//移動できる範囲を生成する
+void AUnit::SpawnMovePatternObject()
+{
+
+	FRotator SpawnRotation = FRotator::ZeroRotator;
+
+	// 3. ワールドにアクターをスポーンさせる
+	AActor* SpawnedObj = GetWorld()->SpawnActor<AActor>(MovePatternObjClass, FVector(GridPos.X * 100, GridPos.Y * 100, 0.0f), SpawnRotation);
+
+	if (SpawnedObj)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("移動範囲オブジェクトを生成しました！"));
+	}
 }

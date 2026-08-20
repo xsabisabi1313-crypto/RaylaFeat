@@ -65,6 +65,19 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid")
 	FIntPoint GridPos;
 
+	//現在のいる位置を更新する関数
+	UFUNCTION(BlueprintCallable, Category = "Grid")
+	void MoveToGrid(FIntPoint NewGridPos);
+
+	// 生成したい移動範囲オブジェクトの「設計図（ブループリント）」を指定する変数
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MovePatternObj")
+	TSubclassOf<AActor> MovePatternObjClass;
+
+	// 移動範囲オブジェクトを生成する関数
+	UFUNCTION(BlueprintCallable, Category = "MovePatternObj")
+	void SpawnMovePatternObject();
+
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
 	EElementtype Element = EElementtype::None;
 
