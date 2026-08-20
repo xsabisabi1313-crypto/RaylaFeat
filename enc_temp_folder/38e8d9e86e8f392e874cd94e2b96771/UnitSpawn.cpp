@@ -15,15 +15,28 @@ AActor* AUnitSpawn::SpawnMyUnit(FVector SpawnLocation, FIntPoint SpawnGridPos)
 	AGameManager* MyGameManager = Cast<AGameManager>(
 		UGameplayStatics::GetActorOfClass(GetWorld(), AGameManager::StaticClass())
 	);
+
+	//もしSpawnPhaseでなかったら終わり
+	if (MyGameManager->currentPhase != CurrentPhase::EGS_Spawn) {
+		return nullptr;
+	}
+
 	//GameManagerの、現在選択されている味方ユニットを選択
 	TSubclassOf<AActor> UnitToSpawn = MyGameManager->UnitClassToSpawn;
+
     
 
-	//GetWorld....でスポーンさせて、スポーンさせたユニットをreturnで返す
+	//スポーンさせて、スポーンさせたユニットをreturnで返す
 	if (UnitToSpawn)
 	{
 		FRotator SpawnRotation = FRotator::ZeroRotator;
 
+		//コスト的にできるか
+
+
+
+		//スポーンが確定した後
+		//	
 		// 1. スポーンする（最初は AActor* として受け取る）
 		AActor* SpawnedActor = GetWorld()->SpawnActor<AActor>(UnitToSpawn, SpawnLocation, SpawnRotation);
 
@@ -35,6 +48,15 @@ AActor* AUnitSpawn::SpawnMyUnit(FVector SpawnLocation, FIntPoint SpawnGridPos)
 		{
 			NewUnit->GridPos = SpawnGridPos; // ここに設定したい座標を入れる
 		}
+
+		
+
+		//4. コストを減らす
+
+		//5.GameManagerのAllunitListに追加
+		MyGameManager->AllUnitsList.Add(SpawnedActor);
+
+
 
 		return SpawnedActor;
 	}

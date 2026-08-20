@@ -8,7 +8,7 @@ AUnitSpawn::AUnitSpawn()
 	PrimaryActorTick.bCanEverTick = false;
 }
 
-// ユニットをスポーンさせる関数
+// 味方ユニットをスポーンさせる関数
 AActor* AUnitSpawn::SpawnMyUnit(FVector SpawnLocation, FIntPoint SpawnGridPos)
 {
 	//GameManagerを取得
@@ -65,3 +65,5 @@ AActor* AUnitSpawn::SpawnMyUnit(FVector SpawnLocation, FIntPoint SpawnGridPos)
 	return nullptr;
 
 }
+
+//敵ユニットをスポーンさせる関数

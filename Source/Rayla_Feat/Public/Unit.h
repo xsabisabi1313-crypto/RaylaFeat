@@ -15,6 +15,7 @@ enum class EAtackPatterns : uint8
 	Diagonal UMETA(DisplayName = "Diagonal")
 };
 
+
 //移動のパターン
 UENUM(BlueprintType)
 enum class EMovePatterns : uint8
@@ -32,6 +33,15 @@ enum class EElementtype : uint8
 	Grass    UMETA(DisplayName = "草")
 
 };
+
+//敵か味方か
+UENUM(BlueprintType)
+enum class EPlayerSide : uint8
+{
+	Player    UMETA(DisplayName = "味方 (Player)"),
+	Enemy     UMETA(DisplayName = "敵 (Enemy)"),
+};
+
 UCLASS()
 class RAYLA_FEAT_API AUnit : public AActor
 {
@@ -76,6 +86,14 @@ public:
 	//移動パターン
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
 	EMovePatterns MovePattern = EMovePatterns::Cross;
+
+	//攻撃パターン
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
+	EAtackPatterns AttackPattern = EAtackPatterns::Forward;
+
+	//敵か味方か
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
+	EPlayerSide PlayerSide = EPlayerSide::Player;
 
 protected:
 	// Called when the game starts or when spawned

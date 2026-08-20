@@ -58,6 +58,73 @@ void AGameManager::GetAvailableMovePositions(AUnit* TargetUnit)
 
 }
 
+void AGameManager::GetAvailableAttackPositions(AUnit* TargetUnit) {
+
+	if (!TargetUnit) {
+		return;
+	}
+
+	// 1. まずリストを綺麗にリセットする（前回の残りを消す）
+	AvailableAttackPositions.Empty();
+
+	// 1. ユニットの現在のグリッド座標を取得
+	FIntPoint CurrentPos = TargetUnit->GridPos;
+
+	//ユニットの攻撃パターンを取得
+	EAtackPatterns AttackPattern = TargetUnit->AttackPattern;
+
+	//敵か味方かによって、前後が変わる。味方ならYが-１、敵ならYが+1
+	int32 ForwardDir = 1;
+	if (TargetUnit->PlayerSide == EPlayerSide::Player)
+	{
+		ForwardDir = -1; // 味方はマイナス方向が「前」
+	}
+	else if (TargetUnit->PlayerSide == EPlayerSide::Enemy)
+	{
+		ForwardDir = 1;  // 敵はプラス方向が「前」
+	}
+
+
+	switch (AttackPattern)
+	{
+	case EAtackPatterns::Cross:
+		// 十字方向（前後左右1マスずつなど）
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y + ForwardDir)); // 前
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y - ForwardDir)); // 後ろ
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y));        // 左
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y));        // 右
+		break;
+
+	case EAtackPatterns::Forward:
+		// 「前」方向だけ攻撃できる
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y + ForwardDir));
+		break;
+
+	case EAtackPatterns::All:
+		// 周囲8マス全部など
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y + ForwardDir)); // 前
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y - ForwardDir)); // 後
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y));            // 左
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y));            // 右
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y + ForwardDir)); // 前左
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y + ForwardDir)); // 前右
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y - ForwardDir)); // 後左
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y - ForwardDir)); // 後右
+		break;
+
+	case EAtackPatterns::Diagonal:
+		// 斜め4方向
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y + ForwardDir)); // 前左斜め
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y + ForwardDir)); // 前右斜め
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y - ForwardDir)); // 後ろ左斜め
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y - ForwardDir)); // 後ろ右斜め
+		break;
+
+	default:
+		break;
+	}
+}
+
 bool AGameManager::IsValidMoveDestination(FIntPoint TargetGridPos)
 {
 	// 2. そのリストの中に、プレイヤーがクリックした座標（TargetGridPos）が含まれているかチェック！
@@ -81,47 +148,38 @@ void AGameManager::ExecuteMove()
 
 	// 3. 移動が終わったあとの後片付け（必要に応じて）
 	// 例：選択を解除したり、フェーズを次のターンに進めたりする
-	SelectedUnit = nullptr;
+	//SelectedUnit = nullptr;
 }
 
 
 void AGameManager::ExecuteBattle() {
 	//まず、味方側
-
-	// 1. まず味方側：操作（選択）しているユニットがちゃんといるかチェック
-	if (!SelectedUnit || !IsValid(SelectedUnit))
+	AUnit* Attacker = SelectedUnit;
+	GetAvailableAttackPositions(Attacker);
+	// 【ループ①】攻撃できるマスの数だけ回す
+	for (const FIntPoint& AttackPos : AvailableAttackPositions)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("戦闘：選択されている味方ユニットがいません。"));
-		return;
+		// 【ループ②】フィールドにいるすべてのキャラクターの数だけ回す
+		for (AActor* Actor : AllUnitsList)
+		{
+			AUnit* OtherUnit = Cast<AUnit>(Actor);
+			if (!OtherUnit || OtherUnit == Attacker) continue;
+
+			// 自分と同じ陣営（味方同士）なら攻撃対象外
+			if (OtherUnit->PlayerSide == Attacker->PlayerSide) continue;
+
+			// 【判定】「攻撃できるマス」と「キャラの現在地」が一致するか！？
+			if (OtherUnit->GridPos.X == AttackPos.X && OtherUnit->GridPos.Y == AttackPos.Y)
+			{
+				// 敵を発見！この瞬間に「こいつを殴る」と確定できる
+				//return OtherUnit;
+				GEngine->AddOnScreenDebugMessage(
+					-1,                          // キー (-1なら古いメッセージを上書きせず毎回新しい行で表示)
+					3.0f,                        // 表示する時間（秒）
+					FColor::Yellow,              // 文字の色
+					TEXT("敵を発見しししし")          // 表示したい文字列
+				);
+			}
+		}
 	}
-
-	// 2. 敵側を探す：先ほどのように、味方の攻撃範囲（AttackRangePriority）を使って敵を見つける
-	AUnit* TargetEnemy = nullptr;
-
-	// フィールドにいる全アクターから探す（または事前に用意したリストから）
-	
-	for (AActor* Actor : AllUnitsList)
-	{
-		AUnit* OtherUnit = Cast<AUnit>(Actor);
-		if (!OtherUnit || OtherUnit == SelectedUnit) continue;
-
-	}
-
-
-	// 3. 敵が見つかった場合の処理
-	if (TargetEnemy)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("戦闘発生！ 味方 が 敵を発見しました！"));
-
-		// TODO: ここで属性の相性計算や、お互いのHPを減らす処理を呼び出す
-		// 例: ResolveBattle(SelectedUnit, TargetEnemy);
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("攻撃範囲内に敵はいませんでした。"));
-	}
-	//selectedunitを取得
-
-
-	//敵側
 }

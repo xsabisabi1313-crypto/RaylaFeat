@@ -50,12 +50,19 @@ public:
 
 
 	//移動予約が可能なポジションを全て返してくれる関数
-	UFUNCTION(BlueprintCallable, Category = "MovePatternFunc")
+	UFUNCTION(BlueprintCallable, Category = "MovePosFunc")
 	void GetAvailableMovePositions(AUnit* TargetUnit);
-
 	// 【実体】現在計算されている移動可能ポジションのリスト
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MovePatternFunc")
 	TArray<FIntPoint> AvailableMovePositions;
+
+
+	// 現在の位置から攻撃できるマスを、攻撃パターンごとにすべて返す配列
+	UFUNCTION(BlueprintCallable, Category = "AttackPosFunc")
+	void GetAvailableAttackPositions(AUnit* TargetUnit);
+	// 【実体】現在計算されている移動可能ポジションのリスト
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MovePatternFunc")
+	TArray<FIntPoint> AvailableAttackPositions;
 
 
 	// 指定したグリッド座標が、現在移動可能なマスかどうかを判定する関数
@@ -76,7 +83,7 @@ public:
 	void ExecuteMove();
 
 	// 現在マップに存在する全てのユニットを格納するリスト
-	UPROPERTY(BlueprintReadWrite, Category = "Battle")
+	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Battle")
 	TArray<AActor*> AllUnitsList;
 	//
 
