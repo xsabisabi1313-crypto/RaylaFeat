@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+
+
 #include "UnitSpawn.generated.h"
 
 UCLASS()
@@ -15,10 +17,7 @@ public:
 	// コンストラクタ
 	AUnitSpawn();
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawn")
-	FVector SpawnLocation;
-
 	// Blueprintから呼び出せるスポーン関数
 	UFUNCTION(BlueprintCallable, Category = "Spawn")
-	AActor* SpawnMyUnit(TSubclassOf<AActor> UnitClassToSpawn, FName RowName);
+	AActor* SpawnMyUnit(FVector SpawnLocation);
 };

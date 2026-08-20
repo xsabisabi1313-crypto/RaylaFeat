@@ -32,6 +32,11 @@ class RAYLA_FEAT_API AUnit : public AActor
 	
 public:	
 	AUnit();
+
+	UFUNCTION()
+	void OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonPressed);
+		
+
 	// 1. –¼‘O
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
 	FText UnitName;
@@ -57,8 +62,5 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
 
 };
