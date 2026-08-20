@@ -111,11 +111,6 @@ TArray<FIntPoint> AUnit::CalculateAttackRange(
 void AUnit::MoveToGrid(FIntPoint NewGridPos)
 {
 	GridPos = NewGridPos;
-
-	FVector NewWorldLocation = FVector(GridPos.X * 100.0f, GridPos.Y * 100.0f, GetActorLocation().Z);
-
-	// 3. アクターの実際の3D位置を更新する
-	SetActorLocation(NewWorldLocation);
 }
 
 //移動できる範囲を生成する

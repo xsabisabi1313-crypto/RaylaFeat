@@ -62,25 +62,3 @@ bool AGameManager::IsValidMoveDestination(FIntPoint TargetGridPos)
 	// 2. そのリストの中に、プレイヤーがクリックした座標（TargetGridPos）が含まれているかチェック！
 	return AvailableMovePositions.Contains(TargetGridPos);
 }
-
-//実際にユニットを移動させる関数
-void AGameManager::ExecuteMove()
-{
-	// 1. 動かすユニットと、移動先の座標がちゃんと設定されているかチェック
-	if (!SelectedUnit)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("移動するユニットが選択されていません！"));
-		return;
-	}
-
-	FIntPoint GridPos = ReserveGridPos;
-
-	// ユニット側の位置を更新する（前作った MoveToGrid 関数などを活用）
-	SelectedUnit->MoveToGrid(GridPos);
-
-	UE_LOG(LogTemp, Warning, TEXT("ユニットを移動させました！"));
-
-	// 3. 移動が終わったあとの後片付け（必要に応じて）
-	// 例：選択を解除したり、フェーズを次のターンに進めたりする
-	SelectedUnit = nullptr;
-}

@@ -71,9 +71,5 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameManager")
 	TSubclassOf<class AActor> CrossMoveTile;
 
-	// 予約した移動先へ、選択中のユニットを実際に移動させる関数
-	UFUNCTION(BlueprintCallable, Category = "Game")
-	void ExecuteMove();
-
 	//
 };
