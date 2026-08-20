@@ -63,6 +63,10 @@ public:
 	bool IsValidMoveDestination(FIntPoint TargetGridPos);
 
 
+	// 【新規】今から移動しようと選んだ目的地の座標（仮予約用）
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")
+	FIntPoint ReserveGridPos;
+
 	// 1. 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameManager")
 	TSubclassOf<class AActor> CrossMoveTile;
