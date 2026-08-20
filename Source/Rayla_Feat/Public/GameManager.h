@@ -90,5 +90,20 @@ public:
 	// バトル処理
 	UFUNCTION(BlueprintCallable, Category = "Game")
 	void ExecuteBattle();
+
+	// プレイヤーが召喚できる全てのユニットの設計書
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawn")
+	TArray<TSubclassOf<AUnit>> PlayerOwnedUnits;
+
+
+	// 敵が召喚できる全てのユニットの設計書
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawn")
+	TArray<TSubclassOf<AUnit>> EnemyOwnedUnits;
+
+	//敵の召喚を実行する関数
+	UFUNCTION(BlueprintCallable, Category = "Game")
+	void ExecuteSpawnEnemy();
+
+
 	
 };

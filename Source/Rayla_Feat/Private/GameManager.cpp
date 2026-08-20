@@ -2,6 +2,7 @@
 
 
 #include "GameManager.h"
+#include "UnitSpawn.h"
 
 // Sets default values
 AGameManager::AGameManager()
@@ -182,4 +183,13 @@ void AGameManager::ExecuteBattle() {
 			}
 		}
 	}
+}
+
+void AGameManager::ExecuteSpawnEnemy() {
+
+    AUnitSpawn* UnitSpawner = GetWorld()->SpawnActor<AUnitSpawn>();
+	if (!UnitSpawner)return;
+   
+    UnitSpawner->SpawnEnemyUnit();
+    
 }

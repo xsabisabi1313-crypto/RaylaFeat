@@ -17,7 +17,14 @@ public:
 	// コンストラクタ
 	AUnitSpawn();
 
-	// Blueprintから呼び出せるスポーン関数
+	// 味方をスポーンする関数
 	UFUNCTION(BlueprintCallable, Category = "Spawn")
-	AActor* SpawnMyUnit(FVector SpawnLocation, FIntPoint SpawnGridPos);
+	void SpawnMyUnit(FVector SpawnLocation, FIntPoint SpawnGridPos);
+
+	// 敵をスポーンする関数
+	UFUNCTION(BlueprintCallable, Category = "Spawn")
+	void SpawnEnemyUnit();
+
+
+
 };
