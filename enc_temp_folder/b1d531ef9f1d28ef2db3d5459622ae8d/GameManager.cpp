@@ -50,6 +50,7 @@ void AGameManager::GetAvailableMovePositions(AUnit* TargetUnit)
 		AvailableMovePositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y));//左
 		AvailableMovePositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y + 1)); // 上
 		AvailableMovePositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y - 1)); // 下
+		break;
 
 	default:
 		break;
@@ -61,4 +62,24 @@ bool AGameManager::IsValidMoveDestination(FIntPoint TargetGridPos)
 {
 	// 2. そのリストの中に、プレイヤーがクリックした座標（TargetGridPos）が含まれているかチェック！
 	return AvailableMovePositions.Contains(TargetGridPos);
+}
+
+//実際にユニットを移動させる関数
+void AGameManager::ExecuteMove()
+{
+	// 1. 動かすユニットが選択されているか、さらにポインタが有効（nullptrではない）か厳重にチェック！
+	if (!SelectedUnit || !IsValid(SelectedUnit))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("エラー：移動するユニットが選択されていないか、すでに無効です！"));
+		return;
+	}
+
+	// ユニット側の位置を更新する（前作った MoveToGrid 関数などを活用）
+	SelectedUnit->MoveToGrid(ReserveGridPos);
+
+	//UE_LOG(LogTemp, Warning, TEXT("ユニットを移動させました！"));
+
+	// 3. 移動が終わったあとの後片付け（必要に応じて）
+	// 例：選択を解除したり、フェーズを次のターンに進めたりする
+	SelectedUnit = nullptr;
 }

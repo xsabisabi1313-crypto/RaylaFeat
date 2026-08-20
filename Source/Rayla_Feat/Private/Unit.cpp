@@ -41,6 +41,7 @@ void AUnit::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonP
 	AGameManager* MyGameManager = Cast<AGameManager>(
 		UGameplayStatics::GetActorOfClass(GetWorld(), AGameManager::StaticClass())
 	);
+	MyGameManager->SelectedUnit = this;
 
 
 	//MyGameManager->SelectedUnit = this;
@@ -53,64 +54,13 @@ void AUnit::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonP
 }
 
 
-//現在の位置(InTargetGrid)から攻撃できるマスを、攻撃のパターンごとに変えて全て返す配列
-TArray<FIntPoint> AUnit::CalculateAttackRange(
-	int32 InTargetGridX,
-	int32 InTargetGridY,
-	int32 InPlayerSide,
-	EAtackPatterns InAtackPattern,
-	int32 InAtackRange
-)
-{
-	TArray<FIntPoint> Result;
-	const int32 ForwardSign = (InPlayerSide == 0) ? 1 : -1;
-
-	for (int32 d = 1; d <= InAtackRange; ++d)
-	{
-		switch (InAtackPattern)
-		{
-		case EAtackPatterns::Forward:
-		{
-			Result.Add(FIntPoint(InTargetGridX, InTargetGridY + d * ForwardSign));
-			break;
-		}
-		case EAtackPatterns::Cross:
-		{
-			Result.Add(FIntPoint(InTargetGridX, InTargetGridY + d * ForwardSign));
-			Result.Add(FIntPoint(InTargetGridX, InTargetGridY - d * ForwardSign));
-			Result.Add(FIntPoint(InTargetGridX - d, InTargetGridY));
-			Result.Add(FIntPoint(InTargetGridX + d, InTargetGridY));
-			break;
-		}
-		case EAtackPatterns::Diagonal:
-		{
-			Result.Add(FIntPoint(InTargetGridX - d, InTargetGridY + d));
-			Result.Add(FIntPoint(InTargetGridX + d, InTargetGridY + d));
-			Result.Add(FIntPoint(InTargetGridX - d, InTargetGridY - d));
-			Result.Add(FIntPoint(InTargetGridX + d, InTargetGridY - d));
-			break;
-		}
-		case EAtackPatterns::All:
-		{
-			Result.Add(FIntPoint(InTargetGridX, InTargetGridY + d));
-			Result.Add(FIntPoint(InTargetGridX - d, InTargetGridY + d));
-			Result.Add(FIntPoint(InTargetGridX + d, InTargetGridY + d));
-			Result.Add(FIntPoint(InTargetGridX - d, InTargetGridY));
-			Result.Add(FIntPoint(InTargetGridX + d, InTargetGridY));
-			Result.Add(FIntPoint(InTargetGridX, InTargetGridY - d));
-			Result.Add(FIntPoint(InTargetGridX - d, InTargetGridY - d));
-			Result.Add(FIntPoint(InTargetGridX + d, InTargetGridY - d));
-			break;
-		}
-		}
-	}
-	return Result;
-}
 
 //現在の位置を更新する
 void AUnit::MoveToGrid(FIntPoint NewGridPos)
 {
 	GridPos = NewGridPos;
+
+
 
 	FVector NewWorldLocation = FVector(GridPos.X * 100.0f, GridPos.Y * 100.0f, GetActorLocation().Z);
 

@@ -67,7 +67,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")
 	FIntPoint ReserveGridPos;
 
-	// 1. 
+	// 移動範囲タイルobject(十字)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameManager")
 	TSubclassOf<class AActor> CrossMoveTile;
 
@@ -75,5 +75,13 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Game")
 	void ExecuteMove();
 
+	// 現在マップに存在する全てのユニットを格納するリスト
+	UPROPERTY(BlueprintReadWrite, Category = "Battle")
+	TArray<AActor*> AllUnitsList;
 	//
+
+	// バトル処理
+	UFUNCTION(BlueprintCallable, Category = "Game")
+	void ExecuteBattle();
+	
 };

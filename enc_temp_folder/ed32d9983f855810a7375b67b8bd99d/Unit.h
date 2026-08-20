@@ -52,6 +52,16 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
 	int32 Cost = 10;
 
+	//3.攻撃できる全てのマス
+	UFUNCTION(BlueprintCallable, Category = "Battle")
+	TArray<FIntPoint> CalculateAttackRange(
+		int32 InTargetGridX,
+		int32 InTargetGridY,
+		int32 InPlayerSide,
+		EAtackPatterns InAtackPattern,
+		int32 InAtackRange
+	);
+
 	//現在のいる位置
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid")
 	FIntPoint GridPos;
