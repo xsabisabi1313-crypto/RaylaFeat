@@ -47,7 +47,6 @@ void AUnit::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonP
 	UE_LOG(LogTemp, Warning, TEXT("ユニットを選択しました: %s"), *GetName());
 	if (MyGameManager->currentPhase == CurrentPhase::EGS_MoveReserve) {
 		SpawnMovePatternObject();
-		MyGameManager->GetAvailableMovePositions(this);
 	}
 	
 }
@@ -120,7 +119,7 @@ void AUnit::SpawnMovePatternObject()
 	FRotator SpawnRotation = FRotator::ZeroRotator;
 
 	// 3. ワールドにアクターをスポーンさせる
-	AActor* SpawnedObj = GetWorld()->SpawnActor<AActor>(MovePatternObjClass, FVector(GridPos.X * 100, GridPos.Y * 100, 46), SpawnRotation);
+	AActor* SpawnedObj = GetWorld()->SpawnActor<AActor>(MovePatternObjClass, FVector(GridPos.X * 100, GridPos.Y * 100, 0.0f), SpawnRotation);
 
 	if (SpawnedObj)
 	{

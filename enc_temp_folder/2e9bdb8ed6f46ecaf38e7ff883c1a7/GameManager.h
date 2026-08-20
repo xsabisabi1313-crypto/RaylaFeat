@@ -49,20 +49,6 @@ public:
 	TSubclassOf<AActor> UnitClassToSpawn = nullptr;
 
 
-	//移動予約が可能なポジションを全て返してくれる関数
-	UFUNCTION(BlueprintCallable, Category = "MovePatternFunc")
-	void GetAvailableMovePositions(AUnit* TargetUnit);
-
-	// 【実体】現在計算されている移動可能ポジションのリスト
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MovePatternFunc")
-	TArray<FIntPoint> AvailableMovePositions;
-
-
-	// 指定したグリッド座標が、現在移動可能なマスかどうかを判定する関数
-	UFUNCTION(BlueprintCallable, Category = "MovePatternFunc")
-	bool IsValidMoveDestination(FIntPoint TargetGridPos);
-
-
 	// 1. 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameManager")
 	TSubclassOf<class AActor> CrossMoveTile;

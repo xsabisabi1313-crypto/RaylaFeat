@@ -15,7 +15,6 @@ enum class EAtackPatterns : uint8
 	Diagonal UMETA(DisplayName = "Diagonal")
 };
 
-//移動のパターン
 UENUM(BlueprintType)
 enum class EMovePatterns : uint8
 {
@@ -79,11 +78,9 @@ public:
 	void SpawnMovePatternObject();
 
 
-	//属性
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
 	EElementtype Element = EElementtype::None;
 
-	//移動パターン
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
 	EMovePatterns MovePattern = EMovePatterns::Cross;
 

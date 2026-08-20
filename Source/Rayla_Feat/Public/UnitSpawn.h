@@ -19,5 +19,5 @@ public:
 
 	// Blueprintから呼び出せるスポーン関数
 	UFUNCTION(BlueprintCallable, Category = "Spawn")
-	AActor* SpawnMyUnit(FVector SpawnLocation);
+	AActor* SpawnMyUnit(FVector SpawnLocation, FIntPoint SpawnGridPos);
 };

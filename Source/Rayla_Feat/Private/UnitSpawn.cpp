@@ -9,7 +9,7 @@ AUnitSpawn::AUnitSpawn()
 }
 
 // ユニットをスポーンさせる関数
-AActor* AUnitSpawn::SpawnMyUnit(FVector SpawnLocation)
+AActor* AUnitSpawn::SpawnMyUnit(FVector SpawnLocation, FIntPoint SpawnGridPos)
 {
 	//GameManagerを取得
 	AGameManager* MyGameManager = Cast<AGameManager>(
@@ -23,7 +23,20 @@ AActor* AUnitSpawn::SpawnMyUnit(FVector SpawnLocation)
 	if (UnitToSpawn)
 	{
 		FRotator SpawnRotation = FRotator::ZeroRotator;
-		return GetWorld()->SpawnActor<AActor>(UnitToSpawn, SpawnLocation, SpawnRotation);
+
+		// 1. スポーンする（最初は AActor* として受け取る）
+		AActor* SpawnedActor = GetWorld()->SpawnActor<AActor>(UnitToSpawn, SpawnLocation, SpawnRotation);
+
+		// 2. AUnit に変換（キャスト）する
+		AUnit* NewUnit = Cast<AUnit>(SpawnedActor);
+
+		// 3. キャストが成功したら GridPos をセットする
+		if (NewUnit)
+		{
+			NewUnit->GridPos = SpawnGridPos; // ここに設定したい座標を入れる
+		}
+
+		return SpawnedActor;
 	}
 
 	//生成失敗した場合
