@@ -3,6 +3,7 @@
 
 #include "GameManager.h"
 #include "UnitSpawn.h"
+#include "Card.h" // カードのヘッダーを読み込む
 
 // Sets default values
 AGameManager::AGameManager()
@@ -285,3 +286,13 @@ void AGameManager::ChangePhase() {
 	}
 }
 
+
+void AGameManager::DeselectAllCards() {
+	for (ACard* Card : AllCardList)
+	{
+		if (IsValid(Card))
+		{
+			Card->SetCardSelected(false); // 全員沈める
+		}
+	}
+}

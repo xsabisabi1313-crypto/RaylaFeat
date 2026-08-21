@@ -2,8 +2,10 @@
 #include "GameFramework/Actor.h"
 #include <Unit.h>
 #include "Components/TextBlock.h"
+#include <Card.h>
 
 #include "GameManager.generated.h"
+
 
 
 UENUM(BlueprintType)
@@ -82,10 +84,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")
 	FIntPoint ReserveGridPos;
 
-	//// 移動範囲タイルobject(十字)
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameManager")
-	//TSubclassOf<class AActor> CrossMoveTile;
-
 	// いま実際に画面に出ている移動範囲オブジェクトを覚えておく変数
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Test")
 	AActor* CurrentMovePatternObj;
@@ -105,6 +103,13 @@ public:
 	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Battle")
 	TArray<AActor*> AllUnitsList;
 	//
+
+	// 現在マップに存在する全ての手札カードを格納するリスト
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Card")
+	TArray<ACard*> AllCardList;
+	// 現在マップに存在する全ての手札カードを沈ませる関数
+	UFUNCTION(BlueprintCallable, Category = "Game")
+	void DeselectAllCards();
 
 	// バトル処理
 	UFUNCTION(BlueprintCallable, Category = "Game")
@@ -127,7 +132,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "BP")
 	void ChangePhase();
 
-	//タイマーを使うための
+	//タイマーを使うためのやつ？
 	FTimerHandle PhaseTimerHandle;
 
 private:
