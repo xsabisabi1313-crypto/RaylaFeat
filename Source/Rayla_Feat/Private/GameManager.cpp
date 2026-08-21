@@ -21,13 +21,6 @@ void AGameManager::BeginPlay()
 	
 }
 
-// Called every frame
-void AGameManager::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
-
-}
 
 
 
@@ -242,10 +235,10 @@ void AGameManager::ExecuteBattle(EPlayerSide AttackerSide) {
 //敵召喚
 void AGameManager::ExecuteSpawnEnemy() {
 
-    AUnitSpawn* UnitSpawner = GetWorld()->SpawnActor<AUnitSpawn>();
-	if (!UnitSpawner)return;
-   
-    UnitSpawner->SpawnEnemyUnit();
+ //   AUnitSpawn* UnitSpawner = GetWorld()->SpawnActor<AUnitSpawn>();
+	//if (!UnitSpawner)return;
+ //  
+ //   UnitSpawner->SpawnEnemyUnit();
 
     
 }

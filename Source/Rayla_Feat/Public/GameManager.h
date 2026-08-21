@@ -1,10 +1,13 @@
-﻿#include "CoreMinimal.h"
+﻿#pragma once 
+
+#include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include <Unit.h>
 #include "Components/TextBlock.h"
-#include <Card.h>
+#include "Card.h"
+#include "Unit.h"
 
 #include "GameManager.generated.h"
+
 
 
 
@@ -37,13 +40,18 @@ protected:
 public:	
 
 
-	virtual void Tick(float DeltaTime) override;
-
-
 
 	// 現在のフェーズ
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Game")
 	CurrentPhase currentPhase;
+
+	// プレイヤーの残りコスト
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resource")
+	int32 PlayerCurrentCost = 10;
+
+		// 敵の残りコスト
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resource")
+	int32 EnemyCurrentCost = 10; 
 
 	// 現在選択されている味方ユニット（実体）
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")
@@ -134,8 +142,6 @@ public:
 
 	//タイマーを使うためのやつ？
 	FTimerHandle PhaseTimerHandle;
-
-private:
 
 	
 };
