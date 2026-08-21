@@ -15,6 +15,8 @@ enum class CurrentPhase : uint8
 	EGS_GameOver  UMETA(DisplayName = "Game Over")
 };
 
+
+
 UCLASS()
 class RAYLA_FEAT_API AGameManager : public AActor
 {

@@ -79,6 +79,10 @@ public:
 	void SpawnMovePatternObject();
 
 
+	//ƒpƒ[
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
+	float Power = 0;
+
 	//‘®«
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
 	EElementtype Element = EElementtype::None;

@@ -177,9 +177,23 @@ void AGameManager::ExecuteBattle() {
 				GEngine->AddOnScreenDebugMessage(
 					-1,                          // キー (-1なら古いメッセージを上書きせず毎回新しい行で表示)
 					3.0f,                        // 表示する時間（秒）
-					FColor::Yellow,              // 文字の色
-					TEXT("敵を発見しししし")          // 表示したい文字列
+					FColor::Orange,              // 文字の色
+					TEXT("Battle！")          // 表示したい文字列
 				);
+
+				//まず、パワーを決定する
+				//属性が同じとき
+				if (Attacker->Element == OtherUnit->Element) {
+					//何もしない
+				}
+				//火VS水
+				else if (Attacker->Element == EElementtype::Fire && OtherUnit->Element == EElementtype::Water) {
+					OtherUnit->Power *= 2;
+				}
+				//
+				else if (Attacker->Element == EElementtype::Fire && OtherUnit->Element == EElementtype::Grass) {
+
+				}
 			}
 		}
 	}
@@ -191,5 +205,6 @@ void AGameManager::ExecuteSpawnEnemy() {
 	if (!UnitSpawner)return;
    
     UnitSpawner->SpawnEnemyUnit();
+
     
 }
