@@ -14,6 +14,9 @@ void AEnemyAI::BeginPlay()
 
 
 void AEnemyAI::ExecuteAITurn() {
+
+    if (!GameManagerRef)return;
+
 	if (GameManagerRef->currentPhase == CurrentPhase::EGS_Spawn) {
 		ProcessAISpawn();
 	}
@@ -25,6 +28,8 @@ void AEnemyAI::ExecuteAITurn() {
 
 void AEnemyAI::ProcessAISpawn()
 {
+
+    if(!GameManagerRef) return;
 
     FIntPoint ChosenPos;
 
@@ -43,6 +48,7 @@ void AEnemyAI::ProcessAISpawn()
     // もし「召喚候補の中に、すでにユニットがいる座標」が含まれていたら、候補から外す！
     for (AActor* Actor : GameManagerRef->AllUnitsList)
     {
+        if (!IsValid(Actor)) continue;
         AUnit* Unit = Cast<AUnit>(Actor);
         if (!Unit) continue;
         FIntPoint UnitPos = Unit->GridPos;
@@ -79,5 +85,6 @@ void AEnemyAI::ProcessAISpawn()
 
 }
 void AEnemyAI::ProcessAIMoveReserve() {
+    //まず、移動するキャラクターを決める
 
 }

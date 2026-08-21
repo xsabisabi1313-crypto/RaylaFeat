@@ -143,6 +143,7 @@ void AGameManager::ExecuteMove()
 
 	// ユニット側の位置を更新する（前作った MoveToGrid 関数などを活用）
 	SelectedUnit->MoveToGrid(ReserveGridPos);
+	SelectedEnemyUnit->MoveToGrid(ReserveEnemyGridPos);
 
 	//UE_LOG(LogTemp, Warning, TEXT("ユニットを移動させました！"));
 
@@ -152,8 +153,8 @@ void AGameManager::ExecuteMove()
 }
 
 //バトル処理
-void AGameManager::ExecuteBattle(EPlayerSide AttackerSide) {
-
+void AGameManager::ExecuteBattle(EPlayerSide AttackerSide)
+{
 	AUnit* Attacker = nullptr;
 	//もし引数が存在しない場合は、基本は仕掛ける側は味方だと想定
 	if (AttackerSide == EPlayerSide::Enemy) {
@@ -163,16 +164,22 @@ void AGameManager::ExecuteBattle(EPlayerSide AttackerSide) {
 		Attacker = SelectedUnit;
 	}
 
-	if (!Attacker)return;
-
+	if (!IsValid(Attacker)) return;
 
 	GetAvailableAttackPositions(Attacker);
+
+	// 実際に破壊するアクターをためておくリスト（ループ中の配列変更クラッシュを防ぐため）
+	TArray<AUnit*> UnitsToDestroy;
+
 	// 【ループ①】攻撃できるマスの数だけ回す
 	for (const FIntPoint& AttackPos : AvailableAttackPositions)
 	{
 		// 【ループ②】フィールドにいるすべてのキャラクターの数だけ回す
 		for (AActor* Actor : AllUnitsList)
 		{
+			// ★修正ポイント1: Castする前に、まずActorが有効かチェックする！
+			if (!IsValid(Actor)) continue;
+
 			AUnit* OtherUnit = Cast<AUnit>(Actor);
 			if (!OtherUnit || OtherUnit == Attacker) continue;
 
@@ -182,56 +189,53 @@ void AGameManager::ExecuteBattle(EPlayerSide AttackerSide) {
 			// 【判定】「攻撃できるマス」と「キャラの現在地」が一致するか！？
 			if (OtherUnit->GridPos.X == AttackPos.X && OtherUnit->GridPos.Y == AttackPos.Y)
 			{
-				// 敵を発見！この瞬間に「こいつを殴る」と確定できる
-				//return OtherUnit;
 				GEngine->AddOnScreenDebugMessage(
-					-1,                          // キー (-1なら古いメッセージを上書きせず毎回新しい行で表示)
-					3.0f,                        // 表示する時間（秒）
-					FColor::Orange,              // 文字の色
-					TEXT("Battle！")          // 表示したい文字列
+					-1,
+					3.0f,
+					FColor::Orange,
+					TEXT("Battle！")
 				);
 
-				//まず、パワーを決定する
-				//火VS水
+				// まず、パワーを決定する
 				if (Attacker->Element == EElementtype::Fire && OtherUnit->Element == EElementtype::Water) {
 					OtherUnit->Power *= 2;
 				}
-				//火VS草
 				else if (Attacker->Element == EElementtype::Fire && OtherUnit->Element == EElementtype::Grass) {
 					Attacker->Power *= 2;
 				}
-				//水VS草
 				else if (Attacker->Element == EElementtype::Grass && OtherUnit->Element == EElementtype::Water) {
 					Attacker->Power *= 2;
 				}
 
-				//次に実際に攻撃する
-				//相打ち
+				// 相打ち・勝敗の判定
 				if (Attacker->Power == OtherUnit->Power) {
-					// 1. AllUnitsList から両方とも削除して破壊する
-					AllUnitsList.RemoveSingle(Attacker);
-					Attacker->Destroy();
-
-					AllUnitsList.RemoveSingle(OtherUnit);
-					OtherUnit->Destroy();
+					UnitsToDestroy.Add(Attacker);
+					UnitsToDestroy.Add(OtherUnit);
 				}
-				//仕掛けた側の勝利
 				else if (Attacker->Power > OtherUnit->Power) {
-					AllUnitsList.RemoveSingle(OtherUnit);
-					OtherUnit->Destroy();
+					UnitsToDestroy.Add(OtherUnit);
 				}
-				//仕掛けた側の敗北
 				else {
-					AllUnitsList.RemoveSingle(Attacker);
-					Attacker->Destroy();
+					UnitsToDestroy.Add(Attacker);
 				}
 
-				return;
+				// 該当する相手を見つけたらループを抜ける
+				break;
 			}
+		}
+		if (UnitsToDestroy.Num() > 0) break; // 戦闘が発生したら外側ループも抜ける
+	}
+
+	// ★修正ポイント2: ループが終わった安全な場所で、まとめてリストから外し、破壊する！
+	for (AUnit* UnitToDestroy : UnitsToDestroy)
+	{
+		if (IsValid(UnitToDestroy))
+		{
+			AllUnitsList.RemoveSingle(UnitToDestroy);
+			UnitToDestroy->Destroy();
 		}
 	}
 }
-
 //敵召喚
 void AGameManager::ExecuteSpawnEnemy() {
 

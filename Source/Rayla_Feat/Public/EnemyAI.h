@@ -19,6 +19,7 @@ protected:
 
 public:	
 	// Called every frame
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
 	AGameManager* GameManagerRef;
 
 	UFUNCTION(BlueprintCallable, Category = "AI")

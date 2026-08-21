@@ -88,9 +88,14 @@ public:
 	bool IsValidMoveDestination(FIntPoint TargetGridPos);
 
 
-	// 【新規】今から移動しようと選んだ目的地の座標（仮予約用）
+	// 今から移動しようと選んだ目的地の座標（仮予約用）
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")
 	FIntPoint ReserveGridPos;
+
+	//敵が選んでいる移動予約の場所
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")
+	FIntPoint ReserveEnemyGridPos;
+
 
 	// いま実際に画面に出ている移動範囲オブジェクトを覚えておく変数
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Test")
