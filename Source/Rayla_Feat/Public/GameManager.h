@@ -1,6 +1,7 @@
-#include "CoreMinimal.h"
+ï»¿#include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include <Unit.h>
+#include "Components/TextBlock.h"
 
 #include "GameManager.generated.h"
 
@@ -38,74 +39,98 @@ public:
 
 
 
-	// Œ»İ‚ÌƒtƒF[ƒY
+	// ç¾åœ¨ã®ãƒ•ã‚§ãƒ¼ã‚º
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Game")
 	CurrentPhase currentPhase;
 
-	// Œ»İ‘I‘ğ‚³‚ê‚Ä‚¢‚é–¡•ûƒ†ƒjƒbƒgiÀ‘Ìj
+	// ç¾åœ¨é¸æŠã•ã‚Œã¦ã„ã‚‹å‘³æ–¹ãƒ¦ãƒ‹ãƒƒãƒˆï¼ˆå®Ÿä½“ï¼‰
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")
 	AUnit* SelectedUnit = nullptr;
 
-	// Œ»İ‘I‘ğ‚³‚ê‚Ä‚¢‚é–¡•ûƒ†ƒjƒbƒg‚ÌİŒv‘
+	// ç¾åœ¨é¸æŠã•ã‚Œã¦ã„ã‚‹å‘³æ–¹ãƒ¦ãƒ‹ãƒƒãƒˆã®è¨­è¨ˆæ›¸
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")
 	TSubclassOf<AActor> UnitClassToSpawn = nullptr;
 
+	// ç¾åœ¨é¸æŠã•ã‚Œã¦ã„ã‚‹å‘³æ–¹ãƒ¦ãƒ‹ãƒƒãƒˆï¼ˆå®Ÿä½“ï¼‰
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")
+	AUnit* SelectedEnemyUnit = nullptr;
+	TSubclassOf<AActor> EnemyUnitClassToSpawn = nullptr;
 
-	//ˆÚ“®—\–ñ‚ª‰Â”\‚Èƒ|ƒWƒVƒ‡ƒ“‚ğ‘S‚Ä•Ô‚µ‚Ä‚­‚ê‚éŠÖ”
+
+	//ç§»å‹•äºˆç´„ãŒå¯èƒ½ãªãƒã‚¸ã‚·ãƒ§ãƒ³ã‚’å…¨ã¦è¿”ã—ã¦ãã‚Œã‚‹é–¢æ•°
 	UFUNCTION(BlueprintCallable, Category = "MovePosFunc")
 	void GetAvailableMovePositions(AUnit* TargetUnit);
-	// yÀ‘ÌzŒ»İŒvZ‚³‚ê‚Ä‚¢‚éˆÚ“®‰Â”\ƒ|ƒWƒVƒ‡ƒ“‚ÌƒŠƒXƒg
+	// ã€å®Ÿä½“ã€‘ç¾åœ¨è¨ˆç®—ã•ã‚Œã¦ã„ã‚‹ç§»å‹•å¯èƒ½ãƒã‚¸ã‚·ãƒ§ãƒ³ã®ãƒªã‚¹ãƒˆ
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MovePatternFunc")
 	TArray<FIntPoint> AvailableMovePositions;
 
 
-	// Œ»İ‚ÌˆÊ’u‚©‚çUŒ‚‚Å‚«‚éƒ}ƒX‚ğAUŒ‚ƒpƒ^[ƒ“‚²‚Æ‚É‚·‚×‚Ä•Ô‚·”z—ñ
+	// ç¾åœ¨ã®ä½ç½®ã‹ã‚‰æ”»æ’ƒã§ãã‚‹ãƒã‚¹ã‚’ã€æ”»æ’ƒãƒ‘ã‚¿ãƒ¼ãƒ³ã”ã¨ã«ã™ã¹ã¦è¿”ã™é…åˆ—
 	UFUNCTION(BlueprintCallable, Category = "AttackPosFunc")
 	void GetAvailableAttackPositions(AUnit* TargetUnit);
-	// yÀ‘ÌzŒ»İŒvZ‚³‚ê‚Ä‚¢‚éˆÚ“®‰Â”\ƒ|ƒWƒVƒ‡ƒ“‚ÌƒŠƒXƒg
+	// ã€å®Ÿä½“ã€‘ç¾åœ¨è¨ˆç®—ã•ã‚Œã¦ã„ã‚‹ç§»å‹•å¯èƒ½ãƒã‚¸ã‚·ãƒ§ãƒ³ã®ãƒªã‚¹ãƒˆ
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MovePatternFunc")
 	TArray<FIntPoint> AvailableAttackPositions;
 
 
-	// w’è‚µ‚½ƒOƒŠƒbƒhÀ•W‚ªAŒ»İˆÚ“®‰Â”\‚Èƒ}ƒX‚©‚Ç‚¤‚©‚ğ”»’è‚·‚éŠÖ”
+	// æŒ‡å®šã—ãŸã‚°ãƒªãƒƒãƒ‰åº§æ¨™ãŒã€ç¾åœ¨ç§»å‹•å¯èƒ½ãªãƒã‚¹ã‹ã©ã†ã‹ã‚’åˆ¤å®šã™ã‚‹é–¢æ•°
 	UFUNCTION(BlueprintCallable, Category = "MovePatternFunc")
 	bool IsValidMoveDestination(FIntPoint TargetGridPos);
 
 
-	// yV‹Kz¡‚©‚çˆÚ“®‚µ‚æ‚¤‚Æ‘I‚ñ‚¾–Ú“I’n‚ÌÀ•Wi‰¼—\–ñ—pj
+	// ã€æ–°è¦ã€‘ä»Šã‹ã‚‰ç§»å‹•ã—ã‚ˆã†ã¨é¸ã‚“ã ç›®çš„åœ°ã®åº§æ¨™ï¼ˆä»®äºˆç´„ç”¨ï¼‰
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")
 	FIntPoint ReserveGridPos;
 
-	// ˆÚ“®”ÍˆÍƒ^ƒCƒ‹object(\š)
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameManager")
-	TSubclassOf<class AActor> CrossMoveTile;
+	//// ç§»å‹•ç¯„å›²ã‚¿ã‚¤ãƒ«object(åå­—)
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameManager")
+	//TSubclassOf<class AActor> CrossMoveTile;
 
-	// —\–ñ‚µ‚½ˆÚ“®æ‚ÖA‘I‘ğ’†‚Ìƒ†ƒjƒbƒg‚ğÀÛ‚ÉˆÚ“®‚³‚¹‚éŠÖ”
+	// ã„ã¾å®Ÿéš›ã«ç”»é¢ã«å‡ºã¦ã„ã‚‹ç§»å‹•ç¯„å›²ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¦šãˆã¦ãŠãå¤‰æ•°
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Test")
+	AActor* CurrentMovePatternObj;
+
+	//â‡‘ã‚’å‰Šé™¤ã™ã‚‹é–¢æ•°
+	UFUNCTION(BlueprintCallable, Category = "None")
+	void DeleteMoveRangeObj();
+	
+
+
+
+	// äºˆç´„ã—ãŸç§»å‹•å…ˆã¸ã€é¸æŠä¸­ã®ãƒ¦ãƒ‹ãƒƒãƒˆã‚’å®Ÿéš›ã«ç§»å‹•ã•ã›ã‚‹é–¢æ•°
 	UFUNCTION(BlueprintCallable, Category = "Game")
 	void ExecuteMove();
 
-	// Œ»İƒ}ƒbƒv‚É‘¶İ‚·‚é‘S‚Ä‚Ìƒ†ƒjƒbƒg‚ğŠi”[‚·‚éƒŠƒXƒg
+	// ç¾åœ¨ãƒãƒƒãƒ—ã«å­˜åœ¨ã™ã‚‹å…¨ã¦ã®ãƒ¦ãƒ‹ãƒƒãƒˆã‚’æ ¼ç´ã™ã‚‹ãƒªã‚¹ãƒˆ
 	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Battle")
 	TArray<AActor*> AllUnitsList;
 	//
 
-	// ƒoƒgƒ‹ˆ—
+	// ãƒãƒˆãƒ«å‡¦ç†
 	UFUNCTION(BlueprintCallable, Category = "Game")
-	void ExecuteBattle();
+	void ExecuteBattle(EPlayerSide AttackerSide);
 
-	// ƒvƒŒƒCƒ„[‚ª¢Š«‚Å‚«‚é‘S‚Ä‚Ìƒ†ƒjƒbƒg‚ÌİŒv‘
+	// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒå¬å–šã§ãã‚‹å…¨ã¦ã®ãƒ¦ãƒ‹ãƒƒãƒˆã®è¨­è¨ˆæ›¸
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawn")
 	TArray<TSubclassOf<AUnit>> PlayerOwnedUnits;
 
 
-	// “G‚ª¢Š«‚Å‚«‚é‘S‚Ä‚Ìƒ†ƒjƒbƒg‚ÌİŒv‘
+	// æ•µãŒå¬å–šã§ãã‚‹å…¨ã¦ã®ãƒ¦ãƒ‹ãƒƒãƒˆã®è¨­è¨ˆæ›¸
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawn")
 	TArray<TSubclassOf<AUnit>> EnemyOwnedUnits;
 
-	//“G‚Ì¢Š«‚ğÀs‚·‚éŠÖ”
+	//æ•µã®å¬å–šã‚’å®Ÿè¡Œã™ã‚‹é–¢æ•°
 	UFUNCTION(BlueprintCallable, Category = "Game")
 	void ExecuteSpawnEnemy();
 
+	//Phaseã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹é–¢æ•°
+	UFUNCTION(BlueprintCallable, Category = "BP")
+	void ChangePhase();
+
+	//ã‚¿ã‚¤ãƒãƒ¼ã‚’ä½¿ã†ãŸã‚ã®
+	FTimerHandle PhaseTimerHandle;
+
+private:
 
 	
 };

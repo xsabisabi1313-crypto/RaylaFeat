@@ -35,7 +35,14 @@ void AUnit::BeginPlay()
 // ユニットがクリックされたときの処理
 void AUnit::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonPressed)
 {
-	UE_LOG(LogTemp, Warning, TEXT("クリックしました: %s"), *GetName());
+
+	//味方じゃなかったら反応させない
+	if (PlayerSide != EPlayerSide::Player) // 敵の場合
+	{
+		
+		return;
+	}
+
 
 	// ワールド上のGameManagerを探して自分をセットする
 	AGameManager* MyGameManager = Cast<AGameManager>(
@@ -72,13 +79,13 @@ void AUnit::MoveToGrid(FIntPoint NewGridPos)
 void AUnit::SpawnMovePatternObject()
 {
 
-	FRotator SpawnRotation = FRotator::ZeroRotator;
+	AGameManager* MyGameManager = Cast<AGameManager>(
+		UGameplayStatics::GetActorOfClass(GetWorld(), AGameManager::StaticClass())
+	);
 
-	// 3. ワールドにアクターをスポーンさせる
-	AActor* SpawnedObj = GetWorld()->SpawnActor<AActor>(MovePatternObjClass, FVector(GridPos.X * 100, GridPos.Y * 100, 46), SpawnRotation);
 
-	if (SpawnedObj)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("移動範囲オブジェクトを生成しました！"));
+	if (MyGameManager->CurrentMovePatternObj) {
+		MyGameManager->DeleteMoveRangeObj();
 	}
+	MyGameManager->CurrentMovePatternObj = GetWorld()->SpawnActor<AActor>(MovePatternObjClass, FVector(GridPos.X * 100, GridPos.Y * 100, 46), FRotator::ZeroRotator);
 }

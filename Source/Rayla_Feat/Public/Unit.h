@@ -27,10 +27,10 @@ enum class EMovePatterns : uint8
 UENUM(BlueprintType)
 enum class EElementtype : uint8
 {
-	None   UMETA(DisplayName = "無属性"),
-	Fire    UMETA(DisplayName = "炎"),
-	Water   UMETA(DisplayName = "水"),
-	Grass    UMETA(DisplayName = "草")
+	None   UMETA(DisplayName = "None"),
+	Fire    UMETA(DisplayName = "Fire"),
+	Water   UMETA(DisplayName = "Water"),
+	Grass    UMETA(DisplayName = "Grass")
 
 };
 
@@ -38,8 +38,8 @@ enum class EElementtype : uint8
 UENUM(BlueprintType)
 enum class EPlayerSide : uint8
 {
-	Player    UMETA(DisplayName = "味方 (Player)"),
-	Enemy     UMETA(DisplayName = "敵 (Enemy)"),
+	Player    UMETA(DisplayName = "(Player)"),
+	Enemy     UMETA(DisplayName = "(Enemy)"),
 };
 
 UCLASS()
@@ -50,6 +50,7 @@ class RAYLA_FEAT_API AUnit : public AActor
 public:	
 	AUnit();
 
+	//アクターがクリックされたとき呼ぶ関数
 	UFUNCTION(BlueprintCallable, Category = "Unit")
 	void OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonPressed);
 		
@@ -71,8 +72,10 @@ public:
 	void MoveToGrid(FIntPoint NewGridPos);
 
 	// 生成したい移動範囲オブジェクトの「設計図（ブループリント）」を指定する変数
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MovePatternObj")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Test")
 	TSubclassOf<AActor> MovePatternObjClass;
+
+
 
 	// 移動範囲オブジェクトを生成する関数
 	UFUNCTION(BlueprintCallable, Category = "MovePatternObj")

@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "GameManager.h"
@@ -31,26 +31,26 @@ void AGameManager::Tick(float DeltaTime)
 
 
 
-//Œ»İ‚ÌˆÊ’u‚©‚çˆÚ“®‚Å‚«‚éƒ}ƒX‚ğAˆÚ“®‚Ìƒpƒ^[ƒ“‚²‚Æ‚É•Ï‚¦‚Ä‘S‚Ä•Ô‚·”z—ñ
+//ç¾åœ¨ã®ä½ç½®ã‹ã‚‰ç§»å‹•ã§ãã‚‹ãƒã‚¹ã‚’ã€ç§»å‹•ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã”ã¨ã«å¤‰ãˆã¦å…¨ã¦è¿”ã™é…åˆ—
 void AGameManager::GetAvailableMovePositions(AUnit* TargetUnit)
 {
-	// 1. ‚Ü‚¸ƒŠƒXƒg‚ğãY—í‚ÉƒŠƒZƒbƒg‚·‚éi‘O‰ñ‚Ìc‚è‚ğÁ‚·j
+	// 1. ã¾ãšãƒªã‚¹ãƒˆã‚’ç¶ºéº—ã«ãƒªã‚»ãƒƒãƒˆã™ã‚‹ï¼ˆå‰å›ã®æ®‹ã‚Šã‚’æ¶ˆã™ï¼‰
 	AvailableMovePositions.Empty();
 
 
-	// 1. ƒ†ƒjƒbƒg‚ÌŒ»İ‚ÌƒOƒŠƒbƒhÀ•W‚ğæ“¾
+	// 1. ãƒ¦ãƒ‹ãƒƒãƒˆã®ç¾åœ¨ã®ã‚°ãƒªãƒƒãƒ‰åº§æ¨™ã‚’å–å¾—
 	FIntPoint CurrentPos = TargetUnit->GridPos;
 
-	//ƒ†ƒjƒbƒg‚ÌˆÚ“®ƒpƒ^[ƒ“‚ğæ“¾
+	//ãƒ¦ãƒ‹ãƒƒãƒˆã®ç§»å‹•ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’å–å¾—
 	EMovePatterns MovePattern = TargetUnit->MovePattern;
 
 	switch (MovePattern)
 	{
 	case EMovePatterns::Cross:
-		AvailableMovePositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y));//‰E
-		AvailableMovePositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y));//¶
-		AvailableMovePositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y + 1)); // ã
-		AvailableMovePositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y - 1)); // ‰º
+		AvailableMovePositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y));//å³
+		AvailableMovePositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y));//å·¦
+		AvailableMovePositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y + 1)); // ä¸Š
+		AvailableMovePositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y - 1)); // ä¸‹
 		break;
 
 	default:
@@ -59,146 +59,186 @@ void AGameManager::GetAvailableMovePositions(AUnit* TargetUnit)
 
 }
 
+//æ”»æ’ƒå¯èƒ½ãªãƒã‚¹ã‚’è¨ˆç®—ã—ã¦ã€AvailableAttackPositionsã«æ ¼ç´ã™ã‚‹
 void AGameManager::GetAvailableAttackPositions(AUnit* TargetUnit) {
 
 	if (!TargetUnit) {
 		return;
 	}
 
-	// 1. ‚Ü‚¸ƒŠƒXƒg‚ğãY—í‚ÉƒŠƒZƒbƒg‚·‚éi‘O‰ñ‚Ìc‚è‚ğÁ‚·j
+	// 1. ã¾ãšãƒªã‚¹ãƒˆã‚’ç¶ºéº—ã«ãƒªã‚»ãƒƒãƒˆã™ã‚‹ï¼ˆå‰å›ã®æ®‹ã‚Šã‚’æ¶ˆã™ï¼‰
 	AvailableAttackPositions.Empty();
 
-	// 1. ƒ†ƒjƒbƒg‚ÌŒ»İ‚ÌƒOƒŠƒbƒhÀ•W‚ğæ“¾
+	// 1. ãƒ¦ãƒ‹ãƒƒãƒˆã®ç¾åœ¨ã®ã‚°ãƒªãƒƒãƒ‰åº§æ¨™ã‚’å–å¾—
 	FIntPoint CurrentPos = TargetUnit->GridPos;
 
-	//ƒ†ƒjƒbƒg‚ÌUŒ‚ƒpƒ^[ƒ“‚ğæ“¾
+	//ãƒ¦ãƒ‹ãƒƒãƒˆã®æ”»æ’ƒãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’å–å¾—
 	EAtackPatterns AttackPattern = TargetUnit->AttackPattern;
 
-	//“G‚©–¡•û‚©‚É‚æ‚Á‚ÄA‘OŒã‚ª•Ï‚í‚éB–¡•û‚È‚çY‚ª-‚PA“G‚È‚çY‚ª+1
+	//æ•µã‹å‘³æ–¹ã‹ã«ã‚ˆã£ã¦ã€å‰å¾ŒãŒå¤‰ã‚ã‚‹ã€‚å‘³æ–¹ãªã‚‰YãŒ-ï¼‘ã€æ•µãªã‚‰YãŒ+1
 	int32 ForwardDir = 1;
 	if (TargetUnit->PlayerSide == EPlayerSide::Player)
 	{
-		ForwardDir = -1; // –¡•û‚Íƒ}ƒCƒiƒX•ûŒü‚ªu‘Ov
+		ForwardDir = -1; // å‘³æ–¹ã¯ãƒã‚¤ãƒŠã‚¹æ–¹å‘ãŒã€Œå‰ã€
 	}
 	else if (TargetUnit->PlayerSide == EPlayerSide::Enemy)
 	{
-		ForwardDir = 1;  // “G‚Íƒvƒ‰ƒX•ûŒü‚ªu‘Ov
+		ForwardDir = 1;  // æ•µã¯ãƒ—ãƒ©ã‚¹æ–¹å‘ãŒã€Œå‰ã€
 	}
 
 
 	switch (AttackPattern)
 	{
 	case EAtackPatterns::Cross:
-		// \š•ûŒüi‘OŒã¶‰E1ƒ}ƒX‚¸‚Â‚È‚Çj
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y + ForwardDir)); // ‘O
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y - ForwardDir)); // Œã‚ë
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y));        // ¶
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y));        // ‰E
+		// åå­—æ–¹å‘ï¼ˆå‰å¾Œå·¦å³1ãƒã‚¹ãšã¤ãªã©ï¼‰
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y));//è‡ªåˆ†ã®ä½ç½®
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y + ForwardDir)); // å‰
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y - ForwardDir)); // å¾Œã‚
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y));        // å·¦
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y));        // å³
 		break;
 
 	case EAtackPatterns::Forward:
-		// u‘Ov•ûŒü‚¾‚¯UŒ‚‚Å‚«‚é
+		// ã€Œå‰ã€æ–¹å‘ã ã‘æ”»æ’ƒã§ãã‚‹
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y));
 		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y + ForwardDir));
 		break;
 
 	case EAtackPatterns::All:
-		// üˆÍ8ƒ}ƒX‘S•”‚È‚Ç
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y + ForwardDir)); // ‘O
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y - ForwardDir)); // Œã
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y));            // ¶
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y));            // ‰E
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y + ForwardDir)); // ‘O¶
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y + ForwardDir)); // ‘O‰E
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y - ForwardDir)); // Œã¶
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y - ForwardDir)); // Œã‰E
+		// å‘¨å›²8ãƒã‚¹å…¨éƒ¨ãªã©
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y));//è‡ªåˆ†ã®ä½ç½®
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y + ForwardDir)); // å‰
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y - ForwardDir)); // å¾Œ
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y));            // å·¦
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y));            // å³
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y + ForwardDir)); // å‰å·¦
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y + ForwardDir)); // å‰å³
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y - ForwardDir)); // å¾Œå·¦
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y - ForwardDir)); // å¾Œå³
 		break;
 
 	case EAtackPatterns::Diagonal:
-		// Î‚ß4•ûŒü
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y + ForwardDir)); // ‘O¶Î‚ß
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y + ForwardDir)); // ‘O‰EÎ‚ß
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y - ForwardDir)); // Œã‚ë¶Î‚ß
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y - ForwardDir)); // Œã‚ë‰EÎ‚ß
+		// æ–œã‚4æ–¹å‘
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y));//è‡ªåˆ†ã®ä½ç½®
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y + ForwardDir)); // å‰å·¦æ–œã‚
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y + ForwardDir)); // å‰å³æ–œã‚
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y - ForwardDir)); // å¾Œã‚å·¦æ–œã‚
+		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y - ForwardDir)); // å¾Œã‚å³æ–œã‚
 		break;
 
 	default:
 		break;
 	}
 }
-
+//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒã‚¯ãƒªãƒƒã‚¯ã—ãŸåº§æ¨™ï¼ˆTargetGridPosï¼‰ãŒå«ã¾ã‚Œã¦ã„ã‚‹ã‹ãƒã‚§ãƒƒã‚¯ï¼
 bool AGameManager::IsValidMoveDestination(FIntPoint TargetGridPos)
 {
-	// 2. ‚»‚ÌƒŠƒXƒg‚Ì’†‚ÉAƒvƒŒƒCƒ„[‚ªƒNƒŠƒbƒN‚µ‚½À•WiTargetGridPosj‚ªŠÜ‚Ü‚ê‚Ä‚¢‚é‚©ƒ`ƒFƒbƒNI
+
 	return AvailableMovePositions.Contains(TargetGridPos);
 }
 
-//ÀÛ‚Éƒ†ƒjƒbƒg‚ğˆÚ“®‚³‚¹‚éŠÖ”
+//å®Ÿéš›ã«ãƒ¦ãƒ‹ãƒƒãƒˆã‚’ç§»å‹•ã•ã›ã‚‹
 void AGameManager::ExecuteMove()
 {
-	// 1. “®‚©‚·ƒ†ƒjƒbƒg‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚é‚©A‚³‚ç‚Éƒ|ƒCƒ“ƒ^‚ª—LŒøinullptr‚Å‚Í‚È‚¢j‚©Œµd‚Éƒ`ƒFƒbƒNI
+	// 1. å‹•ã‹ã™ãƒ¦ãƒ‹ãƒƒãƒˆãŒé¸æŠã•ã‚Œã¦ã„ã‚‹ã‹ã€ã•ã‚‰ã«ãƒã‚¤ãƒ³ã‚¿ãŒæœ‰åŠ¹ï¼ˆnullptrã§ã¯ãªã„ï¼‰ã‹å³é‡ã«ãƒã‚§ãƒƒã‚¯ï¼
 	if (!SelectedUnit || !IsValid(SelectedUnit))
 	{
-		UE_LOG(LogTemp, Warning, TEXT("ƒGƒ‰[FˆÚ“®‚·‚éƒ†ƒjƒbƒg‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚È‚¢‚©A‚·‚Å‚É–³Œø‚Å‚·I"));
+		UE_LOG(LogTemp, Warning, TEXT("ã‚¨ãƒ©ãƒ¼ï¼šç§»å‹•ã™ã‚‹ãƒ¦ãƒ‹ãƒƒãƒˆãŒé¸æŠã•ã‚Œã¦ã„ãªã„ã‹ã€ã™ã§ã«ç„¡åŠ¹ã§ã™ï¼"));
 		return;
 	}
 
-	// ƒ†ƒjƒbƒg‘¤‚ÌˆÊ’u‚ğXV‚·‚éi‘Oì‚Á‚½ MoveToGrid ŠÖ”‚È‚Ç‚ğŠˆ—pj
+	// ãƒ¦ãƒ‹ãƒƒãƒˆå´ã®ä½ç½®ã‚’æ›´æ–°ã™ã‚‹ï¼ˆå‰ä½œã£ãŸ MoveToGrid é–¢æ•°ãªã©ã‚’æ´»ç”¨ï¼‰
 	SelectedUnit->MoveToGrid(ReserveGridPos);
 
-	//UE_LOG(LogTemp, Warning, TEXT("ƒ†ƒjƒbƒg‚ğˆÚ“®‚³‚¹‚Ü‚µ‚½I"));
+	//UE_LOG(LogTemp, Warning, TEXT("ãƒ¦ãƒ‹ãƒƒãƒˆã‚’ç§»å‹•ã•ã›ã¾ã—ãŸï¼"));
 
-	// 3. ˆÚ“®‚ªI‚í‚Á‚½‚ ‚Æ‚ÌŒã•Ğ•t‚¯i•K—v‚É‰‚¶‚Äj
-	// —áF‘I‘ğ‚ğ‰ğœ‚µ‚½‚èAƒtƒF[ƒY‚ğŸ‚Ìƒ^[ƒ“‚Éi‚ß‚½‚è‚·‚é
+	// 3. ç§»å‹•ãŒçµ‚ã‚ã£ãŸã‚ã¨ã®å¾Œç‰‡ä»˜ã‘ï¼ˆå¿…è¦ã«å¿œã˜ã¦ï¼‰
+	// ä¾‹ï¼šé¸æŠã‚’è§£é™¤ã—ãŸã‚Šã€ãƒ•ã‚§ãƒ¼ã‚ºã‚’æ¬¡ã®ã‚¿ãƒ¼ãƒ³ã«é€²ã‚ãŸã‚Šã™ã‚‹
 	//SelectedUnit = nullptr;
 }
 
+//ãƒãƒˆãƒ«å‡¦ç†
+void AGameManager::ExecuteBattle(EPlayerSide AttackerSide) {
 
-void AGameManager::ExecuteBattle() {
-	//‚Ü‚¸A–¡•û‘¤
-	AUnit* Attacker = SelectedUnit;
+	AUnit* Attacker = nullptr;
+	//ã‚‚ã—å¼•æ•°ãŒå­˜åœ¨ã—ãªã„å ´åˆã¯ã€åŸºæœ¬ã¯ä»•æ›ã‘ã‚‹å´ã¯å‘³æ–¹ã ã¨æƒ³å®š
+	if (AttackerSide == EPlayerSide::Enemy) {
+		Attacker = SelectedEnemyUnit;
+	}
+	else {
+		Attacker = SelectedUnit;
+	}
+
+	if (!Attacker)return;
+
+
 	GetAvailableAttackPositions(Attacker);
-	// yƒ‹[ƒv‡@zUŒ‚‚Å‚«‚éƒ}ƒX‚Ì”‚¾‚¯‰ñ‚·
+	// ã€ãƒ«ãƒ¼ãƒ—â‘ ã€‘æ”»æ’ƒã§ãã‚‹ãƒã‚¹ã®æ•°ã ã‘å›ã™
 	for (const FIntPoint& AttackPos : AvailableAttackPositions)
 	{
-		// yƒ‹[ƒv‡AzƒtƒB[ƒ‹ƒh‚É‚¢‚é‚·‚×‚Ä‚ÌƒLƒƒƒ‰ƒNƒ^[‚Ì”‚¾‚¯‰ñ‚·
+		// ã€ãƒ«ãƒ¼ãƒ—â‘¡ã€‘ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«ã„ã‚‹ã™ã¹ã¦ã®ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã®æ•°ã ã‘å›ã™
 		for (AActor* Actor : AllUnitsList)
 		{
 			AUnit* OtherUnit = Cast<AUnit>(Actor);
 			if (!OtherUnit || OtherUnit == Attacker) continue;
 
-			// ©•ª‚Æ“¯‚¶w‰ci–¡•û“¯mj‚È‚çUŒ‚‘ÎÛŠO
+			// è‡ªåˆ†ã¨åŒã˜é™£å–¶ï¼ˆå‘³æ–¹åŒå£«ï¼‰ãªã‚‰æ”»æ’ƒå¯¾è±¡å¤–
 			if (OtherUnit->PlayerSide == Attacker->PlayerSide) continue;
 
-			// y”»’èzuUŒ‚‚Å‚«‚éƒ}ƒXv‚ÆuƒLƒƒƒ‰‚ÌŒ»İ’nv‚ªˆê’v‚·‚é‚©IH
+			// ã€åˆ¤å®šã€‘ã€Œæ”»æ’ƒã§ãã‚‹ãƒã‚¹ã€ã¨ã€Œã‚­ãƒ£ãƒ©ã®ç¾åœ¨åœ°ã€ãŒä¸€è‡´ã™ã‚‹ã‹ï¼ï¼Ÿ
 			if (OtherUnit->GridPos.X == AttackPos.X && OtherUnit->GridPos.Y == AttackPos.Y)
 			{
-				// “G‚ğ”­Œ©I‚±‚ÌuŠÔ‚Éu‚±‚¢‚Â‚ğ‰£‚év‚ÆŠm’è‚Å‚«‚é
+				// æ•µã‚’ç™ºè¦‹ï¼ã“ã®ç¬é–“ã«ã€Œã“ã„ã¤ã‚’æ®´ã‚‹ã€ã¨ç¢ºå®šã§ãã‚‹
 				//return OtherUnit;
 				GEngine->AddOnScreenDebugMessage(
-					-1,                          // ƒL[ (-1‚È‚çŒÃ‚¢ƒƒbƒZ[ƒW‚ğã‘‚«‚¹‚¸–ˆ‰ñV‚µ‚¢s‚Å•\¦)
-					3.0f,                        // •\¦‚·‚éŠÔi•bj
-					FColor::Orange,              // •¶š‚ÌF
-					TEXT("BattleI")          // •\¦‚µ‚½‚¢•¶š—ñ
+					-1,                          // ã‚­ãƒ¼ (-1ãªã‚‰å¤ã„ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’ä¸Šæ›¸ãã›ãšæ¯å›æ–°ã—ã„è¡Œã§è¡¨ç¤º)
+					3.0f,                        // è¡¨ç¤ºã™ã‚‹æ™‚é–“ï¼ˆç§’ï¼‰
+					FColor::Orange,              // æ–‡å­—ã®è‰²
+					TEXT("Battleï¼")          // è¡¨ç¤ºã—ãŸã„æ–‡å­—åˆ—
 				);
 
-				//‚Ü‚¸Aƒpƒ[‚ğŒˆ’è‚·‚é
-				//‘®«‚ª“¯‚¶‚Æ‚«
-				if (Attacker->Element == OtherUnit->Element) {
-					//‰½‚à‚µ‚È‚¢
-				}
-				//‰ÎVS…
-				else if (Attacker->Element == EElementtype::Fire && OtherUnit->Element == EElementtype::Water) {
+				//ã¾ãšã€ãƒ‘ãƒ¯ãƒ¼ã‚’æ±ºå®šã™ã‚‹
+				//ç«VSæ°´
+				if (Attacker->Element == EElementtype::Fire && OtherUnit->Element == EElementtype::Water) {
 					OtherUnit->Power *= 2;
 				}
-				//
+				//ç«VSè‰
 				else if (Attacker->Element == EElementtype::Fire && OtherUnit->Element == EElementtype::Grass) {
-
+					Attacker->Power *= 2;
 				}
+				//æ°´VSè‰
+				else if (Attacker->Element == EElementtype::Grass && OtherUnit->Element == EElementtype::Water) {
+					Attacker->Power *= 2;
+				}
+
+				//æ¬¡ã«å®Ÿéš›ã«æ”»æ’ƒã™ã‚‹
+				//ç›¸æ‰“ã¡
+				if (Attacker->Power == OtherUnit->Power) {
+					// 1. AllUnitsList ã‹ã‚‰ä¸¡æ–¹ã¨ã‚‚å‰Šé™¤ã—ã¦ç ´å£Šã™ã‚‹
+					AllUnitsList.RemoveSingle(Attacker);
+					Attacker->Destroy();
+
+					AllUnitsList.RemoveSingle(OtherUnit);
+					OtherUnit->Destroy();
+				}
+				//ä»•æ›ã‘ãŸå´ã®å‹åˆ©
+				else if (Attacker->Power > OtherUnit->Power) {
+					AllUnitsList.RemoveSingle(OtherUnit);
+					OtherUnit->Destroy();
+				}
+				//ä»•æ›ã‘ãŸå´ã®æ•—åŒ—
+				else {
+					AllUnitsList.RemoveSingle(Attacker);
+					Attacker->Destroy();
+				}
+
+				return;
 			}
 		}
 	}
 }
 
+//æ•µå¬å–š
 void AGameManager::ExecuteSpawnEnemy() {
 
     AUnitSpawn* UnitSpawner = GetWorld()->SpawnActor<AUnitSpawn>();
@@ -208,3 +248,40 @@ void AGameManager::ExecuteSpawnEnemy() {
 
     
 }
+
+//ç§»å‹•ç¯„å›²å‰Šé™¤
+void AGameManager::DeleteMoveRangeObj() {
+	if (CurrentMovePatternObj)
+	{
+		CurrentMovePatternObj->Destroy();
+		CurrentMovePatternObj = nullptr;
+	}
+}
+
+//Phaseã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹
+void AGameManager::ChangePhase() {
+	DeleteMoveRangeObj();
+
+	switch (currentPhase)
+	{
+	case CurrentPhase::EGS_Spawn:
+		currentPhase = CurrentPhase::EGS_MoveReserve;
+		break;
+
+	case CurrentPhase::EGS_MoveReserve:
+		currentPhase = CurrentPhase::EGS_Move;
+		break;
+
+	case CurrentPhase::EGS_Move:
+		currentPhase = CurrentPhase::EGS_Battle;
+		break;
+
+	case CurrentPhase::EGS_Battle:
+		currentPhase = CurrentPhase::EGS_Spawn;
+		break;
+
+	default:
+		break;
+	}
+}
+
