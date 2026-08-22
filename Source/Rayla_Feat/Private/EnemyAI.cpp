@@ -33,13 +33,48 @@ void AEnemyAI::ProcessAISpawn()
 
     FIntPoint ChosenPos;
 
-    // どのキャラをスポーンさせるか決める
-    int32 IndexToSpawn = 0;
-    TSubclassOf<AUnit> EnemyClassToSpawn = GameManagerRef->EnemyOwnedUnits[IndexToSpawn];
-    if (!EnemyClassToSpawn) return;
+    //１，何のキャラをスポーンさせるかを決める
+    //  すでに場にいる（生存している）すべての「敵ユニットのクラス」を集める
+    TArray<TSubclassOf<AUnit>> SpawnedEnemyClasses;
+    for (AActor* Actor : GameManagerRef->AllUnitsList)
+    {
+        if (!IsValid(Actor)) continue;
+        AUnit* Unit = Cast<AUnit>(Actor);
+        if (Unit && Unit->PlayerSide == EPlayerSide::Enemy)
+        {
+            SpawnedEnemyClasses.Add(Unit->GetClass());
+        }
+    }
 
-    //召喚する場所を決める
-    //まず、召喚できる場所を初期6マスある。
+    //  敵が所持しているリストから、「まだ場に出ていないキャラ」だけを候補として集める
+    TArray<TSubclassOf<AUnit>> AvailableClasses;
+    for (TSubclassOf<AUnit> OwnedClass : GameManagerRef->EnemyOwnedUnits)
+    {
+        if (!OwnedClass) continue;
+
+        // まだ場に出ていなければ候補に追加
+        if (!SpawnedEnemyClasses.Contains(OwnedClass))
+        {
+            AvailableClasses.Add(OwnedClass);
+        }
+    }
+
+
+
+
+    // もし「まだ場に出ていないキャラ」が1体もいなければ、これ以上召喚できないので終了
+    if (AvailableClasses.Num() == 0)
+    {
+        UE_LOG(LogTemp, Warning, TEXT("すべての種類の敵がすでに場に出現しています！"));
+        return;
+    }
+    //召喚させるユニット決定！
+    int32 RandomIndex = FMath::RandRange(0, AvailableClasses.Num() - 1);
+    TSubclassOf<AUnit> EnemyClassToSpawn = AvailableClasses[RandomIndex];
+
+
+    //2、召喚する場所を決める
+    //まず、召喚できる場所は、初期6マスある。
     TArray<FIntPoint> SpawnableCandidatePositions = {
         FIntPoint(0, 0), FIntPoint(1, 0), FIntPoint(2, 0),
         FIntPoint(0, 1), FIntPoint(1, 1), FIntPoint(2, 1)
@@ -59,28 +94,29 @@ void AEnemyAI::ProcessAISpawn()
     // 残った候補の中から、ランダムに1つ選ぶ！
     if (SpawnableCandidatePositions.Num() > 0)
     {
-        int32 RandomIndex = FMath::RandRange(0, SpawnableCandidatePositions.Num() - 1);
+        RandomIndex = FMath::RandRange(0, SpawnableCandidatePositions.Num() - 1);
         ChosenPos = SpawnableCandidatePositions[RandomIndex];
 
     }
 
-    // 5. 実際にワールドにスポーンさせる
+    // 3、 実際にワールドにスポーンさせる
     AUnit* SpawnedActor = GetWorld()->SpawnActor<AUnit>(EnemyClassToSpawn, FVector(ChosenPos.X*100, ChosenPos.Y*100,0.0f), FRotator::ZeroRotator);
 
-    // 2. AUnit に変換（キャスト）する
+    // 4,ユニットの初期設定やらなんやら
     AUnit* NewUnit = Cast<AUnit>(SpawnedActor);
-
-    // 3. キャストが成功したら GridPos をセットする
     if (NewUnit)
     {
-        NewUnit->GridPos = ChosenPos; // ここに設定したい座標を入れる
+        NewUnit->GridPos = ChosenPos; 
         NewUnit->PlayerSide = EPlayerSide::Enemy;
+
+        // コストを減らす
+        GameManagerRef->EnemyCurrentCost -= NewUnit->Cost;
+
+        //GameManagerの全キャラリストに追加する
+        GameManagerRef->AllUnitsList.Add(SpawnedActor);
     }
 
-    //4. コストを減らす
 
-    //5.GameManagerの全キャラリストに追加する
-    GameManagerRef->AllUnitsList.Add(SpawnedActor);
 
 
 }

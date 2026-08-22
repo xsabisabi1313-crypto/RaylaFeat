@@ -153,14 +153,15 @@ void AGameManager::ExecuteMove()
 }
 
 //バトル処理
+//バトル処理
 void AGameManager::ExecuteBattle(EPlayerSide AttackerSide)
 {
 	AUnit* Attacker = nullptr;
-	//もし引数が存在しない場合は、基本は仕掛ける側は味方だと想定
-	if (AttackerSide == EPlayerSide::Enemy) {
+
+	if (AttackerSide == EPlayerSide::Enemy && IsValid(SelectedEnemyUnit)) {
 		Attacker = SelectedEnemyUnit;
 	}
-	else {
+	else if (AttackerSide == EPlayerSide::Player && IsValid(SelectedUnit)) {
 		Attacker = SelectedUnit;
 	}
 
@@ -168,7 +169,7 @@ void AGameManager::ExecuteBattle(EPlayerSide AttackerSide)
 
 	GetAvailableAttackPositions(Attacker);
 
-	// 実際に破壊するアクターをためておくリスト（ループ中の配列変更クラッシュを防ぐため）
+	// 実際に破壊するアクターをためておくリスト
 	TArray<AUnit*> UnitsToDestroy;
 
 	// 【ループ①】攻撃できるマスの数だけ回す
@@ -177,7 +178,6 @@ void AGameManager::ExecuteBattle(EPlayerSide AttackerSide)
 		// 【ループ②】フィールドにいるすべてのキャラクターの数だけ回す
 		for (AActor* Actor : AllUnitsList)
 		{
-			// ★修正ポイント1: Castする前に、まずActorが有効かチェックする！
 			if (!IsValid(Actor)) continue;
 
 			AUnit* OtherUnit = Cast<AUnit>(Actor);
@@ -196,23 +196,28 @@ void AGameManager::ExecuteBattle(EPlayerSide AttackerSide)
 					TEXT("Battle！")
 				);
 
-				// まず、パワーを決定する
+				// ★修正：元の Power を直接書き換えないよう、一時的な戦闘力変数を作る！
+				int32 AttackerPower = Attacker->Power;
+				int32 OtherPower = OtherUnit->Power;
+
+				// 属性相性による一時的なパワー補正
 				if (Attacker->Element == EElementtype::Fire && OtherUnit->Element == EElementtype::Water) {
-					OtherUnit->Power *= 2;
+					OtherPower *= 2;
 				}
 				else if (Attacker->Element == EElementtype::Fire && OtherUnit->Element == EElementtype::Grass) {
-					Attacker->Power *= 2;
+					AttackerPower *= 2;
 				}
 				else if (Attacker->Element == EElementtype::Grass && OtherUnit->Element == EElementtype::Water) {
-					Attacker->Power *= 2;
+					AttackerPower *= 2;
 				}
+				// 必要に応じて他の相性（水→火、草→水など）もここに追加できます
 
-				// 相打ち・勝敗の判定
-				if (Attacker->Power == OtherUnit->Power) {
+				// 勝敗の判定（一時的なパワーで比較する）
+				if (AttackerPower == OtherPower) {
 					UnitsToDestroy.Add(Attacker);
 					UnitsToDestroy.Add(OtherUnit);
 				}
-				else if (Attacker->Power > OtherUnit->Power) {
+				else if (AttackerPower > OtherPower) {
 					UnitsToDestroy.Add(OtherUnit);
 				}
 				else {
@@ -223,10 +228,10 @@ void AGameManager::ExecuteBattle(EPlayerSide AttackerSide)
 				break;
 			}
 		}
-		if (UnitsToDestroy.Num() > 0) break; // 戦闘が発生したら外側ループも抜ける
+		if (UnitsToDestroy.Num() > 0) break;
 	}
 
-	// ★修正ポイント2: ループが終わった安全な場所で、まとめてリストから外し、破壊する！
+	// ループが終わった安全な場所で、まとめてリストから外し、破壊する
 	for (AUnit* UnitToDestroy : UnitsToDestroy)
 	{
 		if (IsValid(UnitToDestroy))
