@@ -59,12 +59,12 @@ public:
 
 	// 現在選択されている味方ユニットの設計書
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")
-	TSubclassOf<AActor> UnitClassToSpawn = nullptr;
+	TSubclassOf<AUnit> UnitClassToSpawn = nullptr;
 
 	// 現在選択されている味方ユニット（実体）
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")
 	AUnit* SelectedEnemyUnit = nullptr;
-	TSubclassOf<AActor> EnemyUnitClassToSpawn = nullptr;
+	TSubclassOf<AUnit> EnemyUnitClassToSpawn = nullptr;
 
 
 	//移動予約が可能なポジションを全て返してくれる関数

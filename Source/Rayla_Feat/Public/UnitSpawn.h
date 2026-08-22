@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-
+#include "Card.h"
 
 #include "UnitSpawn.generated.h"
 
@@ -21,10 +21,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Spawn")
 	void SpawnMyUnit(FVector SpawnLocation, FIntPoint SpawnGridPos);
 
-	// 敵をスポーンする関数
-	UFUNCTION(BlueprintCallable, Category = "Spawn")
-	void SpawnEnemyUnit();
-
+	//現在選択されているカードの実態
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Debug")
+	ACard* CurrentSelectedCard = nullptr;
 
 
 };

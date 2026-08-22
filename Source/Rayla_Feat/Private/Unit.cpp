@@ -20,15 +20,14 @@ void AUnit::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// 例として、持っているRootComponent（またはコリジョン/メッシュ）の OnClicked に関数をバインドする
-	// ※ 実際にお使いのコリジョンやメッシュの変数名に合わせてください
-	if (RootComponent)
+	// 自分のルートコンポーネント（またはメッシュ・コリジョン）を取得してバインドする
+	if (UPrimitiveComponent* PrimComp = Cast<UPrimitiveComponent>(RootComponent))
 	{
-		// プリミティブコンポーネント（コリジョンやメッシュなど）のクリックイベントに結びつける
-		//if (UPrimitiveComponent* PrimComp = Cast<UPrimitiveComponent>(RootComponent))
-		//{
-		//	PrimComp->OnClicked.AddDynamic(this, &ABP_UnitBase::OnMyActorClicked);
-		//}
+		// マウスが乗ったとき
+		PrimComp->OnBeginCursorOver.AddDynamic(this, &AUnit::OnCursorBeginOver);
+
+		// マウスが離れたとき
+		PrimComp->OnEndCursorOver.AddDynamic(this, &AUnit::OnCursorEndOver);
 	}
 }
 
@@ -48,6 +47,7 @@ void AUnit::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonP
 	AGameManager* MyGameManager = Cast<AGameManager>(
 		UGameplayStatics::GetActorOfClass(GetWorld(), AGameManager::StaticClass())
 	);
+	if (!MyGameManager)return;
 	MyGameManager->SelectedUnit = this;
 
 
@@ -61,13 +61,25 @@ void AUnit::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonP
 }
 
 
+void AUnit::OnCursorBeginOver(UPrimitiveComponent* TouchedComponent)
+{
+	UE_LOG(LogTemp, Warning, TEXT("マウスが乗った！: %s"), *GetName());
+}
+
+void AUnit::OnCursorEndOver(UPrimitiveComponent* TouchedComponent)
+{
+	UE_LOG(LogTemp, Warning, TEXT("マウスが離れた！: %s"), *GetName());
+}
+
+
 
 //現在の位置を更新する
 void AUnit::MoveToGrid(FIntPoint NewGridPos)
 {
+
+	if (!IsValid(this)) return;
+
 	GridPos = NewGridPos;
-
-
 
 	FVector NewWorldLocation = FVector(GridPos.X * 100.0f, GridPos.Y * 100.0f, GetActorLocation().Z);
 
@@ -89,3 +101,5 @@ void AUnit::SpawnMovePatternObject()
 	}
 	MyGameManager->CurrentMovePatternObj = GetWorld()->SpawnActor<AActor>(MovePatternObjClass, FVector(GridPos.X * 100, GridPos.Y * 100, 46), FRotator::ZeroRotator);
 }
+
+

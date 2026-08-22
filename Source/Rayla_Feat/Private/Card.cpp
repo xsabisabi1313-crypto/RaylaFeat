@@ -1,5 +1,6 @@
 #include "Card.h"
 #include "GameManager.h" 
+#include "UnitSpawn.h"
 #include "Kismet/GameplayStatics.h" // GameManagerを探すために必要
 
 // Sets default values
@@ -17,6 +18,12 @@ void ACard::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonP
 	UE_LOG(LogTemp, Warning, TEXT("cardクリックしました: %s"), *GetName());
 
     SetCardSelected(true);
+    AUnitSpawn* UnitSpawner = Cast<AUnitSpawn>(
+        UGameplayStatics::GetActorOfClass(GetWorld(), AUnitSpawn::StaticClass())
+    );
+    if (!UnitSpawner)return;
+    UnitSpawner->CurrentSelectedCard = this;
+    
 
 	// 1. ワールドから GameManager を探して取得する
 	AGameManager* MyGameManager = Cast<AGameManager>(

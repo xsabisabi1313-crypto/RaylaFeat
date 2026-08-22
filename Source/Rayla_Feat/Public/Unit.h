@@ -102,6 +102,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
 	EPlayerSide PlayerSide = EPlayerSide::Player;
 
+
+	// マウスが乗ったとき・離れたときに呼ばれる関数
+	UFUNCTION()
+	void OnCursorBeginOver(UPrimitiveComponent* TouchedComponent);
+
+	UFUNCTION()
+	void OnCursorEndOver(UPrimitiveComponent* TouchedComponent);
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

@@ -74,7 +74,7 @@ void AEnemyAI::ProcessAISpawn()
     if (NewUnit)
     {
         NewUnit->GridPos = ChosenPos; // ここに設定したい座標を入れる
-        NewUnit->PlayerSide = EPlayerSide::Player;
+        NewUnit->PlayerSide = EPlayerSide::Enemy;
     }
 
     //4. コストを減らす
@@ -85,6 +85,49 @@ void AEnemyAI::ProcessAISpawn()
 
 }
 void AEnemyAI::ProcessAIMoveReserve() {
+
+    if (!GameManagerRef) return;
     //まず、移動するキャラクターを決める
+    //全てのユニットの中から敵だけを候補にし、どれか一つをランダムに決定する
+
+    // 1. その場で敵だけを抽出するリストを作る
+    TArray<AUnit*> EnemyUnits;
+    for (AActor* Actor : GameManagerRef->AllUnitsList)
+    {
+        if (!IsValid(Actor)) continue;
+        AUnit* Unit = Cast<AUnit>(Actor);
+        if (Unit && Unit->PlayerSide == EPlayerSide::Enemy) // 陣営に合わせて変更してください
+        {
+            EnemyUnits.Add(Unit);
+        }
+    }
+
+
+
+    if (EnemyUnits.Num() == 0) return;
+
+    // 2. ランダムに1体選ぶ
+    int32 RandomIndex = FMath::RandRange(0, EnemyUnits.Num() - 1);
+    AUnit* ChosenUnitToMove = EnemyUnits[RandomIndex];
+    GameManagerRef->SelectedEnemyUnit = ChosenUnitToMove;
+
+
+
+    if (ChosenUnitToMove)
+    {
+        // 3. 現在地を基準に「前方のマス」を計算する
+        //基本は前(Y座標プラス方向)に向かう
+        FIntPoint CurrentPos = ChosenUnitToMove->GridPos;
+        FIntPoint TargetPos = FIntPoint(CurrentPos.X, CurrentPos.Y + 1); // 前方（Yプラス方向）
+
+        // 4. 計算した移動予定地をGameManagerに保持させる
+        GameManagerRef->ReserveEnemyGridPos = TargetPos;
+
+        GEngine->AddOnScreenDebugMessage(
+            -1, 3.0f, FColor::Green,
+            FString::Printf(TEXT("Enemy decided to move to X:%d, Y:%d"), TargetPos.X, TargetPos.Y)
+        );
+    }
+    
 
 }
