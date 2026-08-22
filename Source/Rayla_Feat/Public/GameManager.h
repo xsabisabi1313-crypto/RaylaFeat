@@ -5,6 +5,7 @@
 #include "Components/TextBlock.h"
 #include "Card.h"
 #include "Unit.h"
+#include "BaseBuilding.h"
 
 #include "GameManager.generated.h"
 
@@ -21,7 +22,13 @@ enum class CurrentPhase : uint8
 	EGS_GameOver  UMETA(DisplayName = "Game Over")
 };
 
-
+UENUM(BlueprintType)
+enum class EWinner : uint8
+{
+	Player   UMETA(DisplayName = "Player"),
+	Enemy    UMETA(DisplayName = "Enmey"),
+	None    UMETA(DisplayName = "None"),
+};
 
 UCLASS()
 class RAYLA_FEAT_API AGameManager : public AActor
@@ -44,6 +51,10 @@ public:
 	// 現在のフェーズ
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Game")
 	CurrentPhase currentPhase;
+
+	//勝者
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Game")
+	EWinner winner = EWinner::None;
 
 	// プレイヤーの残りコスト
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resource")
@@ -148,5 +159,22 @@ public:
 	//タイマーを使うためのやつ？
 	FTimerHandle PhaseTimerHandle;
 
+	//ゲームが終わりかを判断して、終わりならResult画面を出す関数
+	UFUNCTION(BlueprintCallable, Category = "BP")
+	void CheckEndAndShowResult();
+
+	// --- リザルト画面用のWidgetクラス設計図（勝利用・敗北用） ---
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
+	TSubclassOf<UUserWidget> WinWidgetClass;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
+	TSubclassOf<UUserWidget> LoseWidgetClass;
+
+	// プレイヤーと敵の拠点（実態）
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Base")
+	ABaseBuilding* PlayerBase;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Base")
+	ABaseBuilding* EnemyBase;
 	
 };

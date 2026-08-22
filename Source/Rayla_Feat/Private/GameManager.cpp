@@ -5,6 +5,10 @@
 #include "UnitSpawn.h"
 #include "Card.h" // カードのヘッダーを読み込む
 
+#include "Blueprint/UserWidget.h"       // CreateWidget や UUserWidget を使うため
+#include "Kismet/GameplayStatics.h"     // UGameplayStatics::SetGamePaused を使うため
+#include "GameFramework/PlayerController.h" // APlayerController を使うため（もしエラーが出る場合）
+
 // Sets default values
 AGameManager::AGameManager()
 {
@@ -157,7 +161,6 @@ void AGameManager::ExecuteMove()
 void AGameManager::ExecuteBattle(EPlayerSide AttackerSide)
 {
 	AUnit* Attacker = nullptr;
-
 	if (AttackerSide == EPlayerSide::Enemy && IsValid(SelectedEnemyUnit)) {
 		Attacker = SelectedEnemyUnit;
 	}
@@ -171,6 +174,8 @@ void AGameManager::ExecuteBattle(EPlayerSide AttackerSide)
 
 	// 実際に破壊するアクターをためておくリスト
 	TArray<AUnit*> UnitsToDestroy;
+	//もう既にこのフェーズで戦ったかどうか
+	bool isFought = false;
 
 	// 【ループ①】攻撃できるマスの数だけ回す
 	for (const FIntPoint& AttackPos : AvailableAttackPositions)
@@ -224,6 +229,7 @@ void AGameManager::ExecuteBattle(EPlayerSide AttackerSide)
 					UnitsToDestroy.Add(Attacker);
 				}
 
+				isFought = true;
 				// 該当する相手を見つけたらループを抜ける
 				break;
 			}
@@ -239,6 +245,46 @@ void AGameManager::ExecuteBattle(EPlayerSide AttackerSide)
 			AllUnitsList.RemoveSingle(UnitToDestroy);
 			UnitToDestroy->Destroy();
 		}
+	}
+
+	//もう戦ったなら、終了
+	if (isFought)return;
+
+	//まだ戦っていないなら、拠点が攻撃可能かどうか判定する。
+// 1. AI側の拠点（(0,-1), (1,-1), (2,-1)）のどれかに入っているかチェック
+	bool bHitEnemyBase = AvailableAttackPositions.Contains(FIntPoint(0, -1)) ||
+		AvailableAttackPositions.Contains(FIntPoint(1, -1)) ||
+		AvailableAttackPositions.Contains(FIntPoint(2, -1));
+
+	// 2. プレイヤーの拠点（(0,7), (1,7), (2,7)）のどれかに入っているかチェック
+	bool bHitPlayerBase = AvailableAttackPositions.Contains(FIntPoint(0, 7)) ||
+		AvailableAttackPositions.Contains(FIntPoint(1, 7)) ||
+		AvailableAttackPositions.Contains(FIntPoint(2, 7));
+
+	// --- 判定とダメージ処理 ---
+
+	// もし「攻撃側がプレイヤー」かつ「敵の拠点（Y=7側）のマスを攻撃範囲に捉えた」場合
+	if (Attacker->PlayerSide == EPlayerSide::Player && bHitEnemyBase)
+	{
+		if (EnemyBase)
+		{
+			// 拠点にダメージを与える（ReceiveDamage関数を呼ぶ）
+			EnemyBase->TakeBuildingDamage(4);
+			UE_LOG(LogTemp, Warning, TEXT("プレイヤーが敵の拠点を攻撃！"));
+		}
+	}
+
+	// もし「攻撃側が敵」かつ「プレイヤーの拠点（Y=-1側）のマスを攻撃範囲に捉えた」場合
+	else if (Attacker->PlayerSide == EPlayerSide::Enemy && bHitPlayerBase)
+	{
+		if (PlayerBase)
+		{
+			PlayerBase->TakeBuildingDamage(4);
+			UE_LOG(LogTemp, Warning, TEXT("敵がプレイヤーの拠点を攻撃！"));
+		}
+	}
+	else {
+		UE_LOG(LogTemp, Warning, TEXT("拠点攻撃不能"));
 	}
 }
 //敵召喚
@@ -295,6 +341,49 @@ void AGameManager::DeselectAllCards() {
 		if (IsValid(Card))
 		{
 			Card->SetCardSelected(false); // 全員沈める
+		}
+	}
+}
+
+
+void AGameManager::CheckEndAndShowResult()
+{
+
+	// 勝者が決まっていない場合は何もしない
+	if (winner == EWinner::None) return;
+
+	APlayerController* PC = GetWorld()->GetFirstPlayerController();
+	if (!PC) return;
+
+	TSubclassOf<UUserWidget> TargetWidgetClass = nullptr;
+
+	// 勝利か敗北かで使う設計図を切り替える
+	if (winner == EWinner::Player)
+	{
+		TargetWidgetClass = WinWidgetClass;
+	}
+	else if(winner == EWinner::Enemy)
+	{
+		TargetWidgetClass = LoseWidgetClass;
+	}
+	else {
+		return;
+	}
+
+	// 選ばれたウィジェットを生成して画面に出す
+	if (TargetWidgetClass)
+	{
+		UUserWidget* ResultWidget = CreateWidget<UUserWidget>(PC, TargetWidgetClass);
+		if (ResultWidget)
+		{
+			ResultWidget->AddToViewport();
+
+			// マウスカーソルを表示して操作可能にする
+			PC->bShowMouseCursor = true;
+			PC->SetInputMode(FInputModeUIOnly());
+
+			// ゲームを一時停止
+			UGameplayStatics::SetGamePaused(GetWorld(), true);
 		}
 	}
 }

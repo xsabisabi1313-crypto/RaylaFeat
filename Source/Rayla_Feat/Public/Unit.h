@@ -102,6 +102,10 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
 	EPlayerSide PlayerSide = EPlayerSide::Player;
 
+	//HP
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
+	//int HP = 20;
+
 
 	// マウスが乗ったとき・離れたときに呼ばれる関数
 	UFUNCTION()
