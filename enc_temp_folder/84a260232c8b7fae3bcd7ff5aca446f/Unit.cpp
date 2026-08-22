@@ -76,7 +76,7 @@ void AUnit::OnCursorEndOver(UPrimitiveComponent* TouchedComponent)
 //現在の位置を更新する
 void AUnit::MoveToGrid(FIntPoint NewGridPos)
 {
-	UE_LOG(LogTemp, Warning, TEXT("MoveNow！"));
+
 	if (!IsValid(this)) return;
 
 	GridPos = NewGridPos;

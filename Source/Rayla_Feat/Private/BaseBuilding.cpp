@@ -30,11 +30,11 @@ void ABaseBuilding::TakeBuildingDamage(int32 DamageAmount)
         // ※ どちらの拠点が破壊されたかによって勝者を判定します
         if (PlayerSide == EPlayerSide::Player)
         {
-            GameManager->winner = EWinner::Enemy; // プレイヤーの拠点が破壊された＝敵の勝ち
+            GameManager->winner = EWinner::Enemy; // プレイヤーの拠点HP0＝敵の勝ち
         }
         else
         {
-            GameManager->winner = EWinner::Player; // 敵の拠点が破壊された＝プレイヤーの勝ち
+            GameManager->winner = EWinner::Player; // 敵の拠点HP0＝プレイヤーの勝ち
         }
     }
 }

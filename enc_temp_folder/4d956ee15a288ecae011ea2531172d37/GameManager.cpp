@@ -138,14 +138,22 @@ bool AGameManager::IsValidMoveDestination(FIntPoint TargetGridPos)
 //実際にユニットを移動させる
 void AGameManager::ExecuteMove()
 {
-	if (SelectedUnit) {
-		SelectedUnit->MoveToGrid(ReserveGridPos);
+	// 1. 動かすユニットが選択されているか、さらにポインタが有効（nullptrではない）か厳重にチェック！
+	if (!SelectedUnit || !IsValid(SelectedUnit))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("エラー：移動するユニットが選択されていないか、すでに無効です！"));
+		return;
 	}
-	if (SelectedEnemyUnit) {
-		SelectedEnemyUnit->MoveToGrid(ReserveEnemyGridPos);
-	}
-	SelectedUnit = nullptr;
-	SelectedEnemyUnit = nullptr;
+
+	// ユニット側の位置を更新する（前作った MoveToGrid 関数などを活用）
+	SelectedUnit->MoveToGrid(ReserveGridPos);
+	SelectedEnemyUnit->MoveToGrid(ReserveEnemyGridPos);
+
+	//UE_LOG(LogTemp, Warning, TEXT("ユニットを移動させました！"));
+
+	// 3. 移動が終わったあとの後片付け（必要に応じて）
+	// 例：選択を解除したり、フェーズを次のターンに進めたりする
+	//SelectedUnit = nullptr;
 }
 
 //バトル処理
@@ -272,7 +280,7 @@ void AGameManager::ExecuteBattle(EPlayerSide AttackerSide)
 		if (PlayerBase)
 		{
 			PlayerBase->TakeBuildingDamage(4);
-			UE_LOG(LogTemp, Warning, TEXT("EnemyCanAttackPlayerBase"));
+			UE_LOG(LogTemp, Warning, TEXT("敵がプレイヤーの拠点を攻撃！"));
 		}
 	}
 	else {
@@ -299,7 +307,7 @@ void AGameManager::DeleteMoveRangeObj() {
 	}
 }
 
-//フェーズを切り替える
+//Phaseを切り替える
 void AGameManager::ChangePhase() {
 	DeleteMoveRangeObj();
 
@@ -311,7 +319,6 @@ void AGameManager::ChangePhase() {
 
 	case CurrentPhase::EGS_MoveReserve:
 		currentPhase = CurrentPhase::EGS_Move;
-		ExecuteMove();
 		break;
 
 	case CurrentPhase::EGS_Move:

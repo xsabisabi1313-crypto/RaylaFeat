@@ -143,10 +143,11 @@ void AEnemyAI::ProcessAIMoveReserve() {
             EnemyUnits.Add(Unit);
         }
     }
+
+
+
     if (EnemyUnits.Num() == 0) return;
-
-
-    //UE_LOG(LogTemp, Warning, TEXT("今からランダムに選ぶぜ"));
+    UE_LOG(LogTemp, Warning, TEXT("今からランダムに選ぶぜ"));
     // 2. ランダムに1体選ぶ
     int32 RandomIndex = FMath::RandRange(0, EnemyUnits.Num() - 1);
     AUnit* ChosenUnitToMove = EnemyUnits[RandomIndex];
