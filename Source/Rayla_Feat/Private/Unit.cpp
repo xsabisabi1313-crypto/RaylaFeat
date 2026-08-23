@@ -13,6 +13,7 @@ AUnit::AUnit()
 
 	// --- ▼ 重要！「クリックを検知する」設定を有効にする ▼ ---
 	bEnableAutoLODGeneration = true;
+
 }
 
 
