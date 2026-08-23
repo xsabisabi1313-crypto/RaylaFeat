@@ -2,6 +2,7 @@
 #include "UnitSpawn.h"
 #include "Unit.h"
 #include "GameManager.h" // GameManagerを使えるようにする
+#include "SoundManager.h"
 #include "Kismet/GameplayStatics.h" // GetActorOfClassを使うため
 // コンストラクタ（最初のお仕事）
 AUnitSpawn::AUnitSpawn()
@@ -44,6 +45,15 @@ void AUnitSpawn::SpawnMyUnit(FVector SpawnLocation, FIntPoint SpawnGridPos)
 	if (CurrentSelectedCard) {
 		CurrentSelectedCard->SetActorLocation(SpawnLocation);
 	}
+
+	//音を鳴らす
+	ASoundManager* SoundMgr = Cast<ASoundManager>(
+		UGameplayStatics::GetActorOfClass(GetWorld(), ASoundManager::StaticClass())
+	);
+	if (SoundMgr) {
+		SoundMgr->PlaySE(SoundMgr->SE_UnitSpawn);
+	}
+
 	// 初期値を設定
 	AUnit* NewUnit = Cast<AUnit>(SpawnedActor);
 	if (NewUnit)

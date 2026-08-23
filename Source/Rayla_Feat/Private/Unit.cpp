@@ -3,6 +3,7 @@
 
 #include "Unit.h"
 #include "GameManager.h"
+#include "SoundManager.h"
 #include "Kismet/GameplayStatics.h"
 
 // Sets default values
@@ -35,6 +36,13 @@ void AUnit::BeginPlay()
 // ユニットがクリックされたときの処理
 void AUnit::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonPressed)
 {
+	//音を鳴らす
+	ASoundManager* SoundMgr = Cast<ASoundManager>(
+		UGameplayStatics::GetActorOfClass(GetWorld(), ASoundManager::StaticClass())
+	);
+	if (SoundMgr) {
+		SoundMgr->PlaySE(SoundMgr->SE_ClickUnit);
+	}
 
 	//味方じゃなかったら反応させない
 	if (PlayerSide != EPlayerSide::Player) // 敵の場合
@@ -86,6 +94,15 @@ void AUnit::MoveToGrid(FIntPoint NewGridPos)
 
 	// 3. アクターの実際の3D位置を更新する
 	SetActorLocation(NewWorldLocation);
+
+	//音を鳴らす
+	ASoundManager* SoundMgr = Cast<ASoundManager>(
+		UGameplayStatics::GetActorOfClass(GetWorld(), ASoundManager::StaticClass())
+	);
+	if (SoundMgr) {
+		SoundMgr->PlaySE(SoundMgr->SE_UnitMove);
+	}
+	
 }
 
 //移動できる範囲を生成する
