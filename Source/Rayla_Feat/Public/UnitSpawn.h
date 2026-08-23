@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Card.h"
+
 #include "UnitSpawn.generated.h"
 
 UCLASS()
@@ -15,10 +17,13 @@ public:
 	// コンストラクタ
 	AUnitSpawn();
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawn")
-	FVector SpawnLocation;
-
-	// Blueprintから呼び出せるスポーン関数
+	// 味方をスポーンする関数
 	UFUNCTION(BlueprintCallable, Category = "Spawn")
-	AActor* SpawnMyUnit(TSubclassOf<AActor> UnitClassToSpawn, FName RowName);
+	void SpawnMyUnit(FVector SpawnLocation, FIntPoint SpawnGridPos);
+
+	//現在選択されているカードの実態
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Debug")
+	ACard* CurrentSelectedCard = nullptr;
+
+
 };
