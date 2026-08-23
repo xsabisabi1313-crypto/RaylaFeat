@@ -102,9 +102,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
 	EPlayerSide PlayerSide = EPlayerSide::Player;
 
-	//HP
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
-	//int HP = 20;
+
+	// 現在の位置から攻撃できるマスを、攻撃パターンごとにすべて返す配列
+	UFUNCTION(BlueprintCallable, Category = "Debug")
+	TArray<FIntPoint> GetAvailableAttackPoss();
+
+	// 現在の位置から移動予約が可能なマスを,パターンごとにすべて返す配列
+	UFUNCTION(BlueprintCallable, Category = "MovePosFunc")
+	TArray<FIntPoint> GetAvailableMovePoss();
 
 
 	// マウスが乗ったとき・離れたときに呼ばれる関数

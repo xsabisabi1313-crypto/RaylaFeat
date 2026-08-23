@@ -27,133 +27,24 @@ void AGameManager::BeginPlay()
 
 
 
-
-
-//現在の位置から移動できるマスを、移動のパターンごとに変えて全て返す配列
-void AGameManager::GetAvailableMovePositions(AUnit* TargetUnit)
-{
-	// 1. まずリストを綺麗にリセットする（前回の残りを消す）
-	AvailableMovePositions.Empty();
-
-
-	// 1. ユニットの現在のグリッド座標を取得
-	FIntPoint CurrentPos = TargetUnit->GridPos;
-
-	//ユニットの移動パターンを取得
-	EMovePatterns MovePattern = TargetUnit->MovePattern;
-
-	switch (MovePattern)
-	{
-	case EMovePatterns::Cross:
-		AvailableMovePositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y));//右
-		AvailableMovePositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y));//左
-		AvailableMovePositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y + 1)); // 上
-		AvailableMovePositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y - 1)); // 下
-		break;
-
-	default:
-		break;
-	}
-
-}
-
-//攻撃可能なマスを計算して、AvailableAttackPositionsに格納する
-void AGameManager::GetAvailableAttackPositions(AUnit* TargetUnit) {
-
-	if (!TargetUnit) {
-		return;
-	}
-
-	// 1. まずリストを綺麗にリセットする（前回の残りを消す）
-	AvailableAttackPositions.Empty();
-
-	// 1. ユニットの現在のグリッド座標を取得
-	FIntPoint CurrentPos = TargetUnit->GridPos;
-
-	//ユニットの攻撃パターンを取得
-	EAtackPatterns AttackPattern = TargetUnit->AttackPattern;
-
-	//敵か味方かによって、前後が変わる。味方ならYが-１、敵ならYが+1
-	int32 ForwardDir = 1;
-	if (TargetUnit->PlayerSide == EPlayerSide::Player)
-	{
-		ForwardDir = -1; // 味方はマイナス方向が「前」
-	}
-	else if (TargetUnit->PlayerSide == EPlayerSide::Enemy)
-	{
-		ForwardDir = 1;  // 敵はプラス方向が「前」
-	}
-
-
-	switch (AttackPattern)
-	{
-	case EAtackPatterns::Cross:
-		// 十字方向（前後左右1マスずつなど）
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y));//自分の位置
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y + ForwardDir)); // 前
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y - ForwardDir)); // 後ろ
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y));        // 左
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y));        // 右
-		break;
-
-	case EAtackPatterns::Forward:
-		// 「前」方向だけ攻撃できる
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y));
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y + ForwardDir));
-		break;
-
-	case EAtackPatterns::All:
-		// 周囲8マス全部など
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y));//自分の位置
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y + ForwardDir)); // 前
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y - ForwardDir)); // 後
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y));            // 左
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y));            // 右
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y + ForwardDir)); // 前左
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y + ForwardDir)); // 前右
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y - ForwardDir)); // 後左
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y - ForwardDir)); // 後右
-		break;
-
-	case EAtackPatterns::Diagonal:
-		// 斜め4方向
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X, CurrentPos.Y));//自分の位置
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y + ForwardDir)); // 前左斜め
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y + ForwardDir)); // 前右斜め
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y - ForwardDir)); // 後ろ左斜め
-		AvailableAttackPositions.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y - ForwardDir)); // 後ろ右斜め
-		break;
-
-	default:
-		break;
-	}
-}
 //プレイヤーがクリックした座標（TargetGridPos）が含まれているかチェック！
 bool AGameManager::IsValidMoveDestination(FIntPoint TargetGridPos)
 {
-
-	return AvailableMovePositions.Contains(TargetGridPos);
+	return SelectedUnit->GetAvailableMovePoss().Contains(TargetGridPos);
 }
 
 //実際にユニットを移動させる
 void AGameManager::ExecuteMove()
 {
-	// 1. 動かすユニットが選択されているか、さらにポインタが有効（nullptrではない）か厳重にチェック！
-	if (!SelectedUnit || !IsValid(SelectedUnit))
-	{
-		UE_LOG(LogTemp, Warning, TEXT("エラー：移動するユニットが選択されていないか、すでに無効です！"));
-		return;
+	if (SelectedEnemyUnit) {
+		SelectedEnemyUnit->MoveToGrid(ReserveEnemyGridPos);
+	}
+	if (SelectedUnit) {
+		SelectedUnit->MoveToGrid(ReserveGridPos);
 	}
 
-	// ユニット側の位置を更新する（前作った MoveToGrid 関数などを活用）
-	SelectedUnit->MoveToGrid(ReserveGridPos);
-	SelectedEnemyUnit->MoveToGrid(ReserveEnemyGridPos);
-
-	//UE_LOG(LogTemp, Warning, TEXT("ユニットを移動させました！"));
-
-	// 3. 移動が終わったあとの後片付け（必要に応じて）
-	// 例：選択を解除したり、フェーズを次のターンに進めたりする
-	//SelectedUnit = nullptr;
+	SelectedUnit = nullptr;
+	SelectedEnemyUnit = nullptr;
 }
 
 //バトル処理
@@ -170,15 +61,13 @@ void AGameManager::ExecuteBattle(EPlayerSide AttackerSide)
 
 	if (!IsValid(Attacker)) return;
 
-	GetAvailableAttackPositions(Attacker);
-
 	// 実際に破壊するアクターをためておくリスト
 	TArray<AUnit*> UnitsToDestroy;
 	//もう既にこのフェーズで戦ったかどうか
 	bool isFought = false;
 
 	// 【ループ①】攻撃できるマスの数だけ回す
-	for (const FIntPoint& AttackPos : AvailableAttackPositions)
+	for (const FIntPoint& AttackPos : Attacker->GetAvailableAttackPoss())
 	{
 		// 【ループ②】フィールドにいるすべてのキャラクターの数だけ回す
 		for (AActor* Actor : AllUnitsList)
@@ -252,14 +141,14 @@ void AGameManager::ExecuteBattle(EPlayerSide AttackerSide)
 
 	//まだ戦っていないなら、拠点が攻撃可能かどうか判定する。
 // 1. AI側の拠点（(0,-1), (1,-1), (2,-1)）のどれかに入っているかチェック
-	bool bHitEnemyBase = AvailableAttackPositions.Contains(FIntPoint(0, -1)) ||
-		AvailableAttackPositions.Contains(FIntPoint(1, -1)) ||
-		AvailableAttackPositions.Contains(FIntPoint(2, -1));
+	bool bHitEnemyBase = SelectedEnemyUnit->GetAvailableAttackPoss().Contains(FIntPoint(0, -1)) ||
+		SelectedEnemyUnit->GetAvailableAttackPoss().Contains(FIntPoint(1, -1)) ||
+		SelectedEnemyUnit->GetAvailableAttackPoss().Contains(FIntPoint(2, -1));
 
 	// 2. プレイヤーの拠点（(0,7), (1,7), (2,7)）のどれかに入っているかチェック
-	bool bHitPlayerBase = AvailableAttackPositions.Contains(FIntPoint(0, 7)) ||
-		AvailableAttackPositions.Contains(FIntPoint(1, 7)) ||
-		AvailableAttackPositions.Contains(FIntPoint(2, 7));
+	bool bHitPlayerBase = SelectedUnit->GetAvailableAttackPoss().Contains(FIntPoint(0, 7)) ||
+		SelectedUnit->GetAvailableAttackPoss().Contains(FIntPoint(1, 7)) ||
+		SelectedUnit->GetAvailableAttackPoss().Contains(FIntPoint(2, 7));
 
 	// --- 判定とダメージ処理 ---
 
@@ -280,22 +169,12 @@ void AGameManager::ExecuteBattle(EPlayerSide AttackerSide)
 		if (PlayerBase)
 		{
 			PlayerBase->TakeBuildingDamage(4);
-			UE_LOG(LogTemp, Warning, TEXT("敵がプレイヤーの拠点を攻撃！"));
+			UE_LOG(LogTemp, Warning, TEXT("EnemyCanAttackPlayerBase"));
 		}
 	}
 	else {
 		UE_LOG(LogTemp, Warning, TEXT("拠点攻撃不能"));
 	}
-}
-//敵召喚
-void AGameManager::ExecuteSpawnEnemy() {
-
- //   AUnitSpawn* UnitSpawner = GetWorld()->SpawnActor<AUnitSpawn>();
-	//if (!UnitSpawner)return;
- //  
- //   UnitSpawner->SpawnEnemyUnit();
-
-    
 }
 
 //移動範囲削除
@@ -307,7 +186,7 @@ void AGameManager::DeleteMoveRangeObj() {
 	}
 }
 
-//Phaseを切り替える
+//フェーズを切り替える
 void AGameManager::ChangePhase() {
 	DeleteMoveRangeObj();
 
@@ -319,6 +198,7 @@ void AGameManager::ChangePhase() {
 
 	case CurrentPhase::EGS_MoveReserve:
 		currentPhase = CurrentPhase::EGS_Move;
+		ExecuteMove();
 		break;
 
 	case CurrentPhase::EGS_Move:

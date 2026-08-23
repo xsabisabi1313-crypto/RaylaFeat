@@ -65,33 +65,22 @@ public:
 	int32 EnemyCurrentCost = 10; 
 
 	// 現在選択されている味方ユニット（実体）
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Debug")
 	AUnit* SelectedUnit = nullptr;
 
 	// 現在選択されている味方ユニットの設計書
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Debug")
 	TSubclassOf<AUnit> UnitClassToSpawn = nullptr;
 
 	// 現在選択されている味方ユニット（実体）
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Debug")
 	AUnit* SelectedEnemyUnit = nullptr;
 	TSubclassOf<AUnit> EnemyUnitClassToSpawn = nullptr;
 
 
-	//移動予約が可能なポジションを全て返してくれる関数
-	UFUNCTION(BlueprintCallable, Category = "MovePosFunc")
-	void GetAvailableMovePositions(AUnit* TargetUnit);
-	// 【実体】現在計算されている移動可能ポジションのリスト
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MovePatternFunc")
-	TArray<FIntPoint> AvailableMovePositions;
-
-
-	// 現在の位置から攻撃できるマスを、攻撃パターンごとにすべて返す配列
-	UFUNCTION(BlueprintCallable, Category = "AttackPosFunc")
-	void GetAvailableAttackPositions(AUnit* TargetUnit);
-	// 【実体】現在計算されている移動可能ポジションのリスト
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MovePatternFunc")
-	TArray<FIntPoint> AvailableAttackPositions;
+	//// 【実体】現在計算されている移動可能ポジションのリスト
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MovePatternFunc")
+	//TArray<FIntPoint> AvailableAttackPositions;
 
 
 	// 指定したグリッド座標が、現在移動可能なマスかどうかを判定する関数
@@ -100,10 +89,10 @@ public:
 
 
 	// プレイヤーまたは敵が選んでいる移動予約の場所
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Debug")
 	FIntPoint ReserveGridPos;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Debug")
 	FIntPoint ReserveEnemyGridPos;
 
 
@@ -123,33 +112,30 @@ public:
 	void ExecuteMove();
 
 	// 現在マップに存在する全てのユニットを格納するリスト
-	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Battle")
+	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Debug")
 	TArray<AActor*> AllUnitsList;
 	//
 
 	// 現在マップに存在する全ての手札カードを格納するリスト
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Card")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Debug")
 	TArray<ACard*> AllCardList;
 	// 現在マップに存在する全ての手札カードを沈ませる関数
-	UFUNCTION(BlueprintCallable, Category = "Game")
+	UFUNCTION(BlueprintCallable, Category = "Func")
 	void DeselectAllCards();
 
 	// バトル処理
-	UFUNCTION(BlueprintCallable, Category = "Game")
+	UFUNCTION(BlueprintCallable, Category = "Func")
 	void ExecuteBattle(EPlayerSide AttackerSide);
 
 	// プレイヤーが召喚できる全てのユニットの設計書
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawn")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Setting")
 	TArray<TSubclassOf<AUnit>> PlayerOwnedUnits;
 
 
 	// 敵が召喚できる全てのユニットの設計書
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawn")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Setting")
 	TArray<TSubclassOf<AUnit>> EnemyOwnedUnits;
 
-	//敵の召喚を実行する関数
-	UFUNCTION(BlueprintCallable, Category = "Game")
-	void ExecuteSpawnEnemy();
 
 	//Phaseを切り替える関数
 	UFUNCTION(BlueprintCallable, Category = "BP")
@@ -162,18 +148,21 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "BP")
 	void CheckEndAndShowResult();
 
-	// --- リザルト画面用のWidgetクラス設計図（勝利用・敗北用） ---
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
+	// --- リザルト画面用のWidgetクラス設計図（全体・勝利用・敗北用） ---
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Setting")
 	TSubclassOf<UUserWidget> WinWidgetClass;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Setting")
 	TSubclassOf<UUserWidget> LoseWidgetClass;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Setting")
+	TSubclassOf<UUserWidget> ResultWidgetClass;
+
 	// プレイヤーと敵の拠点（実態）
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Base")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Setting")
 	ABaseBuilding* PlayerBase;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Base")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Setting")
 	ABaseBuilding* EnemyBase;
 	
 };

@@ -153,6 +153,20 @@ void AEnemyAI::ProcessAIMoveReserve() {
     GameManagerRef->SelectedEnemyUnit = ChosenUnitToMove;
 
 
+    // ユニットが持つ攻撃可能マスのリストを取得する
+    TArray<FIntPoint> AttackPoss = ChosenUnitToMove->GetAvailableAttackPoss();
+    // プレイヤーの拠点座標（(0,7), (1,7), (2,7) など）のいずれかが、自分の攻撃可能マスに含まれているか判定
+    bool bCanAttackPlayerBase = AttackPoss.Contains(FIntPoint(0, 7)) ||
+        AttackPoss.Contains(FIntPoint(1, 7)) ||
+        AttackPoss.Contains(FIntPoint(2, 7));
+
+    // もしすでに拠点を攻撃できる位置にいるなら、前に進まずにその場にとどまる
+    if (bCanAttackPlayerBase)
+    {
+        UE_LOG(LogTemp, Warning, TEXT("拠点が攻撃範囲内にあるため、移動せずにとどまります！"));
+        GameManagerRef->ReserveEnemyGridPos = ChosenUnitToMove->GridPos; // 移動先を「現在地」にする
+        return; // ここで処理を終了
+    }
 
     if (ChosenUnitToMove)
     {
@@ -164,11 +178,6 @@ void AEnemyAI::ProcessAIMoveReserve() {
         // 4. 計算した移動予定地をGameManagerに保持させる
         GameManagerRef->ReserveEnemyGridPos = TargetPos;
         UE_LOG(LogTemp, Warning, TEXT("移動する場所決定！"));
-
-        GEngine->AddOnScreenDebugMessage(
-            -1, 3.0f, FColor::Green,
-            FString::Printf(TEXT("Enemy decided to move to X:%d, Y:%d"), TargetPos.X, TargetPos.Y)
-        );
     }
     
 
