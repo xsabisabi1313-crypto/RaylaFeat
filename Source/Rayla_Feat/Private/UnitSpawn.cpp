@@ -40,8 +40,10 @@ void AUnitSpawn::SpawnMyUnit(FVector SpawnLocation, FIntPoint SpawnGridPos)
 
   //スポーンが確定後
 		//	
-	//スポーンする
-	AActor* SpawnedActor = GetWorld()->SpawnActor<AActor>(UnitToSpawn, SpawnLocation, FRotator::ZeroRotator);
+	//スポーンする(味方ユニットなので、180度回転させる)
+	FRotator SpawnRotation = FRotator(0.0f, 180.0f, 0.0f);
+	AActor* SpawnedActor = GetWorld()->SpawnActor<AActor>(UnitToSpawn, SpawnLocation, SpawnRotation);
+
 	//(Cardは非表示に)
 	if (CurrentSelectedCard) {
 		CurrentSelectedCard->SetActorLocation(FVector(1000,1000,1000));
