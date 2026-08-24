@@ -76,19 +76,38 @@ void AGameManager::Tick(float DeltaTime)
 				UE_LOG(LogTemp, Warning, TEXT("SetUnitDataToText"));
 				struct {
 					int32 Power;
+					int32 Cost;
 					FString Name;
 					FString Element;
 					FString Ability;
+				
 
 				} Params;
 				Params.Power = HoveredUnit->Power;
+				Params.Cost = HoveredUnit->Cost;
 				Params.Name = HoveredUnit->UnitName;
 				Params.Ability = HoveredUnit->Ability;
+				switch (HoveredUnit->Element)
+				{
+				case EElementtype::Fire:
+					Params.Element = TEXT("炎");
+					break;
+				case EElementtype::Water:
+					Params.Element = TEXT("水");
+					break;
+				case EElementtype::Grass:
+					Params.Element = TEXT("草");
+					break;
+				default:
+					Params.Element = TEXT("無属性");
+					break;
+				}
 
 
 				// ウィジェット側の関数を呼び出してパワーを渡す
 				UnitTooltipWidget->ProcessEvent(UnitTooltipWidget->FindFunction(FName("SetTooltipData")), &Params);
 
+				//★ここで例外スロー。アクセス違反らしい
 				UnitTooltipWidget->SetVisibility(ESlateVisibility::Visible);
 			}
 		}
@@ -305,6 +324,8 @@ void AGameManager::ChangePhase() {
 
 	case CurrentPhase::EGS_Battle:
 		currentPhase = CurrentPhase::EGS_Spawn;
+		PlayerCurrentCost += 2;
+		EnemyCurrentCost += 2;
 		break;
 
 	default:

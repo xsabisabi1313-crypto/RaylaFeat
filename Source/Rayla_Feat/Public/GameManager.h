@@ -61,7 +61,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resource")
 	int32 PlayerCurrentCost = 10;
 
-		// 敵の残りコスト
+	// 敵の残りコスト
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resource")
 	int32 EnemyCurrentCost = 10; 
 
@@ -142,8 +142,6 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "BP")
 	void ChangePhase();
 
-	//タイマーを使うためのやつ？
-	FTimerHandle PhaseTimerHandle;
 
 	//ゲームが終わりかを判断して、終わりならResult画面を出す関数
 	UFUNCTION(BlueprintCallable, Category = "BP")
@@ -187,5 +185,6 @@ public:
 	//移動予定矢印を、非表示にしたり表示させる
 	UFUNCTION(BlueprintCallable, Category = "BP")
 	void DisplayMoveReserveArrow(bool isActive);
+
 
 };
