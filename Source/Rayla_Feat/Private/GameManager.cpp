@@ -9,7 +9,6 @@
 #include "Kismet/GameplayStatics.h"     // UGameplayStatics::SetGamePaused を使うため
 #include "GameFramework/PlayerController.h" // APlayerController を使うため（もしエラーが出る場合）
 
-// Sets default values
 AGameManager::AGameManager()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
@@ -18,13 +17,128 @@ AGameManager::AGameManager()
 
 }
 
-// Called when the game starts or when spawned
 void AGameManager::BeginPlay()
 {
 	Super::BeginPlay();
+
+
+	if (ArrowActorClass)
+	{
+		FActorSpawnParameters SpawnParams;
+		ArrowActor = GetWorld()->SpawnActor<AActor>(ArrowActorClass, FVector::ZeroVector, FRotator::ZeroRotator, SpawnParams);
+		if (ArrowActor)
+		{
+			// 最初は非表示にしておく
+			ArrowActor->SetActorHiddenInGame(true);
+			ArrowActor->SetActorEnableCollision(false); // 当たり判定も消しておく
+		}
+	}
 	
 }
 
+void AGameManager::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+	APlayerController* PC = GetWorld()->GetFirstPlayerController();
+	if (!PC) return;
+
+	FHitResult HitResult;
+	PC->GetHitResultUnderCursor(ECC_Visibility, false, HitResult);
+
+	AUnit* CurrentHoveredUnit = nullptr;
+	if (HitResult.bBlockingHit) {
+		CurrentHoveredUnit = Cast<AUnit>(HitResult.GetActor());
+	}
+
+	// ==========================================
+	// ①「ホバーしているユニットが切り替わった瞬間」の処理
+	// ==========================================
+	if (CurrentHoveredUnit != HoveredUnit) {
+		HoveredUnit = CurrentHoveredUnit;
+
+		if (HoveredUnit) {
+			UE_LOG(LogTemp, Warning, TEXT("hoverStart"));
+
+			// 1. ウィジェットがなければ作成する
+			if (!UnitTooltipWidget && UnitTooltipWidgetClass)
+			{
+				UnitTooltipWidget = CreateWidget<UUserWidget>(GetWorld(), UnitTooltipWidgetClass);
+				if (UnitTooltipWidget)
+				{
+					UnitTooltipWidget->AddToViewport();
+				}
+			}
+
+			// 2. ウィジェットにデータをセットして表示状態にする（※この1回だけ！）
+			if (UnitTooltipWidget)
+			{
+				UE_LOG(LogTemp, Warning, TEXT("SetUnitDataToText"));
+				struct {
+					int32 Power;
+					int32 Cost;
+					FString Name;
+					FString Element;
+					FString Ability;
+				
+
+				} Params;
+				Params.Power = HoveredUnit->Power;
+				Params.Cost = HoveredUnit->Cost;
+				Params.Name = HoveredUnit->UnitName;
+				Params.Ability = HoveredUnit->Ability;
+				switch (HoveredUnit->Element)
+				{
+				case EElementtype::Fire:
+					Params.Element = TEXT("炎");
+					break;
+				case EElementtype::Water:
+					Params.Element = TEXT("水");
+					break;
+				case EElementtype::Grass:
+					Params.Element = TEXT("草");
+					break;
+				default:
+					Params.Element = TEXT("無属性");
+					break;
+				}
+
+
+				// ウィジェット側の関数を呼び出してパワーを渡す
+				UnitTooltipWidget->ProcessEvent(UnitTooltipWidget->FindFunction(FName("SetTooltipData")), &Params);
+
+				//★ここで例外スロー。アクセス違反らしい
+				UnitTooltipWidget->SetVisibility(ESlateVisibility::Visible);
+			}
+		}
+		else {
+			UE_LOG(LogTemp, Warning, TEXT("hoverEnd"));
+
+			// マウスが何も無いところに離れたら非表示にする
+			if (UnitTooltipWidget)
+			{
+				UnitTooltipWidget->SetVisibility(ESlateVisibility::Hidden);
+			}
+		}
+	}
+
+	// ==========================================
+	// ②「毎フレーム行うべき処理」：位置の追従
+	// ==========================================
+	// ホバー中のユニットがいて、かつウィジェットが表示中のときだけ位置を毎フレーム更新する
+	if (HoveredUnit && UnitTooltipWidget && UnitTooltipWidget->GetVisibility() == ESlateVisibility::Visible)
+	{
+		FVector WorldPosition = HoveredUnit->GetActorLocation() + FVector(0.f, 0.f, 100.f);
+		FVector2D ScreenPosition;
+
+		bool bIsOnScreen = PC->ProjectWorldLocationToScreen(WorldPosition, ScreenPosition, false);
+		if (bIsOnScreen)
+		{
+			// 毎フレーム、画面上の追従位置を更新する
+			UnitTooltipWidget->SetPositionInViewport(ScreenPosition + FVector2D(-500.0f, 15.f), false);
+		}
+	}
+}
 
 
 //プレイヤーがクリックした座標（TargetGridPos）が含まれているかチェック！
@@ -192,7 +306,7 @@ void AGameManager::DeleteMoveRangeObj() {
 //フェーズを切り替える
 void AGameManager::ChangePhase() {
 	DeleteMoveRangeObj();
-
+	DisplayMoveReserveArrow(false);
 	switch (currentPhase)
 	{
 	case CurrentPhase::EGS_Spawn:
@@ -210,6 +324,8 @@ void AGameManager::ChangePhase() {
 
 	case CurrentPhase::EGS_Battle:
 		currentPhase = CurrentPhase::EGS_Spawn;
+		PlayerCurrentCost += 2;
+		EnemyCurrentCost += 2;
 		break;
 
 	default:
@@ -269,4 +385,17 @@ void AGameManager::CheckEndAndShowResult()
 			UGameplayStatics::SetGamePaused(GetWorld(), true);
 		}
 	}
+}
+
+void AGameManager::DisplayMoveReserveArrow(bool isActive)
+{
+	if (!ArrowActor || !SelectedUnit)return;
+
+	
+		// 1. 目的地の座標に移動させる（少し地面から浮かげると綺麗です）
+		ArrowActor->SetActorLocation(FVector(ReserveGridPos.X * 100, ReserveGridPos.Y * 100, 20.f));
+
+		// 2. 表示・非表示状態にする
+		ArrowActor->SetActorHiddenInGame(!isActive);
+
 }

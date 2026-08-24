@@ -34,6 +34,17 @@ enum class EElementtype : uint8
 
 };
 
+// 特殊効果の種類
+UENUM(BlueprintType)
+enum class ESpecialAbilityType : uint8
+{
+	None        UMETA(DisplayName = "なし"),
+	Heal        UMETA(DisplayName = "回復"),
+	Teleport    UMETA(DisplayName = "テレポート"),
+	Poison      UMETA(DisplayName = "毒付与"),
+	AvtiveMove
+};
+
 //敵か味方か
 UENUM(BlueprintType)
 enum class EPlayerSide : uint8
@@ -55,13 +66,7 @@ public:
 	void OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonPressed);
 		
 
-	// 1. 名前
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
-	FText UnitName;
 
-	// 2. コスト（召喚や出撃に必要なポイント）
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
-	int32 Cost = 10;
 
 	//現在のいる位置
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Grid")
@@ -81,6 +86,13 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "MovePatternObj")
 	void SpawnMovePatternObject();
 
+	// 名前
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
+	FString UnitName;
+
+	// コスト（召喚や出撃に必要なポイント）
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
+	int32 Cost = 10;
 
 	//パワー
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
@@ -89,6 +101,11 @@ public:
 	//属性
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
 	EElementtype Element = EElementtype::None;
+
+	//能力の説明文
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
+	FString Ability = "なし";
+	
 
 	//移動パターン
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")

@@ -43,6 +43,7 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	virtual void Tick(float DeltaTime) override;
 
 public:	
 
@@ -60,7 +61,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resource")
 	int32 PlayerCurrentCost = 10;
 
-		// 敵の残りコスト
+	// 敵の残りコスト
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resource")
 	int32 EnemyCurrentCost = 10; 
 
@@ -78,9 +79,9 @@ public:
 	TSubclassOf<AUnit> EnemyUnitClassToSpawn = nullptr;
 
 
-	//// 【実体】現在計算されている移動可能ポジションのリスト
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MovePatternFunc")
-	//TArray<FIntPoint> AvailableAttackPositions;
+	//現在ホバーされているユニットを保持する変数
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Debug")
+	AUnit* HoveredUnit = nullptr;
 
 
 	// 指定したグリッド座標が、現在移動可能なマスかどうかを判定する関数
@@ -141,8 +142,6 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "BP")
 	void ChangePhase();
 
-	//タイマーを使うためのやつ？
-	FTimerHandle PhaseTimerHandle;
 
 	//ゲームが終わりかを判断して、終わりならResult画面を出す関数
 	UFUNCTION(BlueprintCallable, Category = "BP")
@@ -165,4 +164,27 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Setting")
 	ABaseBuilding* EnemyBase;
 	
+
+
+	// キャラのstatusを表示するためのWBPの設計書
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Setting")
+	TSubclassOf<UUserWidget> UnitTooltipWidgetClass;
+
+	// 実際に生成して画面に出しているウィジェットの実体
+	UPROPERTY()
+	UUserWidget* UnitTooltipWidget = nullptr;
+
+	// 矢印のアクタークラス（BPでアサイン用）
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Setting")
+	TSubclassOf<AActor> ArrowActorClass;
+
+	// シーン上に実際に存在する矢印の実体
+	UPROPERTY()
+	AActor* ArrowActor;
+
+	//移動予定矢印を、非表示にしたり表示させる
+	UFUNCTION(BlueprintCallable, Category = "BP")
+	void DisplayMoveReserveArrow(bool isActive);
+
+
 };

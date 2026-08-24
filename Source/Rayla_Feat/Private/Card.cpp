@@ -1,6 +1,7 @@
 #include "Card.h"
 #include "GameManager.h" 
 #include "UnitSpawn.h"
+#include "SoundManager.h"
 #include "Kismet/GameplayStatics.h" // GameManagerを探すために必要
 
 // Sets default values
@@ -17,6 +18,15 @@ void ACard::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonP
 {
 	UE_LOG(LogTemp, Warning, TEXT("cardクリックしました: %s"), *GetName());
 
+    //音を鳴らす
+    ASoundManager* SoundMgr = Cast<ASoundManager>(
+        UGameplayStatics::GetActorOfClass(GetWorld(), ASoundManager::StaticClass())
+    );
+    if (SoundMgr) {
+        SoundMgr->PlaySE(SoundMgr->SE_UnitMove);
+    }
+
+
     SetCardSelected(true);
     AUnitSpawn* UnitSpawner = Cast<AUnitSpawn>(
         UGameplayStatics::GetActorOfClass(GetWorld(), AUnitSpawn::StaticClass())
@@ -25,24 +35,39 @@ void ACard::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonP
     UnitSpawner->CurrentSelectedCard = this;
     
 
-	// 1. ワールドから GameManager を探して取得する
 	AGameManager* MyGameManager = Cast<AGameManager>(
 		UGameplayStatics::GetActorOfClass(GetWorld(), AGameManager::StaticClass())
 	);
 
-	if (MyGameManager)
-	{
-		MyGameManager->UnitClassToSpawn = UnitToSpawn;
-		UE_LOG(LogTemp, Warning, TEXT("GameManagerの SelectedUnit！"));
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("GameManagerが見つかりませんでした！"));
-	}
+    if (!MyGameManager)return;
+	
+	MyGameManager->UnitClassToSpawn = UnitToSpawn;
+
 }
 
 //見た目：沈ませたり浮かばせる関数
 void ACard::SetCardSelected(bool IsSelected) {
+
+
+    isSelectedCard = !isSelectedCard;
+
+    //クリックされていたなら、関係なく沈ませる
+    if (isSelectedCard) {
+        AGameManager* MyGameManager = Cast<AGameManager>(
+            UGameplayStatics::GetActorOfClass(GetWorld(), AGameManager::StaticClass())
+        );
+
+        if (!MyGameManager)return;
+        MyGameManager->UnitClassToSpawn = nullptr;
+        // 【沈ませる（元に戻す）処理】
+        FVector CurrentLocation = GetActorLocation();
+        CurrentLocation.Z -= 30.0f;
+        SetActorLocation(CurrentLocation);
+    }
+
+
+
+
 
     // 現在地を取得
     FVector CurrentLocation = GetActorLocation();
@@ -50,15 +75,12 @@ void ACard::SetCardSelected(bool IsSelected) {
     if (IsSelected)
     {
         // 【浮かばせる処理】
-        // 例：Z軸（またはY軸）に少し持ち上げる
-        // ※プロジェクトの軸の向きに合わせて数値を調整してください
         CurrentLocation.Z += 30.0f;
         SetActorLocation(CurrentLocation);
     }
     else
     {
         // 【沈ませる（元に戻す）処理】
-        // 例：持ち上げた分を戻す（※単純に足し引きするとズレる場合があるので、元の基準位置を持っておくとなお良しです！）
         CurrentLocation.Z -= 30.0f;
         SetActorLocation(CurrentLocation);
     }

@@ -64,8 +64,6 @@ void AUnitSpawn::SpawnMyUnit(FVector SpawnLocation, FIntPoint SpawnGridPos)
 	//手持ちコストを減らす
 	MyGameManager->PlayerCurrentCost -= DefaultUnit->Cost;
 
-
-
 	//GameManagerの全キャラリストに追加する
 	MyGameManager->AllUnitsList.Add(SpawnedActor);
 

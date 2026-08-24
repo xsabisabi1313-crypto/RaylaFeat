@@ -32,4 +32,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Card")
 	void SetCardSelected(bool IsSelected);
 
+	//今のカードが選択されているかどうか
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")
+	bool isSelectedCard = false;
+
 };
