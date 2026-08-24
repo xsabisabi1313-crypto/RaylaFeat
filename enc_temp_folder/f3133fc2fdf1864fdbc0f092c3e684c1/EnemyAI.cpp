@@ -73,9 +73,6 @@ void AEnemyAI::ProcessAISpawn()
     int32 RandomIndex = FMath::RandRange(0, AvailableClasses.Num() - 1);
     TSubclassOf<AUnit> EnemyClassToSpawn = AvailableClasses[RandomIndex];
 
-    //だが、コスト的に行けるか確認し、行けなかったら何もせず終了
-    if (GameManagerRef->EnemyCurrentCost < EnemyClassToSpawn.GetDefaultObject()->Cost) return;
-
 
     //2、召喚する場所を決める
     //まず、召喚できる場所は、初期6マスある。
@@ -102,8 +99,6 @@ void AEnemyAI::ProcessAISpawn()
         ChosenPos = SpawnableCandidatePositions[RandomIndex];
 
     }
-
-
 
     // 3、 実際にワールドにスポーンさせる
     AUnit* SpawnedActor = GetWorld()->SpawnActor<AUnit>(EnemyClassToSpawn, FVector(ChosenPos.X*100, ChosenPos.Y*100,0.0f), FRotator::ZeroRotator);
