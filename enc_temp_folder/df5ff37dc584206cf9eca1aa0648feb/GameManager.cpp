@@ -391,7 +391,6 @@ void AGameManager::DisplayMoveReserveArrow(bool isActive)
 {
 	if (!ArrowActor || !SelectedUnit)return;
 
-	if (currentPhase != CurrentPhase::EGS_MoveReserve)return;
 	
 		// 1. 目的地の座標に移動させる（少し地面から浮かげると綺麗です）
 		ArrowActor->SetActorLocation(FVector(ReserveGridPos.X * 100, ReserveGridPos.Y * 100, 20.f));
