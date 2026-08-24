@@ -64,9 +64,8 @@ void ACard::SetCardSelected() {
         FVector CurrentLocation = GetActorLocation();
         SetActorLocation(FVector(CurrentLocation.X,CurrentLocation.Y,100));
     }
-    //’¾‚Ü‚¹‚é
     else {
         FVector CurrentLocation = GetActorLocation();
-        SetActorLocation(FVector(CurrentLocation.X, CurrentLocation.Y, 60));
+        SetActorLocation(FVector(CurrentLocation.X, CurrentLocation.Y, -100));
     }
 }

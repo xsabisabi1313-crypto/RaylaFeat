@@ -30,7 +30,7 @@ public:
 
 	//カードを沈ませたり浮かばせる関数
 	UFUNCTION(BlueprintCallable, Category = "Card")
-	void SetCardSelected(bool IsSelected);
+	void SetCardSelected();
 
 	//今のカードが選択されているかどうか
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")

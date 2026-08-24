@@ -46,6 +46,10 @@ void AUnitSpawn::SpawnMyUnit(FVector SpawnLocation, FIntPoint SpawnGridPos)
 		CurrentSelectedCard->SetActorLocation(SpawnLocation);
 	}
 
+	//選択しているユニットをnullにし、同じユニットを召喚できないように
+	//UnitToSpawn = nullptr;
+	MyGameManager->UnitClassToSpawn = nullptr;
+
 	//音を鳴らす
 	ASoundManager* SoundMgr = Cast<ASoundManager>(
 		UGameplayStatics::GetActorOfClass(GetWorld(), ASoundManager::StaticClass())

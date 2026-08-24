@@ -40,10 +40,11 @@ void AUnitSpawn::SpawnMyUnit(FVector SpawnLocation, FIntPoint SpawnGridPos)
 
   //スポーンが確定後
 		//	
-	//スポーンする(Cardもその位置へ)
+	//スポーンする
 	AActor* SpawnedActor = GetWorld()->SpawnActor<AActor>(UnitToSpawn, SpawnLocation, FRotator::ZeroRotator);
+	//(Cardは非表示に)
 	if (CurrentSelectedCard) {
-		CurrentSelectedCard->SetActorLocation(SpawnLocation);
+		CurrentSelectedCard->SetActorLocation(FVector(1000,1000,1000));
 	}
 
 	//選択しているユニットをnullにし、同じユニットを召喚できないように

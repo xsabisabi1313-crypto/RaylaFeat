@@ -339,7 +339,8 @@ void AGameManager::DeselectAllCards() {
 	{
 		if (IsValid(Card))
 		{
-			Card->SetCardSelected(false); // 全員沈める
+			Card->isSelectedCard = false;
+			Card->SetCardSelected();//⇑の処理のおかげで絶対に沈ませることが可能
 		}
 	}
 }
