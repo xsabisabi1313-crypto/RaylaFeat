@@ -16,7 +16,18 @@ ACard::ACard()
 // 実際にクリックされたときの処理
 void ACard::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonPressed)
 {
+
+    AGameManager* MyGameManager = Cast<AGameManager>(
+        UGameplayStatics::GetActorOfClass(GetWorld(), AGameManager::StaticClass())
+    );
+
+    if (!MyGameManager)return;
+    if(MyGameManager->currentPhase != CurrentPhase::EGS_Spawn)return;
+
+    //
 	UE_LOG(LogTemp, Warning, TEXT("cardクリックしました: %s"), *GetName());
+
+
 
     //音を鳴らす
     ASoundManager* SoundMgr = Cast<ASoundManager>(
@@ -35,11 +46,7 @@ void ACard::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonP
     UnitSpawner->CurrentSelectedCard = this;
     
 
-	AGameManager* MyGameManager = Cast<AGameManager>(
-		UGameplayStatics::GetActorOfClass(GetWorld(), AGameManager::StaticClass())
-	);
 
-    if (!MyGameManager)return;
     MyGameManager->UnitClassToSpawn = UnitToSpawn;
 	
 	
