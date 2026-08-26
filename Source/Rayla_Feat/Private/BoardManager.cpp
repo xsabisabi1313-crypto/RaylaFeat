@@ -22,8 +22,34 @@ void ABoardManager::InitBoard() {
 		{
 			ATile* SpawnedTile = GetWorld()->SpawnActor<ATile>(Tile, FVector(x * 100, y * 100, 0.0f), FRotator::ZeroRotator);
 			SpawnedTile->GridXY = FIntPoint(x, y);
+
+            AllTiles.Add(SpawnedTile);
 		}
 	}
 
 }
 
+// 渡されたGridPosを全て光らせる関数
+void ABoardManager::ShowMovableRange(TArray<FIntPoint> GridPoss)
+{
+    // ループ変数をクラス名とかぶらない「EachTile」にする
+    for (ATile* EachTile : AllTiles)
+    {
+        if (!EachTile) continue;
+
+        FIntPoint TilePos = EachTile->GridXY;
+
+        UE_LOG(LogTemp, Display, TEXT("今から光らせる！light!!!!!!!now!!!!!!!"));
+
+        // 渡された座標リストの中に含まれていれば光らせ、違えば戻す
+        if (GridPoss.Contains(TilePos))
+        {
+            UE_LOG(LogTemp, Display, TEXT("Onnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"));
+            EachTile->SetHighlight(true);
+        }
+        else
+        {
+            EachTile->SetHighlight(false);
+        }
+    }
+}

@@ -28,5 +28,11 @@ public:
 	TSubclassOf<ATile> Tile;
 
 
+	//
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Board")
+	TArray<ATile*> AllTiles;
+
+	// 渡された座標リストのタイルを光らせる関数
+	void ShowMovableRange(TArray<FIntPoint> GridPoss);
 
 };

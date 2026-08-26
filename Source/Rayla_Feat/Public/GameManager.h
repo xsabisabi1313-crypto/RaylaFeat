@@ -96,18 +96,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Debug")
 	FIntPoint ReserveEnemyGridPos;
 
-
-	// いま実際に画面に出ている移動範囲オブジェクトを覚えておく変数
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Test")
-	AActor* CurrentMovePatternObj;
-
-	//⇑を削除する関数
-	UFUNCTION(BlueprintCallable, Category = "None")
-	void DeleteMoveRangeObj();
-	
-
-
-
 	// 予約した移動先へ、選択中のユニットを実際に移動させる関数
 	UFUNCTION(BlueprintCallable, Category = "Game")
 	void ExecuteMove();

@@ -26,5 +26,22 @@ public:
 
 	//このタイルのXY
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Setting")
-	FIntPoint GridXY = (0, 0);
+	FIntPoint GridXY = FIntPoint(0, 0);
+
+	// ① タイルの見た目（3Dメッシュ）
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Setting")
+	class UStaticMeshComponent* TileMesh;
+
+	// 通常時のマテリアル
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Material")
+	class UMaterialInterface* NormalMaterial;
+
+	// ハイライト時（選択時）のマテリアル
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Material")
+	class UMaterialInterface* HighlightMaterial;
+
+	// ④ ハイライトの切り替え関数
+	void SetHighlight(bool bIsHighlighted);
+
+
 };

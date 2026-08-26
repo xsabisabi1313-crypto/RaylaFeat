@@ -8,7 +8,7 @@
 #include "Blueprint/UserWidget.h"       // CreateWidget や UUserWidget を使うため
 #include "Kismet/GameplayStatics.h"     // UGameplayStatics::SetGamePaused を使うため
 #include "GameFramework/PlayerController.h" // APlayerController を使うため（もしエラーが出る場合）
-
+#include "BoardManager.h"
 AGameManager::AGameManager()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
@@ -294,19 +294,17 @@ void AGameManager::ExecuteBattle(EPlayerSide AttackerSide)
 
 	}
 }
-//移動範囲削除
-void AGameManager::DeleteMoveRangeObj() {
-	if (CurrentMovePatternObj)
-	{
-		CurrentMovePatternObj->Destroy();
-		CurrentMovePatternObj = nullptr;
-	}
-}
+
 
 //フェーズを切り替える
 void AGameManager::ChangePhase() {
-	DeleteMoveRangeObj();
+
 	DisplayMoveReserveArrow(false);
+	ABoardManager* BoardManager = Cast<ABoardManager>(
+		UGameplayStatics::GetActorOfClass(GetWorld(), ABoardManager::StaticClass())
+	);
+	BoardManager->ShowMovableRange(TArray<FIntPoint>());
+
 	switch (currentPhase)
 	{
 	case CurrentPhase::EGS_Spawn:

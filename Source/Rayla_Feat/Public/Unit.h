@@ -80,12 +80,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Test")
 	TSubclassOf<AActor> MovePatternObjClass;
 
-
-
-	// 移動範囲オブジェクトを生成する関数
-	UFUNCTION(BlueprintCallable, Category = "MovePatternObj")
-	void SpawnMovePatternObject();
-
 	// 名前
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
 	FString UnitName;

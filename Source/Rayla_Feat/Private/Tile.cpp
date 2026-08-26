@@ -6,15 +6,25 @@
 #include "UnitSpawn.h"
 #include "Kismet/GameplayStatics.h"
 
+#include "UObject/ConstructorHelpers.h"
 
-// Sets default values
+
 ATile::ATile()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-	// 「クリックを検知する」設定を有効にする ▼ ---
 	bEnableAutoLODGeneration = true;
 
+	// メッシュコンポーネントの実体を作成
+	TileMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("TileMesh"));
+	RootComponent = TileMesh;
+
+	// ★ ここでコードから直接スタティックメッシュをロードしてセットする！
+	// （※ /Content/ 配下のメッシュのパスを指定します。例としてUEの標準的なCubeを指定しています）
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshAsset(TEXT("/Engine/BasicShapes/Cube.Cube"));
+	if (MeshAsset.Succeeded())
+	{
+		TileMesh->SetStaticMesh(MeshAsset.Object);
+	}
 }
 
 // Called when the game starts or when spawned
@@ -26,6 +36,13 @@ void ATile::BeginPlay()
 	{
 		PC->bEnableClickEvents = true;
 	}
+
+	TileMesh->MarkRenderStateDirty();
+	TileMesh->UpdateBounds();
+	TileMesh->MarkRenderStateDirty();
+
+	FVector CurrentLoc = GetActorLocation();
+	SetActorLocation(CurrentLoc + FVector(0.0f, 0.0f, 0.1f));
 	
 }
 
@@ -53,5 +70,28 @@ void ATile::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonP
 	else if (GameManager->currentPhase == CurrentPhase::EGS_MoveReserve) {
 		GameManager->ReserveGridPos = GridXY;
 		GameManager->DisplayMoveReserveArrow(true);
+	}
+}
+
+
+void ATile::SetHighlight(bool bIsHighlighted)
+{
+	if (!TileMesh) return;
+
+	if (bIsHighlighted)
+	{
+		// ハイライト用のマテリアルにすり替える
+		if (HighlightMaterial)
+		{
+			TileMesh->SetMaterial(0, HighlightMaterial);
+		}
+	}
+	else
+	{
+		// 通常用のマテリアルに戻す
+		if (NormalMaterial)
+		{
+			TileMesh->SetMaterial(0, NormalMaterial);
+		}
 	}
 }

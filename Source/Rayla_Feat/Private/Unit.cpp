@@ -3,6 +3,7 @@
 
 #include "Unit.h"
 #include "GameManager.h"
+#include"BoardManager.h"
 #include "SoundManager.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -36,34 +37,28 @@ void AUnit::BeginPlay()
 // ユニットがクリックされたときの処理
 void AUnit::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonPressed)
 {
-	//音を鳴らす
 	ASoundManager* SoundMgr = Cast<ASoundManager>(
 		UGameplayStatics::GetActorOfClass(GetWorld(), ASoundManager::StaticClass())
 	);
-	if (SoundMgr) {
-		SoundMgr->PlaySE(SoundMgr->SE_ClickUnit);
-	}
 
-	//味方じゃなかったら反応させない
-	if (PlayerSide != EPlayerSide::Player) // 敵の場合
-	{
-		
-		return;
-	}
-
-
-	// ワールド上のGameManagerを探して自分をセットする
 	AGameManager* MyGameManager = Cast<AGameManager>(
 		UGameplayStatics::GetActorOfClass(GetWorld(), AGameManager::StaticClass())
 	);
-	if (!MyGameManager)return;
+
+	ABoardManager* MyBoardManager = Cast<ABoardManager>(
+		UGameplayStatics::GetActorOfClass(GetWorld(), ABoardManager::StaticClass())
+	);
+
+	//移動予約フェーズかつ、味方キャラの場合のみ実行
+	if (PlayerSide != EPlayerSide::Player || MyGameManager->currentPhase != CurrentPhase::EGS_MoveReserve)return;
+	SoundMgr->PlaySE(SoundMgr->SE_ClickUnit);
+	
 	MyGameManager->SelectedUnit = this;
+	MyBoardManager->ShowMovableRange(GetAvailableMovePoss());
 
-
-	//MyGameManager->SelectedUnit = this;
-	UE_LOG(LogTemp, Warning, TEXT("ユニットを選択しました: %s"), *GetName());
+	//UE_LOG(LogTemp, Warning, TEXT("ユニットを選択しました: %s"), *GetName());
 	if (MyGameManager->currentPhase == CurrentPhase::EGS_MoveReserve) {
-		SpawnMovePatternObject();
+		
 		this->GetAvailableMovePoss();
 	}
 	
@@ -72,12 +67,12 @@ void AUnit::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonP
 
 void AUnit::OnCursorBeginOver(UPrimitiveComponent* TouchedComponent)
 {
-	UE_LOG(LogTemp, Warning, TEXT("マウスが乗った！: %s"), *GetName());
+	//UE_LOG(LogTemp, Warning, TEXT("マウスが乗った！: %s"), *GetName());
 }
 
 void AUnit::OnCursorEndOver(UPrimitiveComponent* TouchedComponent)
 {
-	UE_LOG(LogTemp, Warning, TEXT("マウスが離れた！: %s"), *GetName());
+	//UE_LOG(LogTemp, Warning, TEXT("マウスが離れた！: %s"), *GetName());
 }
 
 
@@ -104,22 +99,6 @@ void AUnit::MoveToGrid(FIntPoint NewGridPos)
 	}
 	
 }
-
-//移動できる範囲を生成する
-void AUnit::SpawnMovePatternObject()
-{
-
-	AGameManager* MyGameManager = Cast<AGameManager>(
-		UGameplayStatics::GetActorOfClass(GetWorld(), AGameManager::StaticClass())
-	);
-
-
-	if (MyGameManager->CurrentMovePatternObj) {
-		MyGameManager->DeleteMoveRangeObj();
-	}
-	MyGameManager->CurrentMovePatternObj = GetWorld()->SpawnActor<AActor>(MovePatternObjClass, FVector(GridPos.X * 100, GridPos.Y * 100, 46), FRotator::ZeroRotator);
-}
-
 
 
 
