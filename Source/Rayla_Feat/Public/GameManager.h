@@ -102,7 +102,7 @@ public:
 
 	// 現在マップに存在する全てのユニットを格納するリスト
 	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Debug")
-	TArray<AActor*> AllUnitsList;
+	TArray<AUnit*> AllUnitsList;
 	//
 
 	// 現在マップに存在する全ての手札カードを格納するリスト

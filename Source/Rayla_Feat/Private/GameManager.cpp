@@ -183,11 +183,11 @@ void AGameManager::ExecuteBattle(EPlayerSide AttackerSide)
 	for (const FIntPoint& AttackPos : AttackPoss)
 	{
 		// 【ループ②】フィールドにいるすべてのキャラクターの数だけ回す
-		for (AActor* Actor : AllUnitsList)
+		for (AUnit* Actor : AllUnitsList)
 		{
 			if (!IsValid(Actor)) continue;
 
-			AUnit* OtherUnit = Cast<AUnit>(Actor);
+			AUnit* OtherUnit = Actor;
 			if (!OtherUnit || OtherUnit == Attacker) continue;
 
 			// 自分と同じ陣営（味方同士）なら攻撃対象外
@@ -258,18 +258,18 @@ void AGameManager::ExecuteBattle(EPlayerSide AttackerSide)
 	// まだ戦っていないなら、拠点が攻撃可能かどうか判定する。
 	bool bHitEnemyBase = false;
 	if (IsValid(SelectedUnit)) {
-		bHitEnemyBase = SelectedUnit->GetAvailableAttackPoss().Contains(FIntPoint(0, -1)) ||
-			SelectedUnit->GetAvailableAttackPoss().Contains(FIntPoint(1, -1)) ||
-			SelectedUnit->GetAvailableAttackPoss().Contains(FIntPoint(2, -1));
+		bHitEnemyBase = SelectedUnit->GetAvailableAttackPoss().Contains(FIntPoint(0, 0)) ||
+			SelectedUnit->GetAvailableAttackPoss().Contains(FIntPoint(1, 0)) ||
+			SelectedUnit->GetAvailableAttackPoss().Contains(FIntPoint(2, 0));
 
 		
 	}
 	//敵がプレイヤー拠点を攻撃可能かどうか
 	bool bHitPlayerBase = false;
 	if (IsValid(SelectedEnemyUnit)) {
-		bHitPlayerBase = SelectedEnemyUnit->GetAvailableAttackPoss().Contains(FIntPoint(0, 7)) ||
-			SelectedEnemyUnit->GetAvailableAttackPoss().Contains(FIntPoint(1, 7)) ||
-			SelectedEnemyUnit->GetAvailableAttackPoss().Contains(FIntPoint(2, 7));
+		bHitPlayerBase = SelectedEnemyUnit->GetAvailableAttackPoss().Contains(FIntPoint(0, 6)) ||
+			SelectedEnemyUnit->GetAvailableAttackPoss().Contains(FIntPoint(1, 6)) ||
+			SelectedEnemyUnit->GetAvailableAttackPoss().Contains(FIntPoint(2, 6));
 
 		UE_LOG(LogTemp, Warning, TEXT("EnemyBattleBoolTrue"));
 	}

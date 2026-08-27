@@ -1,6 +1,9 @@
 //このクラスは、プレイヤー側のユニットを召喚するための専用クラス。敵を召喚する処理はEmenyAIクラスにある。
+//UnitSpawnではなく、UseCardというクラス名に変えたい
 #include "UnitSpawn.h"
 #include "Unit.h"
+
+
 #include "GameManager.h" // GameManagerを使えるようにする
 #include "SoundManager.h"
 #include "Kismet/GameplayStatics.h" // GetActorOfClassを使うため
@@ -10,7 +13,7 @@ AUnitSpawn::AUnitSpawn()
 	PrimaryActorTick.bCanEverTick = false;
 }
 
-// 味方ユニットをスポーンさせる関数
+// 味方ユニットをスポーン(またはスペル使用)させる関数
 void AUnitSpawn::SpawnMyUnit(FVector SpawnLocation, FIntPoint SpawnGridPos)
 {
 	//GameManagerを取得
@@ -40,20 +43,22 @@ void AUnitSpawn::SpawnMyUnit(FVector SpawnLocation, FIntPoint SpawnGridPos)
 
   //スポーンが確定後
 		//	
-	//スポーンする(味方ユニットなので、180度回転させる)
-	FRotator SpawnRotation = FRotator(0.0f, 180.0f, 0.0f);
-	AActor* SpawnedActor = GetWorld()->SpawnActor<AActor>(UnitToSpawn, SpawnLocation, SpawnRotation);
 
-	//(Cardは非表示に)
+
+	//手持ちコストを減らす(共通)
+	MyGameManager->PlayerCurrentCost -= DefaultUnit->Cost;
+
+
+	//(Cardは非表示に)(共通)
 	if (CurrentSelectedCard) {
-		CurrentSelectedCard->SetActorLocation(FVector(1000,1000,1000));
+		CurrentSelectedCard->SetActorLocation(FVector(1000, 1000, 1000));
 	}
 
-	//選択しているユニットをnullにし、同じユニットを召喚できないように
+	//選択しているユニットをnullにし、同じユニットを召喚できないように(共通)
 	//UnitToSpawn = nullptr;
 	MyGameManager->UnitClassToSpawn = nullptr;
 
-	//音を鳴らす
+	//音を鳴らす(共通)
 	ASoundManager* SoundMgr = Cast<ASoundManager>(
 		UGameplayStatics::GetActorOfClass(GetWorld(), ASoundManager::StaticClass())
 	);
@@ -61,20 +66,44 @@ void AUnitSpawn::SpawnMyUnit(FVector SpawnLocation, FIntPoint SpawnGridPos)
 		SoundMgr->PlaySE(SoundMgr->SE_UnitSpawn);
 	}
 
-	// 初期値を設定
-	AUnit* NewUnit = Cast<AUnit>(SpawnedActor);
-	if (NewUnit)
+
+
+	switch (CurrentSelectedCard->CardType) {
+
+	case ECardType::UnitCard:
 	{
-		NewUnit->GridPos = SpawnGridPos; // ここに設定したい座標を入れる
-		NewUnit->PlayerSide = EPlayerSide::Player;
+		//スポーンする(味方ユニットなので、180度回転させる)(unit)
+		FRotator SpawnRotation = FRotator(0.0f, 180.0f, 0.0f);
+		AUnit* SpawnedActor = GetWorld()->SpawnActor<AUnit>(UnitToSpawn, SpawnLocation, SpawnRotation);
+
+		// 初期値を設定(unit)
+		if (SpawnedActor)
+		{
+			SpawnedActor->GridPos = SpawnGridPos; // ここに設定したい座標を入れる
+			SpawnedActor->PlayerSide = EPlayerSide::Player;
+		}
+
+		//GameManagerの全キャラリストに追加する(unit)
+		MyGameManager->AllUnitsList.Add(SpawnedActor);
+
+		break;
 	}
-	//手持ちコストを減らす
-	MyGameManager->PlayerCurrentCost -= DefaultUnit->Cost;
+
+	case ECardType::Spell_Kibidango: 
+	{
+		for (AUnit* Unit : MyGameManager->AllUnitsList)
+		{
+			if (Unit->UnitTeam != EUnitTeam::Momotaro)return;
+
+			Unit->Power += 2;
+		}
+		break;
+
+	}
+
+	}
 
 
-
-	//GameManagerの全キャラリストに追加する
-	MyGameManager->AllUnitsList.Add(SpawnedActor);
 
 	return;
 

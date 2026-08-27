@@ -32,15 +32,15 @@ void AEnemyAI::ProcessAISpawn()
 
     if(!GameManagerRef) return;
 
-    FIntPoint ChosenPos;
+    FIntPoint ChosenPos = FIntPoint(0,0);
 
     //１，何のキャラをスポーンさせるかを決める
     //  すでに場にいる（生存している）すべての「敵ユニットのクラス」を集める
     TArray<TSubclassOf<AUnit>> SpawnedEnemyClasses;
-    for (AActor* Actor : GameManagerRef->AllUnitsList)
+    for (AUnit* Actor : GameManagerRef->AllUnitsList)
     {
         if (!IsValid(Actor)) continue;
-        AUnit* Unit = Cast<AUnit>(Actor);
+        AUnit* Unit = Actor;
         if (Unit && Unit->PlayerSide == EPlayerSide::Enemy)
         {
             SpawnedEnemyClasses.Add(Unit->GetClass());
@@ -80,15 +80,15 @@ void AEnemyAI::ProcessAISpawn()
     //2、召喚する場所を決める
     //まず、召喚できる場所は、初期6マスある。
     TArray<FIntPoint> SpawnableCandidatePositions = {
-        FIntPoint(0, 0), FIntPoint(1, 0), FIntPoint(2, 0),
+        
         FIntPoint(0, 1), FIntPoint(1, 1), FIntPoint(2, 1)
     };
 
     // もし「召喚候補の中に、すでにユニットがいる座標」が含まれていたら、候補から外す！
-    for (AActor* Actor : GameManagerRef->AllUnitsList)
+    for (AUnit* Actor : GameManagerRef->AllUnitsList)
     {
         if (!IsValid(Actor)) continue;
-        AUnit* Unit = Cast<AUnit>(Actor);
+        AUnit* Unit = Actor;
         if (!Unit) continue;
         FIntPoint UnitPos = Unit->GridPos;
         
@@ -139,10 +139,10 @@ void AEnemyAI::ProcessAIMoveReserve() {
 
     // 1. その場で敵だけを抽出するリストを作る
     TArray<AUnit*> EnemyUnits;
-    for (AActor* Actor : GameManagerRef->AllUnitsList)
+    for (AUnit* Actor : GameManagerRef->AllUnitsList)
     {
         if (!IsValid(Actor)) continue;
-        AUnit* Unit = Cast<AUnit>(Actor);
+        AUnit* Unit = Actor;
         if (Unit && Unit->PlayerSide == EPlayerSide::Enemy)
         {
             EnemyUnits.Add(Unit);
@@ -151,39 +151,49 @@ void AEnemyAI::ProcessAIMoveReserve() {
     if (EnemyUnits.Num() == 0) return;
 
 
-    //UE_LOG(LogTemp, Warning, TEXT("今からランダムに選ぶぜ"));
     // 2. ランダムに1体選ぶ
     int32 RandomIndex = FMath::RandRange(0, EnemyUnits.Num() - 1);
     AUnit* ChosenUnitToMove = EnemyUnits[RandomIndex];
     GameManagerRef->SelectedEnemyUnit = ChosenUnitToMove;
+    if (!ChosenUnitToMove)return;
 
 
-    // ユニットが持つ攻撃可能マスのリストを取得する
-    TArray<FIntPoint> AttackPoss = ChosenUnitToMove->GetAvailableAttackPoss();
-    // プレイヤーの拠点座標（(0,7), (1,7), (2,7) など）のいずれかが、自分の攻撃可能マスに含まれているか判定
-    bool bCanAttackPlayerBase = AttackPoss.Contains(FIntPoint(0, 7)) ||
-        AttackPoss.Contains(FIntPoint(1, 7)) ||
-        AttackPoss.Contains(FIntPoint(2, 7));
 
     // もしすでに拠点を攻撃できる位置にいるなら、前に進まずにその場にとどまる
+    // プレイヤーの拠点座標（(0,7), (1,7), (2,7) など）のいずれかが、自分の攻撃可能マスに含まれているか判定
+    TArray<FIntPoint> AttackPoss = ChosenUnitToMove->GetAvailableAttackPoss();
+    
+    bool bCanAttackPlayerBase = AttackPoss.Contains(FIntPoint(0, 6)) ||
+        AttackPoss.Contains(FIntPoint(1, 6)) ||
+        AttackPoss.Contains(FIntPoint(2, 6));
     if (bCanAttackPlayerBase)
     {
         UE_LOG(LogTemp, Warning, TEXT("拠点が攻撃範囲内にあるため、移動せずにとどまります！"));
         GameManagerRef->ReserveEnemyGridPos = ChosenUnitToMove->GridPos; // 移動先を「現在地」にする
-        return; // ここで処理を終了
+        return;
     }
 
-    if (ChosenUnitToMove)
-    {
-        // 3. 現在地を基準に「前方のマス」を計算する
-        //基本は前(Y座標プラス方向)に向かう
-        FIntPoint CurrentPos = ChosenUnitToMove->GridPos;
-        FIntPoint TargetPos = FIntPoint(CurrentPos.X, CurrentPos.Y + 1); // 前方（Yプラス方向）
 
-        // 4. 計算した移動予定地をGameManagerに保持させる
+    //そのユニットの移動可能範囲を調べる
+    //もし移動可能範囲が０なら動かない。後々やり直ししたい（再帰的にProcessAIMoveReserve()を呼びたい）が、無限loopになる可能性があるため保留
+    //基本は前に動く
+
+    TArray<FIntPoint> MovePoss = ChosenUnitToMove->GetAvailableMovePoss();
+    FIntPoint TargetPos = FIntPoint(ChosenUnitToMove->GridPos.X, ChosenUnitToMove->GridPos.Y + 1); // 前方（Yプラス方向）
+    // 前方が移動可能範囲に含まれているか判定する
+    bool bCanMoveToTarget = MovePoss.Contains(TargetPos);
+
+
+    if (!bCanMoveToTarget) {
+        GameManagerRef->ReserveEnemyGridPos = ChosenUnitToMove->GridPos;
+    }
+    else {
         GameManagerRef->ReserveEnemyGridPos = TargetPos;
-        UE_LOG(LogTemp, Warning, TEXT("移動する場所決定！"));
     }
+    
+
+    UE_LOG(LogTemp, Warning, TEXT("移動する場所決定！"));
+    
     
 
 }

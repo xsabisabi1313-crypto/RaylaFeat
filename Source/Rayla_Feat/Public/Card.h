@@ -6,6 +6,14 @@
 #include "GameFramework/Actor.h"
 #include "Card.generated.h"
 
+UENUM(BlueprintType)
+enum class ECardType : uint8
+{
+	UnitCard  UMETA(DisplayName = "UnitCard"),
+	Spell_Kibidango    UMETA(DisplayName = "Spell_Kibidango"),
+	Spell_RedWine  UMETA(DisplayName = "Spell_RedWine"),
+};
+
 UCLASS()
 class RAYLA_FEAT_API ACard : public AActor
 {
@@ -24,7 +32,7 @@ protected:
 public:	
 
 	// 召喚する味方ユニット
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Setting")
 	TSubclassOf<AActor> UnitToSpawn = nullptr;
 
 
@@ -33,7 +41,10 @@ public:
 	void SetCardSelected();
 
 	//今のカードが選択されているかどうか
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Selection")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Debug")
 	bool isSelectedCard = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Setting")
+	ECardType CardType = ECardType::UnitCard;
 
 };

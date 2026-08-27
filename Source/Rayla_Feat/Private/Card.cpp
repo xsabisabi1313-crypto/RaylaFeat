@@ -20,8 +20,17 @@ void ACard::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonP
     AGameManager* MyGameManager = Cast<AGameManager>(
         UGameplayStatics::GetActorOfClass(GetWorld(), AGameManager::StaticClass())
     );
+    ASoundManager* SoundMgr = Cast<ASoundManager>(
+        UGameplayStatics::GetActorOfClass(GetWorld(), ASoundManager::StaticClass())
+    );
+    AUnitSpawn* UnitSpawner = Cast<AUnitSpawn>(
+        UGameplayStatics::GetActorOfClass(GetWorld(), AUnitSpawn::StaticClass())
+    );
 
     if (!MyGameManager)return;
+    if (!UnitSpawner)return;
+
+    if (SoundMgr) { SoundMgr->PlaySE(SoundMgr->SE_UnitMove); }
     if(MyGameManager->currentPhase != CurrentPhase::EGS_Spawn)return;
 
     //
@@ -29,25 +38,24 @@ void ACard::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonP
 
 
 
-    //‰¹‚ð–Â‚ç‚·
-    ASoundManager* SoundMgr = Cast<ASoundManager>(
-        UGameplayStatics::GetActorOfClass(GetWorld(), ASoundManager::StaticClass())
-    );
-    if (SoundMgr) {
-        SoundMgr->PlaySE(SoundMgr->SE_UnitMove);
-    }
-
-
-    
-    AUnitSpawn* UnitSpawner = Cast<AUnitSpawn>(
-        UGameplayStatics::GetActorOfClass(GetWorld(), AUnitSpawn::StaticClass())
-    );
-    if (!UnitSpawner)return;
     UnitSpawner->CurrentSelectedCard = this;
-    
-
-
     MyGameManager->UnitClassToSpawn = UnitToSpawn;
+
+    switch (CardType)
+    {
+    case ECardType::UnitCard:
+        
+        break;
+    case ECardType::Spell_Kibidango:
+        break;
+    case ECardType::Spell_RedWine:
+        break;
+    default:
+        break;
+    }
+    
+   
+    
 	
 	
 
@@ -58,6 +66,8 @@ void ACard::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonP
         isSelectedCard = true;
         SetCardSelected();
     }
+
+
     
 
 }

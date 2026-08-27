@@ -21,6 +21,7 @@ UENUM(BlueprintType)
 enum class EMovePatterns : uint8
 {
 	Cross    UMETA(DisplayName = "Cross"),
+	NotMove     UMETA(DisplayName = "NotMove"),
 };
 
 //属性
@@ -43,6 +44,15 @@ enum class ESpecialAbilityType : uint8
 	Teleport    UMETA(DisplayName = "テレポート"),
 	Poison      UMETA(DisplayName = "毒付与"),
 	AvtiveMove
+};
+
+// どのチームに所属するか
+UENUM(BlueprintType)
+enum class EUnitTeam : uint8
+{
+	Momotaro      UMETA(DisplayName = "Momotaro"),
+	Akazukin        UMETA(DisplayName = "Akazukin"),
+	
 };
 
 //敵か味方か
@@ -99,7 +109,10 @@ public:
 	//能力の説明文
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
 	FString Ability = "なし";
-	
+
+	//どの童話か
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
+	EUnitTeam UnitTeam = EUnitTeam::Momotaro;
 
 	//移動パターン
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")

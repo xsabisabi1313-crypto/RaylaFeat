@@ -32,6 +32,12 @@ void AUnit::BeginPlay()
 		// マウスが離れたとき
 		PrimComp->OnEndCursorOver.AddDynamic(this, &AUnit::OnCursorEndOver);
 	}
+
+
+	//敵の赤ずきんのおばあちゃんなら、場所を固定する
+	if (UnitTeam == EUnitTeam::Akazukin  && MovePattern == EMovePatterns::NotMove && PlayerSide == EPlayerSide::Enemy) {
+		SetActorLocation(FVector(0, 100, 25));
+	}
 }
 
 // ユニットがクリックされたときの処理
@@ -193,6 +199,8 @@ TArray<FIntPoint> AUnit::GetAvailableMovePoss()
 		AvailableMovePoss.Add(FIntPoint(CurrentPos.X, CurrentPos.Y - 1)); // 下
 		break;
 
+	case EMovePatterns::NotMove:
+		break;
 	default:
 		break;
 	}
