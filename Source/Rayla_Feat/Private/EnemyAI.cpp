@@ -2,6 +2,7 @@
 
 
 #include "EnemyAI.h"
+#include"Card.h"
 #include"GameManager.h"
 
 
@@ -26,7 +27,7 @@ void AEnemyAI::ExecuteAITurn() {
 
 }
 
-//召喚フェーズで敵を召喚する関数
+//召喚フェーズで敵を召喚、またはカード使用する関数
 void AEnemyAI::ProcessAISpawn()
 {
 
@@ -45,6 +46,12 @@ void AEnemyAI::ProcessAISpawn()
         {
             SpawnedEnemyClasses.Add(Unit->GetClass());
         }
+    }
+
+    //spawnCountが3つなら、スペルを使用
+    if (spawnCount >= 3) {
+        UseSpell();
+        return;
     }
 
     //  敵が所持しているリストから、「まだ場に出ていないキャラ」だけを候補として集める
@@ -78,7 +85,7 @@ void AEnemyAI::ProcessAISpawn()
 
 
     //2、召喚する場所を決める
-    //まず、召喚できる場所は、初期6マスある。
+    //まず、召喚できる場所は、初期3マスある。
     TArray<FIntPoint> SpawnableCandidatePositions = {
         
         FIntPoint(0, 1), FIntPoint(1, 1), FIntPoint(2, 1)
@@ -120,6 +127,16 @@ void AEnemyAI::ProcessAISpawn()
 
         //GameManagerの全キャラリストに追加する
         GameManagerRef->AllUnitsList.Add(SpawnedActor);
+
+        spawnCount++;
+    }
+
+    //手持ちのカードを非表示に
+    for (ACard* card:GameManagerRef->EnemyCardList) {
+        if (card->UnitToSpawn == EnemyClassToSpawn) {
+            card->SetActorLocation(FVector(-1000, -1000, -1000));
+            break;
+        }
     }
 
 
@@ -196,4 +213,70 @@ void AEnemyAI::ProcessAIMoveReserve() {
     
     
 
+}
+
+void AEnemyAI::UseSpell() {
+    TArray<ACard*> EnemyAllSpellCard = GameManagerRef->EnemyCardList;
+
+    UE_LOG(LogTemp, Warning, TEXT("cardokiiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"));
+
+    for (ACard* card : EnemyAllSpellCard)
+    {
+        if (!IsValid(card)) continue;
+
+        if (card->CardType == ECardType::Spell_RedWine) {
+
+            UE_LOG(LogTemp, Warning, TEXT("Wine使うokiiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"));
+            AUnit* SpawnedActor = GetWorld()->SpawnActor<AUnit>(ObaachanUnit, FVector(100, 100, 0.0f), FRotator::ZeroRotator);
+            AUnit* NewUnit = Cast<AUnit>(SpawnedActor);
+            if (NewUnit)
+            {
+                NewUnit->GridPos = FIntPoint(1, 1);
+                NewUnit->PlayerSide = EPlayerSide::Enemy;
+                GameManagerRef->EnemyCurrentCost -= NewUnit->Cost;
+                GameManagerRef->AllUnitsList.Add(SpawnedActor);
+                spawnCount++;
+            }
+
+            // カードを移動させる
+            card->SetActorLocation(FVector(-1000, -1000, -1000));
+
+            // リストからの削除はカードを動かした「後」に安全に行う
+            GameManagerRef->EnemyCardList.Remove(card);
+            return;
+        }
+        else if (card->CardType == ECardType::Spell_Ohanatumi) {
+
+            for (AUnit* Actor : GameManagerRef->AllUnitsList)
+            {
+                if (!IsValid(Actor)) continue;
+                if (Actor->PlayerSide == EPlayerSide::Enemy)
+                {
+                    Actor->Power += 1;
+                }
+            }
+
+            UE_LOG(LogTemp, Warning, TEXT("OhanaokiiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"));
+            card->SetActorLocation(FVector(-1000, -1000, -1000));
+            GameManagerRef->EnemyCardList.Remove(card);
+            return;
+        }
+        else if (card->CardType == ECardType::Spell_Ookiinone) {
+
+
+            UE_LOG(LogTemp, Warning, TEXT("okiiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"));
+            for (AUnit* Actor : GameManagerRef->AllUnitsList)
+            {
+                if (!IsValid(Actor)) continue;
+                if (Actor->PlayerSide == EPlayerSide::Enemy)
+                {
+                    Actor->Power += 2;
+                }
+            }
+
+            card->SetActorLocation(FVector(-1000, -1000, -1000));
+            GameManagerRef->EnemyCardList.Remove(card);
+            return;
+        }
+    }
 }

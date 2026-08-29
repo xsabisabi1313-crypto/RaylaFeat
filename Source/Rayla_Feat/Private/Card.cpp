@@ -2,6 +2,7 @@
 #include "GameManager.h" 
 #include "UnitSpawn.h"
 #include "SoundManager.h"
+#include "BoardManager.h"
 #include "Kismet/GameplayStatics.h" // GameManager‚ð’T‚·‚½‚ß‚É•K—v
 
 // Sets default values
@@ -25,6 +26,10 @@ void ACard::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonP
     );
     AUnitSpawn* UnitSpawner = Cast<AUnitSpawn>(
         UGameplayStatics::GetActorOfClass(GetWorld(), AUnitSpawn::StaticClass())
+    );
+
+    ABoardManager* BoardMgr = Cast<ABoardManager>(
+        UGameplayStatics::GetActorOfClass(GetWorld(), ABoardManager::StaticClass())
     );
 
     if (!MyGameManager)return;
@@ -67,8 +72,8 @@ void ACard::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonP
         SetCardSelected();
     }
 
-
-    
+    TArray<FIntPoint> tiles = {FIntPoint(0, 5), FIntPoint(1, 5), FIntPoint(2, 5)};
+    BoardMgr->ShowMovableRange(tiles);
 
 }
 

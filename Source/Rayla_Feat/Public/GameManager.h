@@ -103,11 +103,23 @@ public:
 	// 現在マップに存在する全てのユニットを格納するリスト
 	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "Debug")
 	TArray<AUnit*> AllUnitsList;
-	//
+	
 
 	// 現在マップに存在する全ての手札カードを格納するリスト
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Debug")
 	TArray<ACard*> AllCardList;
+
+	// チーム1(自分)が持つすべてのカードを格納するリスト
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Debug")
+	TArray<ACard*> PlayerCardList;
+
+	// チーム2(敵AI)が持つすべてのカードを格納するリスト
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Debug")
+	TArray<ACard*> EnemyCardList;
+
+
+
+
 	// 現在マップに存在する全ての手札カードを沈ませる関数
 	UFUNCTION(BlueprintCallable, Category = "Func")
 	void DeselectAllCards();

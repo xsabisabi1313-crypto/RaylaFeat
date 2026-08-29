@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "Card.h"
 
+
 #include "UnitSpawn.generated.h"
 
 UCLASS()
@@ -24,6 +25,7 @@ public:
 	//現在選択されているカードの実態
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Debug")
 	ACard* CurrentSelectedCard = nullptr;
+
 
 
 };

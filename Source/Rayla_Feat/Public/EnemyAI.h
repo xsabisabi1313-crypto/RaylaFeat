@@ -21,11 +21,19 @@ public:
 	// Called every frame
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
 	AGameManager* GameManagerRef;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
+	TSubclassOf<AUnit> ObaachanUnit;
 
 	UFUNCTION(BlueprintCallable, Category = "AI")
 	void ExecuteAITurn();
 
 	void ProcessAISpawn();
 	void ProcessAIMoveReserve();
+	void UseSpell();
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
+	int spawnCount = 0;
+
 
 };

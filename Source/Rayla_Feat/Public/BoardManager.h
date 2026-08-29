@@ -33,6 +33,7 @@ public:
 	TArray<ATile*> AllTiles;
 
 	// 渡された座標リストのタイルを光らせる関数
+	UFUNCTION(BlueprintCallable)
 	void ShowMovableRange(TArray<FIntPoint> GridPoss);
 
 };

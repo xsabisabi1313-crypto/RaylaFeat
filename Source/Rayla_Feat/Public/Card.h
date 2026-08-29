@@ -12,7 +12,13 @@ enum class ECardType : uint8
 	UnitCard  UMETA(DisplayName = "UnitCard"),
 	Spell_Kibidango    UMETA(DisplayName = "Spell_Kibidango"),
 	Spell_RedWine  UMETA(DisplayName = "Spell_RedWine"),
+	Spell_Onitaiji UMETA(DisplayName = "Spell_Onitaiji"),
+	Spell_Ookiinone  UMETA(DisplayName = "Spell_Ookiinone"),
+	Spell_Ohanatumi UMETA(DisplayName = "Spell_Ohanatumi"),
+
 };
+
+
 
 UCLASS()
 class RAYLA_FEAT_API ACard : public AActor

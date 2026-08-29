@@ -1,8 +1,8 @@
 //このクラスは、プレイヤー側のユニットを召喚するための専用クラス。敵を召喚する処理はEmenyAIクラスにある。
 //UnitSpawnではなく、UseCardというクラス名に変えたい
 #include "UnitSpawn.h"
-#include "Unit.h"
 
+#include "Unit.h"
 
 #include "GameManager.h" // GameManagerを使えるようにする
 #include "SoundManager.h"
@@ -33,7 +33,7 @@ void AUnitSpawn::SpawnMyUnit(FVector SpawnLocation, FIntPoint SpawnGridPos)
 	//GameManagerの、現在選択されている味方ユニットを選択
 	TSubclassOf<AUnit> UnitToSpawn = MyGameManager->UnitClassToSpawn;
 
-    //もし選択されていなかったら終わり
+	//もし選択されていなかったら終わり
 	if (!UnitToSpawn)return;
 
 	//もしコスト的に難しかったら終わり
@@ -41,11 +41,11 @@ void AUnitSpawn::SpawnMyUnit(FVector SpawnLocation, FIntPoint SpawnGridPos)
 	if (!DefaultUnit) return;
 	if (DefaultUnit->Cost > MyGameManager->PlayerCurrentCost)return;
 
-  //スポーンが確定後
-		//	
+	//スポーンが確定後
+		  //	
 
 
-	//手持ちコストを減らす(共通)
+	  //手持ちコストを減らす(共通)
 	MyGameManager->PlayerCurrentCost -= DefaultUnit->Cost;
 
 
@@ -89,23 +89,56 @@ void AUnitSpawn::SpawnMyUnit(FVector SpawnLocation, FIntPoint SpawnGridPos)
 		break;
 	}
 
-	case ECardType::Spell_Kibidango: 
+	case ECardType::Spell_Kibidango:
 	{
 		for (AUnit* Unit : MyGameManager->AllUnitsList)
 		{
 			if (Unit->UnitTeam != EUnitTeam::Momotaro)return;
 
-			Unit->Power += 2;
+			Unit->Power += 1;
 		}
 		break;
 
+
+
 	}
+	case ECardType::Spell_Onitaiji:
+	{
+		for (AUnit* Unit : MyGameManager->AllUnitsList)
+		{
+			if (Unit->UnitTeam != EUnitTeam::Momotaro)return;
+
+			Unit->Power += 1;
+		}
+		break;
+	}
+	case ECardType::Spell_Ohanatumi:
+	{
+		for (AUnit* Unit : MyGameManager->AllUnitsList)
+		{
+			if (Unit->UnitTeam != EUnitTeam::Akazukin)return;
+
+			Unit->Power += 1;
+		}
+		break;
+	}
+	//case ECardType::Spell_RedWine:
+	//	//スポーンする(味方ユニットなので、180度回転させる)(unit)
+	//	FRotator SpawnRotation = FRotator(0.0f, 180.0f, 0.0f);
+	//	//AUnit* SpawnedActor = GetWorld()->SpawnActor<AUnit>(Unit_Obaachan, SpawnLocation, SpawnRotation);
+
+	//	//// 初期値を設定(unit)
+	//	//if (SpawnedActor)
+	//	//{
+	//	//	SpawnedActor->GridPos = SpawnGridPos; // ここに設定したい座標を入れる
+	//	//	SpawnedActor->PlayerSide = EPlayerSide::Player;
+	//	//}
+
+	//	////GameManagerの全キャラリストに追加する(unit)
+	//	//MyGameManager->AllUnitsList.Add(SpawnedActor);
+	//	break;
+
+	//return;
 
 	}
-
-
-
-	return;
-
 }
-

@@ -68,8 +68,11 @@ void ATile::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonP
 		Spawner->SpawnMyUnit(FVector(GridXY.X * 100, GridXY.Y * 100,0), GridXY);
 	}
 	else if (GameManager->currentPhase == CurrentPhase::EGS_MoveReserve) {
-		GameManager->ReserveGridPos = GridXY;
-		GameManager->DisplayMoveReserveArrow(true);
+		if (GameManager->SelectedUnit->GetAvailableMovePoss().Contains(GridXY)) {
+			GameManager->ReserveGridPos = GridXY;
+			GameManager->DisplayMoveReserveArrow(true);
+		}
+
 	}
 }
 
