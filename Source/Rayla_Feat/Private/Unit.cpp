@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "Unit.h"
@@ -13,7 +13,7 @@ AUnit::AUnit()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	// --- ¥ d—vIuƒNƒŠƒbƒN‚ğŒŸ’m‚·‚évİ’è‚ğ—LŒø‚É‚·‚é ¥ ---
+	// --- â–¼ é‡è¦ï¼ã€Œã‚¯ãƒªãƒƒã‚¯ã‚’æ¤œçŸ¥ã™ã‚‹ã€è¨­å®šã‚’æœ‰åŠ¹ã«ã™ã‚‹ â–¼ ---
 	bEnableAutoLODGeneration = true;
 
 }
@@ -23,24 +23,24 @@ void AUnit::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ©•ª‚Ìƒ‹[ƒgƒRƒ“ƒ|[ƒlƒ“ƒgi‚Ü‚½‚ÍƒƒbƒVƒ…EƒRƒŠƒWƒ‡ƒ“j‚ğæ“¾‚µ‚ÄƒoƒCƒ“ƒh‚·‚é
+	// è‡ªåˆ†ã®ãƒ«ãƒ¼ãƒˆã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆï¼ˆã¾ãŸã¯ãƒ¡ãƒƒã‚·ãƒ¥ãƒ»ã‚³ãƒªã‚¸ãƒ§ãƒ³ï¼‰ã‚’å–å¾—ã—ã¦ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹
 	if (UPrimitiveComponent* PrimComp = Cast<UPrimitiveComponent>(RootComponent))
 	{
-		// ƒ}ƒEƒX‚ªæ‚Á‚½‚Æ‚«
+		// ãƒã‚¦ã‚¹ãŒä¹—ã£ãŸã¨ã
 		PrimComp->OnBeginCursorOver.AddDynamic(this, &AUnit::OnCursorBeginOver);
 
-		// ƒ}ƒEƒX‚ª—£‚ê‚½‚Æ‚«
+		// ãƒã‚¦ã‚¹ãŒé›¢ã‚ŒãŸã¨ã
 		PrimComp->OnEndCursorOver.AddDynamic(this, &AUnit::OnCursorEndOver);
 	}
 
 
-	//“G‚ÌÔ‚¸‚«‚ñ‚Ì‚¨‚Î‚ ‚¿‚á‚ñ‚È‚çAêŠ‚ğŒÅ’è‚·‚é
+	//æ•µã®èµ¤ãšãã‚“ã®ãŠã°ã‚ã¡ã‚ƒã‚“ãªã‚‰ã€å ´æ‰€ã‚’å›ºå®šã™ã‚‹
 	if (UnitTeam == EUnitTeam::Akazukin  && MovePattern == EMovePatterns::NotMove && PlayerSide == EPlayerSide::Enemy) {
-		SetActorLocation(FVector(0, 100, 25));
+		SetActorLocation(FVector(-20, 100, 25));
 	}
 }
 
-// ƒ†ƒjƒbƒg‚ªƒNƒŠƒbƒN‚³‚ê‚½‚Æ‚«‚Ìˆ—
+// ãƒ¦ãƒ‹ãƒƒãƒˆãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸã¨ãã®å‡¦ç†
 void AUnit::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonPressed)
 {
 	ASoundManager* SoundMgr = Cast<ASoundManager>(
@@ -55,14 +55,14 @@ void AUnit::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonP
 		UGameplayStatics::GetActorOfClass(GetWorld(), ABoardManager::StaticClass())
 	);
 
-	//ˆÚ“®—\–ñƒtƒF[ƒY‚©‚ÂA–¡•ûƒLƒƒƒ‰‚Ìê‡‚Ì‚İÀs
+	//ç§»å‹•äºˆç´„ãƒ•ã‚§ãƒ¼ã‚ºã‹ã¤ã€å‘³æ–¹ã‚­ãƒ£ãƒ©ã®å ´åˆã®ã¿å®Ÿè¡Œ
 	if (PlayerSide != EPlayerSide::Player || MyGameManager->currentPhase != CurrentPhase::EGS_MoveReserve)return;
 	SoundMgr->PlaySE(SoundMgr->SE_ClickUnit);
 	
 	MyGameManager->SelectedUnit = this;
 	MyBoardManager->ShowMovableRange(GetAvailableMovePoss());
 
-	//UE_LOG(LogTemp, Warning, TEXT("ƒ†ƒjƒbƒg‚ğ‘I‘ğ‚µ‚Ü‚µ‚½: %s"), *GetName());
+	//UE_LOG(LogTemp, Warning, TEXT("ãƒ¦ãƒ‹ãƒƒãƒˆã‚’é¸æŠã—ã¾ã—ãŸ: %s"), *GetName());
 	if (MyGameManager->currentPhase == CurrentPhase::EGS_MoveReserve) {
 		
 		this->GetAvailableMovePoss();
@@ -73,30 +73,31 @@ void AUnit::OnMyActorClicked(UPrimitiveComponent* TouchedComponent, FKey ButtonP
 
 void AUnit::OnCursorBeginOver(UPrimitiveComponent* TouchedComponent)
 {
-	//UE_LOG(LogTemp, Warning, TEXT("ƒ}ƒEƒX‚ªæ‚Á‚½I: %s"), *GetName());
+	//UE_LOG(LogTemp, Warning, TEXT("ãƒã‚¦ã‚¹ãŒä¹—ã£ãŸï¼: %s"), *GetName());
 }
 
 void AUnit::OnCursorEndOver(UPrimitiveComponent* TouchedComponent)
 {
-	//UE_LOG(LogTemp, Warning, TEXT("ƒ}ƒEƒX‚ª—£‚ê‚½I: %s"), *GetName());
+	//UE_LOG(LogTemp, Warning, TEXT("ãƒã‚¦ã‚¹ãŒé›¢ã‚ŒãŸï¼: %s"), *GetName());
 }
 
 
 
-//Œ»İ‚ÌˆÊ’u‚ğXV‚·‚é
+//ç¾åœ¨ã®ä½ç½®ã‚’æ›´æ–°ã™ã‚‹
 void AUnit::MoveToGrid(FIntPoint NewGridPos)
 {
-	UE_LOG(LogTemp, Warning, TEXT("MoveNowI"));
+	UE_LOG(LogTemp, Warning, TEXT("MoveNowï¼"));
+	if (MovePattern == EMovePatterns::NotMove)return;
 	if (!IsValid(this)) return;
 
 	GridPos = NewGridPos;
 
 	FVector NewWorldLocation = FVector(GridPos.X * 100.0f, GridPos.Y * 100.0f, GetActorLocation().Z);
 
-	// 3. ƒAƒNƒ^[‚ÌÀÛ‚Ì3DˆÊ’u‚ğXV‚·‚é
+	// 3. ã‚¢ã‚¯ã‚¿ãƒ¼ã®å®Ÿéš›ã®3Dä½ç½®ã‚’æ›´æ–°ã™ã‚‹
 	SetActorLocation(NewWorldLocation);
 
-	//‰¹‚ğ–Â‚ç‚·
+	//éŸ³ã‚’é³´ã‚‰ã™
 	ASoundManager* SoundMgr = Cast<ASoundManager>(
 		UGameplayStatics::GetActorOfClass(GetWorld(), ASoundManager::StaticClass())
 	);
@@ -108,7 +109,7 @@ void AUnit::MoveToGrid(FIntPoint NewGridPos)
 
 
 
-//UŒ‚‰Â”\‚Èƒ}ƒX‚ğŒvZ‚µ‚ÄAAvailableAttackPositions‚ÉŠi”[‚·‚é
+//æ”»æ’ƒå¯èƒ½ãªãƒã‚¹ã‚’è¨ˆç®—ã—ã¦ã€AvailableAttackPositionsã«æ ¼ç´ã™ã‚‹
 TArray<FIntPoint> AUnit::GetAvailableAttackPoss() {
 
 	if (!this) {
@@ -117,59 +118,59 @@ TArray<FIntPoint> AUnit::GetAvailableAttackPoss() {
 
 	TArray<FIntPoint> AvailableAttackPoss;
 
-	// 1. ƒ†ƒjƒbƒg‚ÌŒ»İ‚ÌƒOƒŠƒbƒhÀ•W‚ğæ“¾
+	// 1. ãƒ¦ãƒ‹ãƒƒãƒˆã®ç¾åœ¨ã®ã‚°ãƒªãƒƒãƒ‰åº§æ¨™ã‚’å–å¾—
 	FIntPoint CurrentPos = this->GridPos;
 
 
-	//“G‚©–¡•û‚©‚É‚æ‚Á‚ÄA‘OŒã‚ª•Ï‚í‚éB–¡•û‚È‚çY‚ª-‚PA“G‚È‚çY‚ª+1
+	//æ•µã‹å‘³æ–¹ã‹ã«ã‚ˆã£ã¦ã€å‰å¾ŒãŒå¤‰ã‚ã‚‹ã€‚å‘³æ–¹ãªã‚‰YãŒ-ï¼‘ã€æ•µãªã‚‰YãŒ+1
 	int32 ForwardDir = 1;
 	if (this->PlayerSide == EPlayerSide::Player)
 	{
-		ForwardDir = -1; // –¡•û‚Íƒ}ƒCƒiƒX•ûŒü‚ªu‘Ov
+		ForwardDir = -1; // å‘³æ–¹ã¯ãƒã‚¤ãƒŠã‚¹æ–¹å‘ãŒã€Œå‰ã€
 	}
 	else if (this->PlayerSide == EPlayerSide::Enemy)
 	{
-		ForwardDir = 1;  // “G‚Íƒvƒ‰ƒX•ûŒü‚ªu‘Ov
+		ForwardDir = 1;  // æ•µã¯ãƒ—ãƒ©ã‚¹æ–¹å‘ãŒã€Œå‰ã€
 	}
 
 
 	switch (this->AttackPattern)
 	{
 	case EAtackPatterns::Cross:
-		// \š•ûŒüi‘OŒã¶‰E1ƒ}ƒX‚¸‚Â‚È‚Çj
-		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X, CurrentPos.Y));//©•ª‚ÌˆÊ’u
-		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X, CurrentPos.Y + ForwardDir)); // ‘O
-		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X, CurrentPos.Y - ForwardDir)); // Œã‚ë
-		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y));        // ¶
-		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y));        // ‰E
+		// åå­—æ–¹å‘ï¼ˆå‰å¾Œå·¦å³1ãƒã‚¹ãšã¤ãªã©ï¼‰
+		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X, CurrentPos.Y));//è‡ªåˆ†ã®ä½ç½®
+		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X, CurrentPos.Y + ForwardDir)); // å‰
+		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X, CurrentPos.Y - ForwardDir)); // å¾Œã‚
+		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y));        // å·¦
+		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y));        // å³
 		break;
 
 	case EAtackPatterns::Forward:
-		// u‘Ov•ûŒü‚¾‚¯UŒ‚‚Å‚«‚é
+		// ã€Œå‰ã€æ–¹å‘ã ã‘æ”»æ’ƒã§ãã‚‹
 		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X, CurrentPos.Y));
 		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X, CurrentPos.Y + ForwardDir));
 		break;
 
 	case EAtackPatterns::All:
-		// üˆÍ8ƒ}ƒX‘S•”‚È‚Ç
-		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X, CurrentPos.Y));//©•ª‚ÌˆÊ’u
-		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X, CurrentPos.Y + ForwardDir)); // ‘O
-		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X, CurrentPos.Y - ForwardDir)); // Œã
-		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y));            // ¶
-		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y));            // ‰E
-		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y + ForwardDir)); // ‘O¶
-		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y + ForwardDir)); // ‘O‰E
-		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y - ForwardDir)); // Œã¶
-		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y - ForwardDir)); // Œã‰E
+		// å‘¨å›²8ãƒã‚¹å…¨éƒ¨ãªã©
+		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X, CurrentPos.Y));//è‡ªåˆ†ã®ä½ç½®
+		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X, CurrentPos.Y + ForwardDir)); // å‰
+		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X, CurrentPos.Y - ForwardDir)); // å¾Œ
+		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y));            // å·¦
+		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y));            // å³
+		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y + ForwardDir)); // å‰å·¦
+		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y + ForwardDir)); // å‰å³
+		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y - ForwardDir)); // å¾Œå·¦
+		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y - ForwardDir)); // å¾Œå³
 		break;
 
 	case EAtackPatterns::Diagonal:
-		// Î‚ß4•ûŒü
-		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X, CurrentPos.Y));//©•ª‚ÌˆÊ’u
-		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y + ForwardDir)); // ‘O¶Î‚ß
-		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y + ForwardDir)); // ‘O‰EÎ‚ß
-		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y - ForwardDir)); // Œã‚ë¶Î‚ß
-		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y - ForwardDir)); // Œã‚ë‰EÎ‚ß
+		// æ–œã‚4æ–¹å‘
+		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X, CurrentPos.Y));//è‡ªåˆ†ã®ä½ç½®
+		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y + ForwardDir)); // å‰å·¦æ–œã‚
+		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y + ForwardDir)); // å‰å³æ–œã‚
+		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y - ForwardDir)); // å¾Œã‚å·¦æ–œã‚
+		AvailableAttackPoss.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y - ForwardDir)); // å¾Œã‚å³æ–œã‚
 		break;
 
 	default:
@@ -180,25 +181,41 @@ TArray<FIntPoint> AUnit::GetAvailableAttackPoss() {
 }
 
 
-//Œ»İ‚ÌˆÊ’u‚©‚çˆÚ“®‚Å‚«‚éƒ}ƒX‚ğAˆÚ“®‚Ìƒpƒ^[ƒ“‚²‚Æ‚É•Ï‚¦‚Ä‘S‚Ä•Ô‚·”z—ñ
+//ç¾åœ¨ã®ä½ç½®ã‹ã‚‰ç§»å‹•ã§ãã‚‹ãƒã‚¹ã‚’ã€ç§»å‹•ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã”ã¨ã«å¤‰ãˆã¦å…¨ã¦è¿”ã™é…åˆ—
 TArray<FIntPoint> AUnit::GetAvailableMovePoss()
 {
-
-	if (!this)return TArray<FIntPoint>();
+	if (!this) return TArray<FIntPoint>();
 	TArray<FIntPoint> AvailableMovePoss;
 
-	// 1. ƒ†ƒjƒbƒg‚ÌŒ»İ‚ÌƒOƒŠƒbƒhÀ•W‚ğæ“¾
+	// 1. ãƒ¦ãƒ‹ãƒƒãƒˆã®ç¾åœ¨ã®ã‚°ãƒªãƒƒãƒ‰åº§æ¨™ã‚’å–å¾—
 	FIntPoint CurrentPos = this->GridPos;
 
 	switch (this->MovePattern)
 	{
 	case EMovePatterns::Cross:
-		AvailableMovePoss.Add(FIntPoint(CurrentPos.X + 1, CurrentPos.Y));//‰E
-		AvailableMovePoss.Add(FIntPoint(CurrentPos.X - 1, CurrentPos.Y));//¶
-		AvailableMovePoss.Add(FIntPoint(CurrentPos.X, CurrentPos.Y + 1)); // ã
-		AvailableMovePoss.Add(FIntPoint(CurrentPos.X, CurrentPos.Y - 1)); // ‰º
-		break;
+	{
+		// å€™è£œã‚’ã„ã£ãŸã‚“ãƒªã‚¹ãƒˆã‚¢ãƒƒãƒ—
+		TArray<FIntPoint> Candidates = {
+			FIntPoint(CurrentPos.X + 1, CurrentPos.Y), // å³
+			FIntPoint(CurrentPos.X - 1, CurrentPos.Y), // å·¦
+			FIntPoint(CurrentPos.X,     CurrentPos.Y + 1), // ä¸Š
+			FIntPoint(CurrentPos.X,     CurrentPos.Y - 1)  // ä¸‹
+		};
 
+		// ç¯„å›²å†…ï¼ˆX: 0ã€œ2, Y: 1ã€œ5ï¼‰ã®ã‚‚ã®ã ã‘ã‚’å³é¸ã—ã¦è¿½åŠ ã™ã‚‹
+		for (const FIntPoint& Pos : Candidates)
+		{
+			// XãŒ 0æœªæº€( < 0 ) ã¾ãŸã¯ 3ä»¥ä¸Š( >= 3 ) ãªã‚‰é™¤å¤–
+			// YãŒ 0ä»¥ä¸‹( <= 0 ) ã¾ãŸã¯ 6ä»¥ä¸Š( >= 6 ) ãªã‚‰é™¤å¤–
+			if (Pos.X < 0 || Pos.X >= 3 || Pos.Y <= 0 || Pos.Y >= 6)
+			{
+				continue; // è¿½åŠ ã›ãšã«ã‚¹ã‚­ãƒƒãƒ—
+			}
+
+			AvailableMovePoss.Add(Pos);
+		}
+		break;
+	}
 	case EMovePatterns::NotMove:
 		break;
 	default:
@@ -206,5 +223,4 @@ TArray<FIntPoint> AUnit::GetAvailableMovePoss()
 	}
 
 	return AvailableMovePoss;
-
 }

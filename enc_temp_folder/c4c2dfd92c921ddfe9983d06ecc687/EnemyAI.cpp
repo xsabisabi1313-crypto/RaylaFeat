@@ -174,6 +174,8 @@ void AEnemyAI::ProcessAIMoveReserve() {
     GameManagerRef->SelectedEnemyUnit = ChosenUnitToMove;
     if (!ChosenUnitToMove)return;
 
+
+
     // もしすでに拠点を攻撃できる位置にいるなら、前に進まずにその場にとどまる
     // プレイヤーの拠点座標（(0,7), (1,7), (2,7) など）のいずれかが、自分の攻撃可能マスに含まれているか判定
     TArray<FIntPoint> AttackPoss = ChosenUnitToMove->GetAvailableAttackPoss();
@@ -225,22 +227,7 @@ void AEnemyAI::UseSpell() {
         if (card->CardType == ECardType::Spell_RedWine) {
 
             UE_LOG(LogTemp, Warning, TEXT("Wine使うokiiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"));
-
-            bool isActiveGrandmother = false;
-            for (AUnit* Actor : GameManagerRef->AllUnitsList)
-            {
-                if (!IsValid(Actor)) continue;
-                AUnit* Unit = Actor;
-                if (Unit && Unit->MovePattern == EMovePatterns::NotMove)
-                {
-                    //おばあちゃんが存在していたら実行しない
-                    isActiveGrandmother = true;
-                    return;
-                }
-            }
-            if (isActiveGrandmother)return;
-
-            AUnit* SpawnedActor = GetWorld()->SpawnActor<AUnit>(ObaachanUnit, FVector(-20, 100, 0.0f), FRotator::ZeroRotator);
+            AUnit* SpawnedActor = GetWorld()->SpawnActor<AUnit>(ObaachanUnit, FVector(100, 100, 0.0f), FRotator::ZeroRotator);
             AUnit* NewUnit = Cast<AUnit>(SpawnedActor);
             if (NewUnit)
             {

@@ -28,7 +28,7 @@ void AUnitSpawn::SpawnMyUnit(FVector SpawnLocation, FIntPoint SpawnGridPos)
 		return;
 	}
 	//もしスポーン可能な範囲でなければ終わり
-	if (SpawnGridPos.Y != 5)return;
+	if (SpawnGridPos.Y != 5 && SpawnGridPos.Y != 6)return;
 
 	//GameManagerの、現在選択されている味方ユニットを選択
 	TSubclassOf<AUnit> UnitToSpawn = MyGameManager->UnitClassToSpawn;
