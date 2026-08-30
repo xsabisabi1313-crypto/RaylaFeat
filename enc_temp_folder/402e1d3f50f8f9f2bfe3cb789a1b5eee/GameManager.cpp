@@ -368,6 +368,10 @@ void AGameManager::CheckEndAndShowResult()
 		return;
 	}
 
+	if (ResultWidgetClass) {
+		CreateWidget<UUserWidget>(PC, ResultWidgetClass)->AddToViewport();
+	}
+
 	// 選ばれたウィジェットを生成して画面に出す
 	if (TargetWidgetClass)
 	{
