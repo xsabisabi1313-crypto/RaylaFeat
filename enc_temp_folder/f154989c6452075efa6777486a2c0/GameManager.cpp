@@ -4,6 +4,7 @@
 #include "GameManager.h"
 #include "UnitSpawn.h"
 #include "Card.h" // カードのヘッダーを読み込む
+#include "RaylaGameInstance.h"
 
 #include "Blueprint/UserWidget.h"       // CreateWidget や UUserWidget を使うため
 #include "Kismet/GameplayStatics.h"     // UGameplayStatics::SetGamePaused を使うため
@@ -21,6 +22,51 @@ void AGameManager::BeginPlay()
 {
 	Super::BeginPlay();
 
+	if (URaylaGameInstance* GameInst = Cast<URaylaGameInstance>(UGameplayStatics::GetGameInstance(GetWorld())))
+	{
+		PlayerSelectedUnitTeam SelectedTeam = GameInst->SelectedTeam;
+		float X = -560;
+		int i = 0;
+		if (SelectedTeam == PlayerSelectedUnitTeam::Momotaro) {
+
+			for (TSubclassOf<ACard> card : MomotaroTeamCardSet) {
+				ACard* spawnedCard = GetWorld()->SpawnActor<ACard>(card, FVector(-50 + 140 * i, 750, 130), FRotator(0,0,0));
+				PlayerCardList.Add(spawnedCard);
+					i++;
+			}
+
+
+			i = 0;
+			for (TSubclassOf<ACard> card : AkazkinTeamCardSet) {
+				ACard* spawnedCard = GetWorld()->SpawnActor<ACard>(card, FVector(-90 + 100 * i, -100, 100), FRotator(0, 0, 0));
+				EnemyCardList.Add(spawnedCard);
+				i++;
+			}
+			for (TSubclassOf<AUnit> unit : AkazukinTeamUnitSet) {
+				EnemyOwnedUnits.Add(unit);
+				i++;
+			}
+		}
+		else {
+			for (TSubclassOf<ACard> card : AkazkinTeamCardSet) {
+				ACard* spawnedCard = GetWorld()->SpawnActor<ACard>(card, FVector(-50 + 140 * i, 750, 130), FRotator(-30, 0, 0));
+				PlayerCardList.Add(spawnedCard);
+				i++;
+			}
+			i = 0;
+			for (TSubclassOf<ACard> card : MomotaroTeamCardSet) {
+				ACard* spawnedCard = GetWorld()->SpawnActor<ACard>(card, FVector(-90 + 100 * i, -100, 100), FRotator(0, 0, 0));
+				EnemyCardList.Add(spawnedCard);
+				i++;
+			}
+			for (TSubclassOf<AUnit> unit : MomotaroTeamUnitSet) {
+				EnemyOwnedUnits.Add(unit);
+				i++;
+			}
+		}
+
+	}
+
 
 	if (ArrowActorClass)
 	{
@@ -33,6 +79,8 @@ void AGameManager::BeginPlay()
 			ArrowActor->SetActorEnableCollision(false); // 当たり判定も消しておく
 		}
 	}
+
+
 	
 }
 
@@ -197,26 +245,43 @@ void AGameManager::ExecuteBattle(EPlayerSide AttackerSide)
 			if ((int32)OtherUnit->GridPos.X == (int32)AttackPos.X && (int32)OtherUnit->GridPos.Y == (int32)AttackPos.Y)
 			{
 				UE_LOG(LogTemp, Warning, TEXT("[ExecuteBattle] 敵味方衝突！ 相手を発見: GridPos(X:%d, Y:%d), Power:%d"), (int32)OtherUnit->GridPos.X, (int32)OtherUnit->GridPos.Y, (int32)OtherUnit->Power);
-				GEngine->AddOnScreenDebugMessage(
-					-1,
-					3.0f,
-					FColor::Orange,
-					TEXT("Battle！")
-				);
+				//GEngine->AddOnScreenDebugMessage(
+				//	-1,
+				//	3.0f,
+				//	FColor::Orange,
+				//	TEXT("Battle！")
+				//);
 
 				int32 AttackerPower = (int32)Attacker->Power;
 				int32 OtherPower = (int32)OtherUnit->Power;
 
 				// 属性相性による一時的なパワー補正
 				if (Attacker->Element == EElementtype::Fire && OtherUnit->Element == EElementtype::Water) {
-					OtherPower *= 2;
+					OtherPower *= 2; // 炎 vs 水 ＝ 水が有利
+				}
+				else if (OtherUnit->Element == EElementtype::Fire && Attacker->Element == EElementtype::Water) {
+					AttackerPower *= 2; // 水 vs 炎 ＝ 水が有利（逆パターン）
 				}
 				else if (Attacker->Element == EElementtype::Fire && OtherUnit->Element == EElementtype::Grass) {
-					AttackerPower *= 2;
+					AttackerPower *= 2; // 炎 vs 草 ＝ 炎が有利
+				}
+				else if (OtherUnit->Element == EElementtype::Fire && Attacker->Element == EElementtype::Grass) {
+					OtherPower *= 2; // 草 vs 炎 ＝ 炎が有利（逆パターン）
 				}
 				else if (Attacker->Element == EElementtype::Grass && OtherUnit->Element == EElementtype::Water) {
-					AttackerPower *= 2;
+					AttackerPower *= 2; // 草 vs 水 ＝ 草が有利
 				}
+				else if (OtherUnit->Element == EElementtype::Grass && Attacker->Element == EElementtype::Water) {
+					OtherPower *= 2; // 水 vs 草 ＝ 草が有利（逆パターン）
+				}
+
+
+				UE_LOG(LogTemp, Warning, TEXT("[ExecuteBatt: AttackerGridPos(X:%d, Y:%d), AttackerPower:%d"), (int32)Attacker->GridPos.X, (int32)Attacker->GridPos.Y, (int32)AttackerPower);
+				UE_LOG(LogTemp, Warning, TEXT("[ExecuteBatt: OtherPower(X:%d, Y:%d), OtherPower:%d"), (int32)OtherUnit->GridPos.X, (int32)OtherUnit->GridPos.Y, (int32)OtherPower);
+
+				UE_LOG(LogTemp, Warning, TEXT("[Battle] Attacker -> Element: %d, Power: %d"), (int32)Attacker->Element, AttackerPower);
+				UE_LOG(LogTemp, Warning, TEXT("[Battle] OtherUnit -> Element: %d, Power: %d"), (int32)OtherUnit->Element, OtherPower);
+
 
 				// 勝敗の判定（一時的なパワーで比較する）
 				if (AttackerPower == OtherPower) {

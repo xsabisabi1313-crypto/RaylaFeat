@@ -122,20 +122,7 @@ void AUnitSpawn::SpawnMyUnit(FVector SpawnLocation, FIntPoint SpawnGridPos)
 		}
 		break;
 	}
-	case ECardType::Spell_Ookiinone: {
-		for (AUnit* Unit : MyGameManager->AllUnitsList)
-		{
-			if (Unit->UnitTeam != EUnitTeam::Akazukin)return;
-
-			Unit->Power += 1;
-		}
-		break;
-	}
-	case ECardType::Spell_RedWine: 
-	{
-		//おばあちゃんが死んでないと使えないように
-
-	}
+	//case ECardType::Spell_RedWine:
 	//	//スポーンする(味方ユニットなので、180度回転させる)(unit)
 	//	FRotator SpawnRotation = FRotator(0.0f, 180.0f, 0.0f);
 	//	//AUnit* SpawnedActor = GetWorld()->SpawnActor<AUnit>(Unit_Obaachan, SpawnLocation, SpawnRotation);

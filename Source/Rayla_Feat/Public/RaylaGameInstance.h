@@ -8,12 +8,11 @@
 
 
 UENUM(BlueprintType)
-enum class ETeam : uint8
+enum class PlayerSelectedUnitTeam : uint8
 {
-	Akazukin    UMETA(DisplayName = "Akazukin"),
-	Momotaro  UMETA(DisplayName = "Momotaro"),
+	Akazukin       UMETA(DisplayName = "Akazukin"),
+	Momotaro     UMETA(DisplayName = "Momotaro"),
 };
-
 
 UCLASS()
 class RAYLA_FEAT_API URaylaGameInstance : public UGameInstance
@@ -23,5 +22,19 @@ class RAYLA_FEAT_API URaylaGameInstance : public UGameInstance
 public:
 	// 例：プレイヤーが選んだチームのデータ（文字列や、チームのID、構造体など）
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameData")
-	ETeam SelectedTeam = ETeam::Momotaro;
+	PlayerSelectedUnitTeam SelectedTeam = PlayerSelectedUnitTeam::Akazukin;
+
+	// enumの変数を保持するプロパティ
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameStatus")
+	PlayerSelectedUnitTeam CurrentGameState;
+
+	// 初期化時などに値を設定できるようにする関数
+	UFUNCTION(BlueprintCallable, Category = "GameStatus")
+	void SetGameState(PlayerSelectedUnitTeam NewState);
+
+	UFUNCTION(BlueprintCallable, Category = "GameStatus")
+	PlayerSelectedUnitTeam GetGameState() const;
+
+	UFUNCTION(BlueprintCallable, Category = "GameData")
+	void SetSelectedTeam(PlayerSelectedUnitTeam NewTeam);
 };

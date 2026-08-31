@@ -33,6 +33,11 @@ void AUnit::BeginPlay()
 		PrimComp->OnEndCursorOver.AddDynamic(this, &AUnit::OnCursorEndOver);
 	}
 
+
+	//敵の赤ずきんのおばあちゃんなら、場所を固定する
+	if (UnitTeam == EUnitTeam::Akazukin  && MovePattern == EMovePatterns::NotMove && PlayerSide == EPlayerSide::Enemy) {
+		SetActorLocation(FVector(-20, 100, 25));
+	}
 }
 
 // ユニットがクリックされたときの処理

@@ -4,6 +4,7 @@
 #include "GameManager.h"
 #include "UnitSpawn.h"
 #include "Card.h" // カードのヘッダーを読み込む
+#include "RaylaGameInstance.h"
 
 #include "Blueprint/UserWidget.h"       // CreateWidget や UUserWidget を使うため
 #include "Kismet/GameplayStatics.h"     // UGameplayStatics::SetGamePaused を使うため
@@ -21,6 +22,54 @@ void AGameManager::BeginPlay()
 {
 	Super::BeginPlay();
 
+	EnemyCardList.Reset();
+	if (URaylaGameInstance* GameInst = Cast<URaylaGameInstance>(UGameplayStatics::GetGameInstance(GetWorld())))
+	{
+		PlayerSelectedUnitTeam SelectedTeam = GameInst->SelectedTeam;
+		int i = 0;
+		if (SelectedTeam == PlayerSelectedUnitTeam::Momotaro) {
+
+			for (TSubclassOf<ACard> card : MomotaroTeamCardSet) {
+				ACard* spawnedCard = GetWorld()->SpawnActor<ACard>(card, FVector(-50 + 50 * i, 750, 130), FRotator(0,0,0));
+				PlayerCardList.Add(spawnedCard);
+				AllCardList.Add(spawnedCard);
+					i++;
+			}
+
+			i = 0;
+			for (TSubclassOf<ACard> card : AkazkinTeamCardSet) {
+				ACard* spawnedCard = GetWorld()->SpawnActor<ACard>(card, FVector(-90 + 50 * i, -100, 100), FRotator(0, 0, 0));
+				EnemyCardList.Add(spawnedCard);
+				AllCardList.Add(spawnedCard);
+				i++;
+			}
+			for (TSubclassOf<AUnit> unit : AkazukinTeamUnitSet) {
+				EnemyOwnedUnits.Add(unit);
+				i++;
+			}
+		}
+		else {
+			for (TSubclassOf<ACard> card : AkazkinTeamCardSet) {
+				ACard* spawnedCard = GetWorld()->SpawnActor<ACard>(card, FVector(-50 + 50 * i, 750, 130), FRotator(0, 0, 0));
+				PlayerCardList.Add(spawnedCard);
+				AllCardList.Add(spawnedCard);
+				i++;
+			}
+			i = 0;
+			for (TSubclassOf<ACard> card : MomotaroTeamCardSet) {
+				ACard* spawnedCard = GetWorld()->SpawnActor<ACard>(card, FVector(-90 + 50 * i, -100, 100), FRotator(0, 0, 0));
+				EnemyCardList.Add(spawnedCard);
+				AllCardList.Add(spawnedCard);
+				i++;
+			}
+			for (TSubclassOf<AUnit> unit : MomotaroTeamUnitSet) {
+				EnemyOwnedUnits.Add(unit);
+				i++;
+			}
+		}
+
+	}
+
 
 	if (ArrowActorClass)
 	{
@@ -33,6 +82,8 @@ void AGameManager::BeginPlay()
 			ArrowActor->SetActorEnableCollision(false); // 当たり判定も消しておく
 		}
 	}
+
+
 	
 }
 
